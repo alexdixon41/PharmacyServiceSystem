@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace PharmacyManagementSystem
 {
-    public partial class StatusForm : Form
+    public partial class PrescriptionsForm : Form
     {
         Form confirmationPopup;
 
 
-        public StatusForm()
+        public PrescriptionsForm()
         {
             InitializeComponent();
         }

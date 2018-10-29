@@ -30,12 +30,12 @@
         {
             this.newNoticeButton = new System.Windows.Forms.Button();
             this.noticeListPanel = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.noticeListBox = new System.Windows.Forms.ListBox();
             this.ViewNoticeButton = new System.Windows.Forms.Button();
+            this.noticeListBox = new System.Windows.Forms.ListBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.noticeDetailPanel = new System.Windows.Forms.Panel();
-            this.noticeTitleLabel = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.noticeTitleLabel = new System.Windows.Forms.Label();
             this.noticeListPanel.SuspendLayout();
             this.noticeDetailPanel.SuspendLayout();
             this.SuspendLayout();
@@ -62,25 +62,6 @@
             this.noticeListPanel.TabIndex = 1;
             this.noticeListPanel.Visible = false;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(25, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(186, 29);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Doctor Notices";
-            // 
-            // noticeListBox
-            // 
-            this.noticeListBox.FormattingEnabled = true;
-            this.noticeListBox.ItemHeight = 16;
-            this.noticeListBox.Location = new System.Drawing.Point(30, 70);
-            this.noticeListBox.Name = "noticeListBox";
-            this.noticeListBox.Size = new System.Drawing.Size(516, 276);
-            this.noticeListBox.TabIndex = 1;
-            // 
             // ViewNoticeButton
             // 
             this.ViewNoticeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -92,6 +73,25 @@
             this.ViewNoticeButton.UseVisualStyleBackColor = true;
             this.ViewNoticeButton.Click += new System.EventHandler(this.ViewNoticeButton_Click);
             // 
+            // noticeListBox
+            // 
+            this.noticeListBox.FormattingEnabled = true;
+            this.noticeListBox.ItemHeight = 16;
+            this.noticeListBox.Location = new System.Drawing.Point(30, 70);
+            this.noticeListBox.Name = "noticeListBox";
+            this.noticeListBox.Size = new System.Drawing.Size(516, 276);
+            this.noticeListBox.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(25, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(186, 29);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Doctor Notices";
+            // 
             // noticeDetailPanel
             // 
             this.noticeDetailPanel.Controls.Add(this.textBox1);
@@ -101,16 +101,6 @@
             this.noticeDetailPanel.Size = new System.Drawing.Size(762, 459);
             this.noticeDetailPanel.TabIndex = 3;
             this.noticeDetailPanel.Visible = false;
-            // 
-            // noticeTitleLabel
-            // 
-            this.noticeTitleLabel.AutoSize = true;
-            this.noticeTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.noticeTitleLabel.Location = new System.Drawing.Point(21, 20);
-            this.noticeTitleLabel.Name = "noticeTitleLabel";
-            this.noticeTitleLabel.Size = new System.Drawing.Size(303, 29);
-            this.noticeTitleLabel.TabIndex = 0;
-            this.noticeTitleLabel.Text = "Notice From Dr. Doolittle";
             // 
             // textBox1
             // 
@@ -123,14 +113,24 @@
             this.textBox1.Text = "I would like to discuss Ethen Holzapfel\'s case with you. It is quite urgent. Than" +
     "k you.";
             // 
+            // noticeTitleLabel
+            // 
+            this.noticeTitleLabel.AutoSize = true;
+            this.noticeTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.noticeTitleLabel.Location = new System.Drawing.Point(21, 20);
+            this.noticeTitleLabel.Name = "noticeTitleLabel";
+            this.noticeTitleLabel.Size = new System.Drawing.Size(303, 29);
+            this.noticeTitleLabel.TabIndex = 0;
+            this.noticeTitleLabel.Text = "Notice From Dr. Doolittle";
+            // 
             // ReceiveNoticeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(832, 503);
-            this.Controls.Add(this.noticeDetailPanel);
             this.Controls.Add(this.noticeListPanel);
             this.Controls.Add(this.newNoticeButton);
+            this.Controls.Add(this.noticeDetailPanel);
             this.Name = "ReceiveNoticeForm";
             this.Text = "ReceiveNoticeForm";
             this.noticeListPanel.ResumeLayout(false);

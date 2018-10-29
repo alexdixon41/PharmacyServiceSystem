@@ -1,6 +1,6 @@
 ﻿namespace PharmacyManagementSystem
 {
-    partial class Form2
+    partial class PatientRecordsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -37,6 +37,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.patientSearchSelectButton = new System.Windows.Forms.Button();
             this.patientRecordPanel = new System.Windows.Forms.Panel();
+            this.doctorNoticeButton = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -47,10 +48,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.doctorNoticeButton = new System.Windows.Forms.Button();
+            this.doctorSearchPanel = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.doctorSearchListView = new System.Windows.Forms.ListView();
+            this.searchButton = new System.Windows.Forms.Button();
+            this.doctorSearchBox = new System.Windows.Forms.TextBox();
             this.viewRecordsButtonPanel.SuspendLayout();
             this.patientSearchPanel.SuspendLayout();
             this.patientRecordPanel.SuspendLayout();
+            this.doctorSearchPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // viewRecordsButton
@@ -67,9 +73,10 @@
             // viewRecordsButtonPanel
             // 
             this.viewRecordsButtonPanel.Controls.Add(this.viewRecordsButton);
-            this.viewRecordsButtonPanel.Location = new System.Drawing.Point(10, 12);
+            this.viewRecordsButtonPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.viewRecordsButtonPanel.Location = new System.Drawing.Point(0, 0);
             this.viewRecordsButtonPanel.Name = "viewRecordsButtonPanel";
-            this.viewRecordsButtonPanel.Size = new System.Drawing.Size(762, 459);
+            this.viewRecordsButtonPanel.Size = new System.Drawing.Size(1006, 529);
             this.viewRecordsButtonPanel.TabIndex = 1;
             // 
             // patientSearchListBox
@@ -98,9 +105,10 @@
             this.patientSearchPanel.Controls.Add(this.patientSearchSelectButton);
             this.patientSearchPanel.Controls.Add(this.patientSearchLabel);
             this.patientSearchPanel.Controls.Add(this.patientSearchListBox);
-            this.patientSearchPanel.Location = new System.Drawing.Point(12, 12);
+            this.patientSearchPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.patientSearchPanel.Location = new System.Drawing.Point(0, 0);
             this.patientSearchPanel.Name = "patientSearchPanel";
-            this.patientSearchPanel.Size = new System.Drawing.Size(763, 454);
+            this.patientSearchPanel.Size = new System.Drawing.Size(1006, 529);
             this.patientSearchPanel.TabIndex = 3;
             this.patientSearchPanel.Visible = false;
             // 
@@ -150,11 +158,23 @@
             this.patientRecordPanel.Controls.Add(this.label2);
             this.patientRecordPanel.Controls.Add(this.label3);
             this.patientRecordPanel.Controls.Add(this.label1);
-            this.patientRecordPanel.Location = new System.Drawing.Point(7, 12);
+            this.patientRecordPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.patientRecordPanel.Location = new System.Drawing.Point(0, 0);
             this.patientRecordPanel.Name = "patientRecordPanel";
-            this.patientRecordPanel.Size = new System.Drawing.Size(762, 459);
+            this.patientRecordPanel.Size = new System.Drawing.Size(1006, 529);
             this.patientRecordPanel.TabIndex = 1;
             this.patientRecordPanel.Visible = false;
+            // 
+            // doctorNoticeButton
+            // 
+            this.doctorNoticeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.doctorNoticeButton.Location = new System.Drawing.Point(765, 485);
+            this.doctorNoticeButton.Name = "doctorNoticeButton";
+            this.doctorNoticeButton.Size = new System.Drawing.Size(229, 32);
+            this.doctorNoticeButton.TabIndex = 11;
+            this.doctorNoticeButton.Text = "Send Notice to Doctor";
+            this.doctorNoticeButton.UseVisualStyleBackColor = true;
+            this.doctorNoticeButton.Click += new System.EventHandler(this.doctorNoticeButton_Click);
             // 
             // label10
             // 
@@ -254,32 +274,79 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Patient Name: ";
             // 
-            // doctorNoticeButton
+            // doctorSearchPanel
             // 
-            this.doctorNoticeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.doctorNoticeButton.Location = new System.Drawing.Point(455, 419);
-            this.doctorNoticeButton.Name = "doctorNoticeButton";
-            this.doctorNoticeButton.Size = new System.Drawing.Size(229, 32);
-            this.doctorNoticeButton.TabIndex = 11;
-            this.doctorNoticeButton.Text = "Send Notice to Doctor";
-            this.doctorNoticeButton.UseVisualStyleBackColor = true;
-            this.doctorNoticeButton.Click += new System.EventHandler(this.doctorNoticeButton_Click);
+            this.doctorSearchPanel.Controls.Add(this.doctorSearchBox);
+            this.doctorSearchPanel.Controls.Add(this.searchButton);
+            this.doctorSearchPanel.Controls.Add(this.doctorSearchListView);
+            this.doctorSearchPanel.Controls.Add(this.label11);
+            this.doctorSearchPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.doctorSearchPanel.Location = new System.Drawing.Point(0, 0);
+            this.doctorSearchPanel.Name = "doctorSearchPanel";
+            this.doctorSearchPanel.Size = new System.Drawing.Size(1006, 529);
+            this.doctorSearchPanel.TabIndex = 4;
+            this.doctorSearchPanel.Visible = false;
             // 
-            // Form2
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(13, 13);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(202, 38);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "Doctor Search";
+            // 
+            // doctorSearchListView
+            // 
+            this.doctorSearchListView.Location = new System.Drawing.Point(20, 132);
+            this.doctorSearchListView.Name = "doctorSearchListView";
+            this.doctorSearchListView.Size = new System.Drawing.Size(974, 326);
+            this.doctorSearchListView.TabIndex = 1;
+            this.doctorSearchListView.UseCompatibleStateImageBehavior = false;
+            this.doctorSearchListView.View = System.Windows.Forms.View.List;
+            // 
+            // searchButton
+            // 
+            this.searchButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchButton.Location = new System.Drawing.Point(881, 96);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(113, 32);
+            this.searchButton.TabIndex = 2;
+            this.searchButton.Text = "Search";
+            this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
+            // 
+            // doctorSearchBox
+            // 
+            this.doctorSearchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.doctorSearchBox.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.doctorSearchBox.Location = new System.Drawing.Point(460, 99);
+            this.doctorSearchBox.Name = "doctorSearchBox";
+            this.doctorSearchBox.Size = new System.Drawing.Size(415, 27);
+            this.doctorSearchBox.TabIndex = 3;
+            this.doctorSearchBox.Text = "Search for a Doctor";
+            this.doctorSearchBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.doctorSearchBox.Click += new System.EventHandler(this.doctorSearchBox_Click);
+            // 
+            // PatientRecordsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(832, 503);
+            this.ClientSize = new System.Drawing.Size(1006, 529);
+            this.Controls.Add(this.doctorSearchPanel);
             this.Controls.Add(this.patientRecordPanel);
             this.Controls.Add(this.viewRecordsButtonPanel);
             this.Controls.Add(this.patientSearchPanel);
-            this.Name = "Form2";
+            this.Name = "PatientRecordsForm";
             this.Text = "Form2";
             this.viewRecordsButtonPanel.ResumeLayout(false);
             this.patientSearchPanel.ResumeLayout(false);
             this.patientSearchPanel.PerformLayout();
             this.patientRecordPanel.ResumeLayout(false);
             this.patientRecordPanel.PerformLayout();
+            this.doctorSearchPanel.ResumeLayout(false);
+            this.doctorSearchPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -306,5 +373,10 @@
         private System.Windows.Forms.TextBox searchTextBox;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button doctorNoticeButton;
+        private System.Windows.Forms.Panel doctorSearchPanel;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button searchButton;
+        private System.Windows.Forms.ListView doctorSearchListView;
+        private System.Windows.Forms.TextBox doctorSearchBox;
     }
 }

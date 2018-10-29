@@ -16,5 +16,30 @@ namespace PharmacyManagementSystem
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new NewPrescriptionForm().Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            new RefillForm().Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            new PatientRecordsForm().Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            new PrescriptionsForm().Show();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            new ReceiveNoticeForm().Show();
+        }
     }
 }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PharmacyManagementSystem
 {
-    public partial class Form2 : Form
+    public partial class PatientRecordsForm : Form
     {
-        public Form2()
+        public PatientRecordsForm()
         {
             InitializeComponent();
         }
@@ -41,6 +41,18 @@ namespace PharmacyManagementSystem
         }
 
         private void doctorNoticeButton_Click(object sender, EventArgs e)
+        {
+            patientRecordPanel.Hide();
+            doctorSearchPanel.Show();            
+        }
+
+        private void doctorSearchBox_Click(object sender, EventArgs e)
+        {
+            doctorSearchBox.Text = "";
+            doctorSearchBox.ForeColor = Color.Black;
+        }
+
+        private void searchButton_Click(object sender, EventArgs e)
         {
             SendDoctorNotice sendNotice = new SendDoctorNotice("We would like to discuss Alex Dixon's case with you. "
                 + "Please contact us soon so we can discuss this case. Thank you.");

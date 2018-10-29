@@ -1,6 +1,6 @@
 ﻿namespace PharmacyManagementSystem
 {
-    partial class StatusForm
+    partial class PrescriptionsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,19 +30,19 @@
         {
             this.changeStatusButton = new System.Windows.Forms.Button();
             this.prescriptionListPanel = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.prescriptionListBox = new System.Windows.Forms.ListBox();
-            this.selectPrescriptionButton = new System.Windows.Forms.Button();
-            this.searchButton = new System.Windows.Forms.Button();
             this.prescriptionSearchBox = new System.Windows.Forms.TextBox();
+            this.searchButton = new System.Windows.Forms.Button();
+            this.selectPrescriptionButton = new System.Windows.Forms.Button();
+            this.prescriptionListBox = new System.Windows.Forms.ListBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.prescriptionDetailPanel = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.prescriptionDetailListView = new System.Windows.Forms.ListView();
-            this.activeStatusButton = new System.Windows.Forms.Button();
             this.statusGroupBox = new System.Windows.Forms.GroupBox();
-            this.readyStatusButton = new System.Windows.Forms.Button();
-            this.completeStatusButton = new System.Windows.Forms.Button();
             this.deletedStatusButton = new System.Windows.Forms.Button();
+            this.completeStatusButton = new System.Windows.Forms.Button();
+            this.readyStatusButton = new System.Windows.Forms.Button();
+            this.activeStatusButton = new System.Windows.Forms.Button();
+            this.prescriptionDetailListView = new System.Windows.Forms.ListView();
+            this.label2 = new System.Windows.Forms.Label();
             this.prescriptionListPanel.SuspendLayout();
             this.prescriptionDetailPanel.SuspendLayout();
             this.statusGroupBox.SuspendLayout();
@@ -72,46 +72,6 @@
             this.prescriptionListPanel.TabIndex = 1;
             this.prescriptionListPanel.Visible = false;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(19, 21);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(201, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Prescription Search";
-            // 
-            // prescriptionListBox
-            // 
-            this.prescriptionListBox.FormattingEnabled = true;
-            this.prescriptionListBox.ItemHeight = 16;
-            this.prescriptionListBox.Location = new System.Drawing.Point(24, 90);
-            this.prescriptionListBox.Name = "prescriptionListBox";
-            this.prescriptionListBox.Size = new System.Drawing.Size(528, 308);
-            this.prescriptionListBox.TabIndex = 1;
-            // 
-            // selectPrescriptionButton
-            // 
-            this.selectPrescriptionButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.selectPrescriptionButton.Location = new System.Drawing.Point(352, 404);
-            this.selectPrescriptionButton.Name = "selectPrescriptionButton";
-            this.selectPrescriptionButton.Size = new System.Drawing.Size(200, 32);
-            this.selectPrescriptionButton.TabIndex = 2;
-            this.selectPrescriptionButton.Text = "Select Prescription";
-            this.selectPrescriptionButton.UseVisualStyleBackColor = true;
-            this.selectPrescriptionButton.Click += new System.EventHandler(this.selectPrescriptionButton_Click);
-            // 
-            // searchButton
-            // 
-            this.searchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchButton.Location = new System.Drawing.Point(464, 52);
-            this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(88, 32);
-            this.searchButton.TabIndex = 3;
-            this.searchButton.Text = "Search";
-            this.searchButton.UseVisualStyleBackColor = true;
-            // 
             // prescriptionSearchBox
             // 
             this.prescriptionSearchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -124,6 +84,46 @@
             this.prescriptionSearchBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.prescriptionSearchBox.Click += new System.EventHandler(this.prescriptionSearchBox_Click);
             // 
+            // searchButton
+            // 
+            this.searchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchButton.Location = new System.Drawing.Point(464, 52);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(88, 32);
+            this.searchButton.TabIndex = 3;
+            this.searchButton.Text = "Search";
+            this.searchButton.UseVisualStyleBackColor = true;
+            // 
+            // selectPrescriptionButton
+            // 
+            this.selectPrescriptionButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.selectPrescriptionButton.Location = new System.Drawing.Point(352, 404);
+            this.selectPrescriptionButton.Name = "selectPrescriptionButton";
+            this.selectPrescriptionButton.Size = new System.Drawing.Size(200, 32);
+            this.selectPrescriptionButton.TabIndex = 2;
+            this.selectPrescriptionButton.Text = "Select Prescription";
+            this.selectPrescriptionButton.UseVisualStyleBackColor = true;
+            this.selectPrescriptionButton.Click += new System.EventHandler(this.selectPrescriptionButton_Click);
+            // 
+            // prescriptionListBox
+            // 
+            this.prescriptionListBox.FormattingEnabled = true;
+            this.prescriptionListBox.ItemHeight = 16;
+            this.prescriptionListBox.Location = new System.Drawing.Point(24, 90);
+            this.prescriptionListBox.Name = "prescriptionListBox";
+            this.prescriptionListBox.Size = new System.Drawing.Size(528, 308);
+            this.prescriptionListBox.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(19, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(201, 25);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Prescription Search";
+            // 
             // prescriptionDetailPanel
             // 
             this.prescriptionDetailPanel.Controls.Add(this.statusGroupBox);
@@ -134,36 +134,6 @@
             this.prescriptionDetailPanel.Size = new System.Drawing.Size(766, 448);
             this.prescriptionDetailPanel.TabIndex = 2;
             this.prescriptionDetailPanel.Visible = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(25, 21);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 29);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Rx #: ";
-            // 
-            // prescriptionDetailListView
-            // 
-            this.prescriptionDetailListView.Location = new System.Drawing.Point(30, 91);
-            this.prescriptionDetailListView.Name = "prescriptionDetailListView";
-            this.prescriptionDetailListView.Size = new System.Drawing.Size(523, 252);
-            this.prescriptionDetailListView.TabIndex = 1;
-            this.prescriptionDetailListView.UseCompatibleStateImageBehavior = false;
-            this.prescriptionDetailListView.View = System.Windows.Forms.View.List;
-            // 
-            // activeStatusButton
-            // 
-            this.activeStatusButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.activeStatusButton.Location = new System.Drawing.Point(6, 37);
-            this.activeStatusButton.Name = "activeStatusButton";
-            this.activeStatusButton.Size = new System.Drawing.Size(167, 35);
-            this.activeStatusButton.TabIndex = 3;
-            this.activeStatusButton.Text = "Active";
-            this.activeStatusButton.UseVisualStyleBackColor = true;
-            this.activeStatusButton.Click += new System.EventHandler(this.activeStatusButton_Click);
             // 
             // statusGroupBox
             // 
@@ -179,28 +149,6 @@
             this.statusGroupBox.TabStop = false;
             this.statusGroupBox.Text = "New Status";
             // 
-            // readyStatusButton
-            // 
-            this.readyStatusButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.readyStatusButton.Location = new System.Drawing.Point(6, 78);
-            this.readyStatusButton.Name = "readyStatusButton";
-            this.readyStatusButton.Size = new System.Drawing.Size(167, 35);
-            this.readyStatusButton.TabIndex = 4;
-            this.readyStatusButton.Text = "Ready";
-            this.readyStatusButton.UseVisualStyleBackColor = true;
-            this.readyStatusButton.Click += new System.EventHandler(this.readyStatusButton_Click);
-            // 
-            // completeStatusButton
-            // 
-            this.completeStatusButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.completeStatusButton.Location = new System.Drawing.Point(6, 119);
-            this.completeStatusButton.Name = "completeStatusButton";
-            this.completeStatusButton.Size = new System.Drawing.Size(167, 35);
-            this.completeStatusButton.TabIndex = 5;
-            this.completeStatusButton.Text = "Complete";
-            this.completeStatusButton.UseVisualStyleBackColor = true;
-            this.completeStatusButton.Click += new System.EventHandler(this.completeStatusButton_Click);
-            // 
             // deletedStatusButton
             // 
             this.deletedStatusButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -213,15 +161,67 @@
             this.deletedStatusButton.UseVisualStyleBackColor = true;
             this.deletedStatusButton.Click += new System.EventHandler(this.deletedStatusButton_Click);
             // 
-            // StatusForm
+            // completeStatusButton
+            // 
+            this.completeStatusButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.completeStatusButton.Location = new System.Drawing.Point(6, 119);
+            this.completeStatusButton.Name = "completeStatusButton";
+            this.completeStatusButton.Size = new System.Drawing.Size(167, 35);
+            this.completeStatusButton.TabIndex = 5;
+            this.completeStatusButton.Text = "Complete";
+            this.completeStatusButton.UseVisualStyleBackColor = true;
+            this.completeStatusButton.Click += new System.EventHandler(this.completeStatusButton_Click);
+            // 
+            // readyStatusButton
+            // 
+            this.readyStatusButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.readyStatusButton.Location = new System.Drawing.Point(6, 78);
+            this.readyStatusButton.Name = "readyStatusButton";
+            this.readyStatusButton.Size = new System.Drawing.Size(167, 35);
+            this.readyStatusButton.TabIndex = 4;
+            this.readyStatusButton.Text = "Ready";
+            this.readyStatusButton.UseVisualStyleBackColor = true;
+            this.readyStatusButton.Click += new System.EventHandler(this.readyStatusButton_Click);
+            // 
+            // activeStatusButton
+            // 
+            this.activeStatusButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.activeStatusButton.Location = new System.Drawing.Point(6, 37);
+            this.activeStatusButton.Name = "activeStatusButton";
+            this.activeStatusButton.Size = new System.Drawing.Size(167, 35);
+            this.activeStatusButton.TabIndex = 3;
+            this.activeStatusButton.Text = "Active";
+            this.activeStatusButton.UseVisualStyleBackColor = true;
+            this.activeStatusButton.Click += new System.EventHandler(this.activeStatusButton_Click);
+            // 
+            // prescriptionDetailListView
+            // 
+            this.prescriptionDetailListView.Location = new System.Drawing.Point(30, 91);
+            this.prescriptionDetailListView.Name = "prescriptionDetailListView";
+            this.prescriptionDetailListView.Size = new System.Drawing.Size(523, 252);
+            this.prescriptionDetailListView.TabIndex = 1;
+            this.prescriptionDetailListView.UseCompatibleStateImageBehavior = false;
+            this.prescriptionDetailListView.View = System.Windows.Forms.View.List;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(25, 21);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(78, 29);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Rx #: ";
+            // 
+            // PrescriptionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(832, 503);
-            this.Controls.Add(this.prescriptionDetailPanel);
             this.Controls.Add(this.prescriptionListPanel);
             this.Controls.Add(this.changeStatusButton);
-            this.Name = "StatusForm";
+            this.Controls.Add(this.prescriptionDetailPanel);
+            this.Name = "PrescriptionsForm";
             this.Text = "StatusForm";
             this.prescriptionListPanel.ResumeLayout(false);
             this.prescriptionListPanel.PerformLayout();
