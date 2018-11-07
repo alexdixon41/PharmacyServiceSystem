@@ -55,10 +55,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 27);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(19, 18);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(275, 38);
+            this.label2.Size = new System.Drawing.Size(361, 44);
             this.label2.TabIndex = 5;
             this.label2.Text = "New Refill Requests";
             // 
@@ -93,10 +93,12 @@
             // 
             // button1
             // 
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(797, 27);
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.AutoSize = true;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(1176, 14);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(197, 35);
+            this.button1.Size = new System.Drawing.Size(262, 48);
             this.button1.TabIndex = 12;
             this.button1.Text = "View Refill Request";
             this.button1.UseVisualStyleBackColor = true;
@@ -131,14 +133,17 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1006, 529);
+            this.panel3.Size = new System.Drawing.Size(1450, 700);
             this.panel3.TabIndex = 20;
             // 
             // newRefillRequestsListBox
             // 
-            this.newRefillRequestsListBox.Location = new System.Drawing.Point(13, 68);
+            this.newRefillRequestsListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.newRefillRequestsListBox.Location = new System.Drawing.Point(27, 82);
             this.newRefillRequestsListBox.Name = "newRefillRequestsListBox";
-            this.newRefillRequestsListBox.Size = new System.Drawing.Size(981, 452);
+            this.newRefillRequestsListBox.Size = new System.Drawing.Size(1411, 595);
             this.newRefillRequestsListBox.TabIndex = 13;
             this.newRefillRequestsListBox.UseCompatibleStateImageBehavior = false;
             this.newRefillRequestsListBox.View = System.Windows.Forms.View.List;
@@ -152,9 +157,8 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1006, 529);
+            this.panel2.Size = new System.Drawing.Size(1450, 700);
             this.panel2.TabIndex = 19;
-            this.panel2.Visible = false;
             // 
             // groupBox2
             // 
@@ -245,11 +249,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1006, 529);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel2);
+            this.MinimumSize = new System.Drawing.Size(1450, 700);
             this.Name = "RefillForm";
-            this.Text = "Form1";
+            this.Size = new System.Drawing.Size(1450, 700);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();

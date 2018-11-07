@@ -10,29 +10,27 @@ using System.Windows.Forms;
 
 namespace PharmacyManagementSystem
 {
-    public partial class ReceiveNoticeForm : Form
+    public partial class ReceiveNoticeForm : UserControl
     {
         public ReceiveNoticeForm()
         {
             InitializeComponent();
         }
 
-        private void newNoticeButton_Click(object sender, EventArgs e)
-        {
-            newNoticeButton.Hide();
-            String[] strings = new String[] {"Dr. Doolittle          Alex Dixon",
-                                            "Dr. Dingleberry     Ethen Holzapfel"};
-            foreach (String s in strings)
-            {
-                noticeListBox.Items.Add(s);
-            }
-            noticeListPanel.Show();
-        }
-
         private void ViewNoticeButton_Click(object sender, EventArgs e)
         {
             noticeListPanel.Hide();
             noticeDetailPanel.Show();
+        }
+
+        private void ReceiveNoticeForm_Load(object sender, EventArgs e)
+        {
+        }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            noticeDetailPanel.Hide();
+            noticeListPanel.Show();
         }
     }
 }

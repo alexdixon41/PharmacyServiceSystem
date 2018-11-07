@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace PharmacyManagementSystem
 {
-    public partial class RefillForm : Form
+    public partial class RefillForm : UserControl
     {
         public RefillForm()
         {

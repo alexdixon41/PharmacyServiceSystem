@@ -113,6 +113,7 @@
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Location = new System.Drawing.Point(505, 61);
             this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(6);
             this.groupBox2.Size = new System.Drawing.Size(489, 462);
             this.groupBox2.TabIndex = 21;
             this.groupBox2.TabStop = false;
@@ -122,7 +123,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(6, 79);
+            this.label3.Location = new System.Drawing.Point(9, 82);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(166, 23);
             this.label3.TabIndex = 2;
@@ -130,9 +131,11 @@
             // 
             // prescriptionDetailsListView
             // 
-            this.prescriptionDetailsListView.Location = new System.Drawing.Point(10, 105);
+            this.prescriptionDetailsListView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.prescriptionDetailsListView.Location = new System.Drawing.Point(13, 108);
             this.prescriptionDetailsListView.Name = "prescriptionDetailsListView";
-            this.prescriptionDetailsListView.Size = new System.Drawing.Size(473, 348);
+            this.prescriptionDetailsListView.Size = new System.Drawing.Size(467, 348);
             this.prescriptionDetailsListView.TabIndex = 1;
             this.prescriptionDetailsListView.UseCompatibleStateImageBehavior = false;
             this.prescriptionDetailsListView.View = System.Windows.Forms.View.List;
@@ -141,7 +144,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(6, 25);
+            this.label7.Location = new System.Drawing.Point(9, 28);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(112, 23);
             this.label7.TabIndex = 0;
@@ -157,6 +160,7 @@
             this.groupBox1.Controls.Add(this.medicineHistoryListBox);
             this.groupBox1.Location = new System.Drawing.Point(19, 61);
             this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(6);
             this.groupBox1.Size = new System.Drawing.Size(480, 462);
             this.groupBox1.TabIndex = 20;
             this.groupBox1.TabStop = false;
@@ -164,18 +168,20 @@
             // 
             // allergyInformationListBox
             // 
+            this.allergyInformationListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.allergyInformationListBox.FormattingEnabled = true;
             this.allergyInformationListBox.ItemHeight = 16;
-            this.allergyInformationListBox.Location = new System.Drawing.Point(10, 305);
+            this.allergyInformationListBox.Location = new System.Drawing.Point(13, 308);
             this.allergyInformationListBox.Name = "allergyInformationListBox";
-            this.allergyInformationListBox.Size = new System.Drawing.Size(464, 148);
+            this.allergyInformationListBox.Size = new System.Drawing.Size(458, 148);
             this.allergyInformationListBox.TabIndex = 16;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(6, 279);
+            this.label6.Location = new System.Drawing.Point(9, 282);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(169, 23);
             this.label6.TabIndex = 15;
@@ -185,7 +191,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(6, 25);
+            this.label4.Location = new System.Drawing.Point(9, 28);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(67, 23);
             this.label4.TabIndex = 8;
@@ -195,7 +201,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(6, 48);
+            this.label5.Location = new System.Drawing.Point(9, 51);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(125, 23);
             this.label5.TabIndex = 9;
@@ -205,7 +211,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(6, 79);
+            this.label8.Location = new System.Drawing.Point(9, 82);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(147, 23);
             this.label8.TabIndex = 14;
@@ -213,11 +219,13 @@
             // 
             // medicineHistoryListBox
             // 
+            this.medicineHistoryListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.medicineHistoryListBox.FormattingEnabled = true;
             this.medicineHistoryListBox.ItemHeight = 16;
-            this.medicineHistoryListBox.Location = new System.Drawing.Point(10, 105);
+            this.medicineHistoryListBox.Location = new System.Drawing.Point(13, 108);
             this.medicineHistoryListBox.Name = "medicineHistoryListBox";
-            this.medicineHistoryListBox.Size = new System.Drawing.Size(464, 148);
+            this.medicineHistoryListBox.Size = new System.Drawing.Size(458, 148);
             this.medicineHistoryListBox.TabIndex = 6;
             // 
             // label2

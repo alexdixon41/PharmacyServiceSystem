@@ -1,13 +1,13 @@
 ﻿namespace PharmacyManagementSystem
 {
-    partial class PrescriptionsForm
+    partial class NewPrescriptionsUserControl
     {
-        /// <summary>
+        /// <summary> 
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
+        /// <summary> 
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
@@ -20,24 +20,14 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Component Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
+        /// <summary> 
+        /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            this.prescriptionListPanel = new System.Windows.Forms.Panel();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.prescriptionSearchBox = new System.Windows.Forms.TextBox();
-            this.searchButton = new System.Windows.Forms.Button();
-            this.selectPrescriptionButton = new System.Windows.Forms.Button();
-            this.prescriptionListBox = new System.Windows.Forms.ListBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.prescriptionDetailPanel = new System.Windows.Forms.Panel();
             this.statusGroupBox = new System.Windows.Forms.GroupBox();
             this.deletedStatusButton = new System.Windows.Forms.Button();
@@ -63,8 +53,10 @@
             this.label7 = new System.Windows.Forms.Label();
             this.backButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.prescriptionListPanel.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.newPrescriptionsPanel = new System.Windows.Forms.Panel();
+            this.viewPrescriptionButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.listView4 = new System.Windows.Forms.ListView();
             this.prescriptionDetailPanel.SuspendLayout();
             this.statusGroupBox.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -75,139 +67,8 @@
             this.panel4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.newPrescriptionsPanel.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // prescriptionListPanel
-            // 
-            this.prescriptionListPanel.Controls.Add(this.groupBox3);
-            this.prescriptionListPanel.Controls.Add(this.prescriptionSearchBox);
-            this.prescriptionListPanel.Controls.Add(this.searchButton);
-            this.prescriptionListPanel.Controls.Add(this.selectPrescriptionButton);
-            this.prescriptionListPanel.Controls.Add(this.prescriptionListBox);
-            this.prescriptionListPanel.Controls.Add(this.label1);
-            this.prescriptionListPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.prescriptionListPanel.Location = new System.Drawing.Point(0, 0);
-            this.prescriptionListPanel.MinimumSize = new System.Drawing.Size(450, 300);
-            this.prescriptionListPanel.Name = "prescriptionListPanel";
-            this.prescriptionListPanel.Size = new System.Drawing.Size(1294, 627);
-            this.prescriptionListPanel.TabIndex = 1;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox3.Controls.Add(this.radioButton3);
-            this.groupBox3.Controls.Add(this.radioButton2);
-            this.groupBox3.Controls.Add(this.radioButton1);
-            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(27, 80);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1255, 63);
-            this.groupBox3.TabIndex = 5;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Search Type";
-            // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.radioButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton3.Location = new System.Drawing.Point(425, 23);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
-            this.radioButton3.Size = new System.Drawing.Size(218, 37);
-            this.radioButton3.TabIndex = 2;
-            this.radioButton3.Text = "Prescriber Name";
-            this.radioButton3.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.Location = new System.Drawing.Point(235, 23);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
-            this.radioButton2.Size = new System.Drawing.Size(190, 37);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.Text = "Patient Name";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.Location = new System.Drawing.Point(3, 23);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
-            this.radioButton1.Size = new System.Drawing.Size(232, 37);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Prescription Name";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // prescriptionSearchBox
-            // 
-            this.prescriptionSearchBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.prescriptionSearchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.prescriptionSearchBox.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.prescriptionSearchBox.Location = new System.Drawing.Point(27, 154);
-            this.prescriptionSearchBox.Name = "prescriptionSearchBox";
-            this.prescriptionSearchBox.Size = new System.Drawing.Size(1082, 34);
-            this.prescriptionSearchBox.TabIndex = 4;
-            this.prescriptionSearchBox.Text = "Search for a prescription";
-            this.prescriptionSearchBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.prescriptionSearchBox.Click += new System.EventHandler(this.prescriptionSearchBox_Click);
-            // 
-            // searchButton
-            // 
-            this.searchButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.searchButton.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchButton.Location = new System.Drawing.Point(1122, 149);
-            this.searchButton.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
-            this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(160, 42);
-            this.searchButton.TabIndex = 3;
-            this.searchButton.Text = "Search";
-            this.searchButton.UseVisualStyleBackColor = true;
-            // 
-            // selectPrescriptionButton
-            // 
-            this.selectPrescriptionButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.selectPrescriptionButton.AutoSize = true;
-            this.selectPrescriptionButton.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.selectPrescriptionButton.Location = new System.Drawing.Point(1026, 14);
-            this.selectPrescriptionButton.Name = "selectPrescriptionButton";
-            this.selectPrescriptionButton.Size = new System.Drawing.Size(256, 48);
-            this.selectPrescriptionButton.TabIndex = 2;
-            this.selectPrescriptionButton.Text = "Select Prescription";
-            this.selectPrescriptionButton.UseVisualStyleBackColor = true;
-            this.selectPrescriptionButton.Click += new System.EventHandler(this.selectPrescriptionButton_Click);
-            // 
-            // prescriptionListBox
-            // 
-            this.prescriptionListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.prescriptionListBox.FormattingEnabled = true;
-            this.prescriptionListBox.ItemHeight = 16;
-            this.prescriptionListBox.Location = new System.Drawing.Point(27, 197);
-            this.prescriptionListBox.Name = "prescriptionListBox";
-            this.prescriptionListBox.Size = new System.Drawing.Size(1255, 420);
-            this.prescriptionListBox.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(19, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(352, 44);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Prescription Search";
             // 
             // prescriptionDetailPanel
             // 
@@ -218,8 +79,8 @@
             this.prescriptionDetailPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.prescriptionDetailPanel.Location = new System.Drawing.Point(0, 0);
             this.prescriptionDetailPanel.Name = "prescriptionDetailPanel";
-            this.prescriptionDetailPanel.Size = new System.Drawing.Size(1294, 627);
-            this.prescriptionDetailPanel.TabIndex = 2;
+            this.prescriptionDetailPanel.Size = new System.Drawing.Size(1036, 621);
+            this.prescriptionDetailPanel.TabIndex = 3;
             this.prescriptionDetailPanel.Visible = false;
             // 
             // statusGroupBox
@@ -231,10 +92,10 @@
             this.statusGroupBox.Controls.Add(this.readyStatusButton);
             this.statusGroupBox.Controls.Add(this.activeStatusButton);
             this.statusGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.statusGroupBox.Location = new System.Drawing.Point(1000, 93);
+            this.statusGroupBox.Location = new System.Drawing.Point(742, 93);
             this.statusGroupBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 6);
             this.statusGroupBox.Name = "statusGroupBox";
-            this.statusGroupBox.Size = new System.Drawing.Size(288, 531);
+            this.statusGroupBox.Size = new System.Drawing.Size(288, 525);
             this.statusGroupBox.TabIndex = 5;
             this.statusGroupBox.TabStop = false;
             this.statusGroupBox.Text = "Change Status";
@@ -303,7 +164,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(970, 534);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(712, 528);
             this.tableLayoutPanel1.TabIndex = 25;
             // 
             // groupBox1
@@ -314,7 +175,7 @@
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(479, 531);
+            this.groupBox1.Size = new System.Drawing.Size(350, 525);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Patient Information";
@@ -328,7 +189,7 @@
             this.panel1.Location = new System.Drawing.Point(3, 23);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(473, 505);
+            this.panel1.Size = new System.Drawing.Size(344, 499);
             this.panel1.TabIndex = 25;
             // 
             // tableLayoutPanel2
@@ -348,7 +209,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(470, 391);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(341, 385);
             this.tableLayoutPanel2.TabIndex = 20;
             // 
             // panel3
@@ -356,10 +217,10 @@
             this.panel3.Controls.Add(this.label8);
             this.panel3.Controls.Add(this.listView3);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(3, 198);
+            this.panel3.Location = new System.Drawing.Point(3, 195);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(464, 193);
+            this.panel3.Size = new System.Drawing.Size(335, 190);
             this.panel3.TabIndex = 0;
             // 
             // label8
@@ -380,7 +241,7 @@
             this.listView3.Location = new System.Drawing.Point(4, 32);
             this.listView3.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.listView3.Name = "listView3";
-            this.listView3.Size = new System.Drawing.Size(457, 161);
+            this.listView3.Size = new System.Drawing.Size(328, 158);
             this.listView3.TabIndex = 0;
             this.listView3.UseCompatibleStateImageBehavior = false;
             // 
@@ -391,7 +252,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(3, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(464, 189);
+            this.panel4.Size = new System.Drawing.Size(335, 186);
             this.panel4.TabIndex = 1;
             // 
             // listView1
@@ -401,7 +262,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listView1.Location = new System.Drawing.Point(4, 33);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(457, 153);
+            this.listView1.Size = new System.Drawing.Size(328, 150);
             this.listView1.TabIndex = 1;
             this.listView1.UseCompatibleStateImageBehavior = false;
             // 
@@ -440,10 +301,10 @@
             this.groupBox2.Controls.Add(this.panel2);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(488, 3);
+            this.groupBox2.Location = new System.Drawing.Point(359, 3);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(479, 531);
+            this.groupBox2.Size = new System.Drawing.Size(350, 525);
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Medicine Information";
@@ -456,7 +317,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 23);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(473, 505);
+            this.panel2.Size = new System.Drawing.Size(344, 499);
             this.panel2.TabIndex = 7;
             // 
             // listView2
@@ -466,7 +327,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listView2.Location = new System.Drawing.Point(7, 137);
             this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(463, 355);
+            this.listView2.Size = new System.Drawing.Size(334, 349);
             this.listView2.TabIndex = 6;
             this.listView2.UseCompatibleStateImageBehavior = false;
             // 
@@ -504,7 +365,6 @@
             this.backButton.Size = new System.Drawing.Size(75, 40);
             this.backButton.TabIndex = 7;
             this.backButton.UseVisualStyleBackColor = false;
-            this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
             // label2
             // 
@@ -516,21 +376,59 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Prescription Information";
             // 
-            // PrescriptionsForm
+            // newPrescriptionsPanel
+            // 
+            this.newPrescriptionsPanel.Controls.Add(this.viewPrescriptionButton);
+            this.newPrescriptionsPanel.Controls.Add(this.label1);
+            this.newPrescriptionsPanel.Controls.Add(this.listView4);
+            this.newPrescriptionsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.newPrescriptionsPanel.Location = new System.Drawing.Point(0, 0);
+            this.newPrescriptionsPanel.Name = "newPrescriptionsPanel";
+            this.newPrescriptionsPanel.Size = new System.Drawing.Size(1036, 621);
+            this.newPrescriptionsPanel.TabIndex = 4;
+            // 
+            // viewPrescriptionButton
+            // 
+            this.viewPrescriptionButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.viewPrescriptionButton.AutoSize = true;
+            this.viewPrescriptionButton.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.viewPrescriptionButton.Location = new System.Drawing.Point(779, 14);
+            this.viewPrescriptionButton.Name = "viewPrescriptionButton";
+            this.viewPrescriptionButton.Size = new System.Drawing.Size(245, 48);
+            this.viewPrescriptionButton.TabIndex = 2;
+            this.viewPrescriptionButton.Text = "View Prescription";
+            this.viewPrescriptionButton.UseVisualStyleBackColor = true;
+            this.viewPrescriptionButton.Click += new System.EventHandler(this.viewPrescriptionButton_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(19, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(326, 44);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "New Prescriptions";
+            // 
+            // listView4
+            // 
+            this.listView4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listView4.Location = new System.Drawing.Point(27, 82);
+            this.listView4.Name = "listView4";
+            this.listView4.Size = new System.Drawing.Size(997, 519);
+            this.listView4.TabIndex = 0;
+            this.listView4.UseCompatibleStateImageBehavior = false;
+            // 
+            // NewPrescriptionsUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
-            this.Controls.Add(this.prescriptionListPanel);
+            this.Controls.Add(this.newPrescriptionsPanel);
             this.Controls.Add(this.prescriptionDetailPanel);
-            this.MinimumSize = new System.Drawing.Size(750, 300);
-            this.Name = "PrescriptionsForm";
-            this.Size = new System.Drawing.Size(1294, 627);
-            this.Load += new System.EventHandler(this.PrescriptionsForm_Load);
-            this.prescriptionListPanel.ResumeLayout(false);
-            this.prescriptionListPanel.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.Name = "NewPrescriptionsUserControl";
+            this.Size = new System.Drawing.Size(1036, 621);
             this.prescriptionDetailPanel.ResumeLayout(false);
             this.prescriptionDetailPanel.PerformLayout();
             this.statusGroupBox.ResumeLayout(false);
@@ -547,22 +445,21 @@
             this.groupBox2.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.newPrescriptionsPanel.ResumeLayout(false);
+            this.newPrescriptionsPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Panel prescriptionListPanel;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox prescriptionListBox;
-        private System.Windows.Forms.Button selectPrescriptionButton;
-        private System.Windows.Forms.TextBox prescriptionSearchBox;
-        private System.Windows.Forms.Button searchButton;
+
         private System.Windows.Forms.Panel prescriptionDetailPanel;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button backButton;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.GroupBox statusGroupBox;
+        private System.Windows.Forms.Button deletedStatusButton;
+        private System.Windows.Forms.Button completeStatusButton;
+        private System.Windows.Forms.Button readyStatusButton;
+        private System.Windows.Forms.Button activeStatusButton;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
@@ -579,13 +476,11 @@
         private System.Windows.Forms.ListView listView2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.Button deletedStatusButton;
-        private System.Windows.Forms.Button completeStatusButton;
-        private System.Windows.Forms.Button readyStatusButton;
-        private System.Windows.Forms.Button activeStatusButton;
+        private System.Windows.Forms.Button backButton;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel newPrescriptionsPanel;
+        private System.Windows.Forms.ListView listView4;
+        private System.Windows.Forms.Button viewPrescriptionButton;
+        private System.Windows.Forms.Label label1;
     }
 }

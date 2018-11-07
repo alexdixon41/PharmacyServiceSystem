@@ -28,110 +28,217 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.newRefillRequestsButton = new System.Windows.Forms.Button();
+            this.prescriptionsButton = new System.Windows.Forms.Button();
+            this.patientRecordsButton = new System.Windows.Forms.Button();
+            this.noticesButton = new System.Windows.Forms.Button();
+            this.newNoticesButton = new System.Windows.Forms.Button();
+            this.newPrescriptionsButton = new System.Windows.Forms.Button();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
+            this.splitContainer2.Panel1.SuspendLayout();
+            this.splitContainer2.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.BackColor = System.Drawing.Color.Black;
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.splitContainer1.Panel1.Controls.Add(this.splitContainer2);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.splitContainer1.Size = new System.Drawing.Size(1232, 753);
+            this.splitContainer1.SplitterDistance = 250;
+            this.splitContainer1.TabIndex = 7;
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.button1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.button2, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.button3, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.button6, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.button4, 1, 2);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 137);
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.newRefillRequestsButton, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.prescriptionsButton, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.patientRecordsButton, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.noticesButton, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.newNoticesButton, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.newPrescriptionsButton, 0, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.MinimumSize = new System.Drawing.Size(0, 300);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 115F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(808, 354);
+            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.tableLayoutPanel1.RowCount = 6;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(250, 675);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // button1
+            // newRefillRequestsButton
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(398, 113);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "View New Prescriptions";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.newRefillRequestsButton.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.newRefillRequestsButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.newRefillRequestsButton.FlatAppearance.BorderSize = 0;
+            this.newRefillRequestsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.newRefillRequestsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newRefillRequestsButton.Location = new System.Drawing.Point(10, 230);
+            this.newRefillRequestsButton.Margin = new System.Windows.Forms.Padding(10, 10, 10, 0);
+            this.newRefillRequestsButton.Name = "newRefillRequestsButton";
+            this.newRefillRequestsButton.Size = new System.Drawing.Size(230, 100);
+            this.newRefillRequestsButton.TabIndex = 0;
+            this.newRefillRequestsButton.Text = "New Refill Requests";
+            this.newRefillRequestsButton.UseVisualStyleBackColor = false;
+            this.newRefillRequestsButton.Click += new System.EventHandler(this.newRefillRequestsButton_Click);
             // 
-            // button2
+            // prescriptionsButton
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(407, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(398, 113);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "View New Refill Requests";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.prescriptionsButton.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.prescriptionsButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.prescriptionsButton.FlatAppearance.BorderSize = 0;
+            this.prescriptionsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.prescriptionsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.prescriptionsButton.Location = new System.Drawing.Point(10, 340);
+            this.prescriptionsButton.Margin = new System.Windows.Forms.Padding(10, 10, 10, 0);
+            this.prescriptionsButton.Name = "prescriptionsButton";
+            this.prescriptionsButton.Size = new System.Drawing.Size(230, 100);
+            this.prescriptionsButton.TabIndex = 2;
+            this.prescriptionsButton.Text = "View Prescriptions";
+            this.prescriptionsButton.UseVisualStyleBackColor = false;
+            this.prescriptionsButton.Click += new System.EventHandler(this.prescriptionsButton_Click);
             // 
-            // button3
+            // patientRecordsButton
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(3, 241);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(398, 110);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "View Patient Information";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.patientRecordsButton.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.patientRecordsButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.patientRecordsButton.FlatAppearance.BorderSize = 0;
+            this.patientRecordsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.patientRecordsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.patientRecordsButton.Location = new System.Drawing.Point(10, 450);
+            this.patientRecordsButton.Margin = new System.Windows.Forms.Padding(10, 10, 10, 0);
+            this.patientRecordsButton.Name = "patientRecordsButton";
+            this.patientRecordsButton.Size = new System.Drawing.Size(230, 100);
+            this.patientRecordsButton.TabIndex = 3;
+            this.patientRecordsButton.Text = "View Patient Records";
+            this.patientRecordsButton.UseVisualStyleBackColor = false;
+            this.patientRecordsButton.Click += new System.EventHandler(this.patientRecordsButton_Click);
             // 
-            // button6
+            // noticesButton
             // 
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(3, 122);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(398, 110);
-            this.button6.TabIndex = 5;
-            this.button6.Text = "View Doctor Notices";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.noticesButton.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.noticesButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.noticesButton.FlatAppearance.BorderSize = 0;
+            this.noticesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.noticesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.noticesButton.Location = new System.Drawing.Point(10, 560);
+            this.noticesButton.Margin = new System.Windows.Forms.Padding(10, 10, 10, 0);
+            this.noticesButton.Name = "noticesButton";
+            this.noticesButton.Size = new System.Drawing.Size(230, 105);
+            this.noticesButton.TabIndex = 4;
+            this.noticesButton.Text = "View Notices";
+            this.noticesButton.UseVisualStyleBackColor = false;
+            this.noticesButton.Click += new System.EventHandler(this.noticesButton_Click);
             // 
-            // button4
+            // newNoticesButton
             // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(407, 241);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(398, 110);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "View Prescription Status";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.newNoticesButton.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.newNoticesButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.newNoticesButton.FlatAppearance.BorderSize = 0;
+            this.newNoticesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.newNoticesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newNoticesButton.Location = new System.Drawing.Point(10, 10);
+            this.newNoticesButton.Margin = new System.Windows.Forms.Padding(10, 10, 10, 0);
+            this.newNoticesButton.Name = "newNoticesButton";
+            this.newNoticesButton.Size = new System.Drawing.Size(230, 100);
+            this.newNoticesButton.TabIndex = 0;
+            this.newNoticesButton.Text = "New Notices";
+            this.newNoticesButton.UseVisualStyleBackColor = false;
+            this.newNoticesButton.Click += new System.EventHandler(this.newNoticesButton_Click);
+            // 
+            // newPrescriptionsButton
+            // 
+            this.newPrescriptionsButton.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.newPrescriptionsButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.newPrescriptionsButton.FlatAppearance.BorderSize = 0;
+            this.newPrescriptionsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.newPrescriptionsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newPrescriptionsButton.Location = new System.Drawing.Point(10, 120);
+            this.newPrescriptionsButton.Margin = new System.Windows.Forms.Padding(10, 10, 10, 0);
+            this.newPrescriptionsButton.Name = "newPrescriptionsButton";
+            this.newPrescriptionsButton.Size = new System.Drawing.Size(230, 100);
+            this.newPrescriptionsButton.TabIndex = 1;
+            this.newPrescriptionsButton.Text = "New Prescriptions";
+            this.newPrescriptionsButton.UseVisualStyleBackColor = false;
+            this.newPrescriptionsButton.Click += new System.EventHandler(this.newPrescriptionsButton_Click);
+            // 
+            // splitContainer2
+            // 
+            this.splitContainer2.BackColor = System.Drawing.Color.Black;
+            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer2.Name = "splitContainer2";
+            this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer2.Panel1
+            // 
+            this.splitContainer2.Panel1.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.splitContainer2.Panel1.Controls.Add(this.tableLayoutPanel1);
+            this.splitContainer2.Panel1MinSize = 300;
+            // 
+            // splitContainer2.Panel2
+            // 
+            this.splitContainer2.Panel2.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.splitContainer2.Size = new System.Drawing.Size(250, 753);
+            this.splitContainer2.SplitterDistance = 675;
+            this.splitContainer2.TabIndex = 1;
             // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(832, 503);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.ClientSize = new System.Drawing.Size(1232, 753);
+            this.Controls.Add(this.splitContainer1);
+            this.MinimumSize = new System.Drawing.Size(1250, 700);
             this.Name = "MainMenu";
             this.Text = "MainMenu";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.MainMenu_Load);
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.splitContainer2.Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
+            this.splitContainer2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
+        private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button newRefillRequestsButton;
+        private System.Windows.Forms.Button prescriptionsButton;
+        private System.Windows.Forms.Button patientRecordsButton;
+        private System.Windows.Forms.Button noticesButton;
+        private System.Windows.Forms.Button newNoticesButton;
+        private System.Windows.Forms.Button newPrescriptionsButton;
+        private System.Windows.Forms.SplitContainer splitContainer2;
     }
 }

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace PharmacyManagementSystem
 {
-    public partial class PrescriptionsForm : Form
+    public partial class PrescriptionsForm : UserControl
     {
         Form confirmationPopup;
 
@@ -18,18 +18,6 @@ namespace PharmacyManagementSystem
         public PrescriptionsForm()
         {
             InitializeComponent();
-        }
-
-        private void changeStatusButton_Click(object sender, EventArgs e)
-        {
-            changeStatusButton.Hide();
-            String[] strings = new String[] {"Alex Dixon       Amoxicillin           09/27/2018   09:30",
-                                            "Sidney Dixon   Spironolactone   08/15/2018   12:30"};
-            foreach (String s in strings)
-            {
-                prescriptionListBox.Items.Add(s);
-            }
-            prescriptionListPanel.Show();
         }
 
         private void prescriptionSearchBox_Click(object sender, EventArgs e)
@@ -41,12 +29,7 @@ namespace PharmacyManagementSystem
         private void selectPrescriptionButton_Click(object sender, EventArgs e)
         {
             prescriptionListPanel.Hide();
-            String[] strings = new String[] {"Name: Amoxicillin", "Dosage: 50 mg",
-                                            "Frequency: Twice daily", "Route: By mouth"};
-            foreach (String s in strings)
-            {
-                prescriptionDetailListView.Items.Add(s);
-            }           
+                     
             prescriptionDetailPanel.Show();
         }
 
@@ -74,6 +57,16 @@ namespace PharmacyManagementSystem
             confirmationPopup = new ConfirmationPopup("Change the status of this prescription to Deleted?",
                                                     "Note: This can not be undone.", 3);
             confirmationPopup.ShowDialog();
+        }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            prescriptionDetailPanel.Hide();
+            prescriptionListPanel.Show();
+        }
+
+        private void PrescriptionsForm_Load(object sender, EventArgs e)
+        {
         }
     }
 }
