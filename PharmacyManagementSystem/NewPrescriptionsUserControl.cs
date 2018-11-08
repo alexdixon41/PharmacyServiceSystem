@@ -22,5 +22,11 @@ namespace PharmacyManagementSystem
             newPrescriptionsPanel.Hide();
             prescriptionDetailPanel.Show();
         }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            prescriptionDetailPanel.Hide();
+            newPrescriptionsPanel.Show();
+        }
     }
 }

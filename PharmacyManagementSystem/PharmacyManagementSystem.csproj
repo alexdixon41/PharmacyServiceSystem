@@ -63,6 +63,7 @@
     <Compile Include="NewPrescriptionsUserControl.Designer.cs">
       <DependentUpon>NewPrescriptionsUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Notice.cs" />
     <Compile Include="Patient.cs" />
     <Compile Include="Prescription.cs" />
     <Compile Include="RefillForm.cs">
@@ -72,7 +73,7 @@
       <DependentUpon>RefillForm.cs</DependentUpon>
     </Compile>
     <Compile Include="PatientRecordsForm.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="PatientRecordsForm.Designer.cs">
       <DependentUpon>PatientRecordsForm.cs</DependentUpon>

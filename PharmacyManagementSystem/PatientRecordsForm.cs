@@ -10,22 +10,11 @@ using System.Windows.Forms;
 
 namespace PharmacyManagementSystem
 {
-    public partial class PatientRecordsForm : Form
+    public partial class PatientRecordsForm : UserControl
     {
         public PatientRecordsForm()
         {
             InitializeComponent();
-        }
-
-        private void viewRecordsButton_Click(object sender, EventArgs e)
-        {
-            viewRecordsButtonPanel.Hide();
-            String[] strings = new String[] { "Alex Dixon", "Ethen Holzapfel", "Kuang-Nan Chang" };
-            foreach (String s in strings)
-            {
-                patientSearchListBox.Items.Add(s);
-            }
-            patientSearchPanel.Show();
         }
 
         private void patientSearchSelectButton_Click(object sender, EventArgs e)

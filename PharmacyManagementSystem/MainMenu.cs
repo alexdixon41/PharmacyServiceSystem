@@ -75,9 +75,7 @@ namespace PharmacyManagementSystem
             {
                 c.Hide();
             }
-            patientRecordsForm.TopLevel = false;
             splitContainer1.Panel2.Controls.Add(patientRecordsForm);
-            patientRecordsForm.FormBorderStyle = FormBorderStyle.None;
             patientRecordsForm.Dock = DockStyle.Fill;
             patientRecordsForm.Show();
         }
@@ -91,11 +89,14 @@ namespace PharmacyManagementSystem
             splitContainer1.Panel2.Controls.Add(noticesForm);
             noticesForm.Dock = DockStyle.Fill;
             noticesForm.Show();
-            Console.WriteLine(noticesForm.Width);
         }
 
         private void MainMenu_Load(object sender, EventArgs e)
         {
+            Notice.retrieveNotices();                        
+            splitContainer1.Panel2.Controls.Add(noticesForm);
+            noticesForm.Dock = DockStyle.Fill;
+            noticesForm.Show();
             splitContainer2.SplitterDistance = 500;
         }
     }

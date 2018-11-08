@@ -67,6 +67,7 @@
             this.sender,
             this.message});
             this.noticesListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.noticesListView.FullRowSelect = true;
             this.noticesListView.Location = new System.Drawing.Point(27, 82);
             this.noticesListView.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
             this.noticesListView.MinimumSize = new System.Drawing.Size(400, 300);
@@ -79,12 +80,12 @@
             // type
             // 
             this.type.Text = "Type";
-            this.type.Width = 100;
+            this.type.Width = 140;
             // 
             // sent
             // 
             this.sent.Text = "Sent";
-            this.sent.Width = 120;
+            this.sent.Width = 200;
             // 
             // sender
             // 
