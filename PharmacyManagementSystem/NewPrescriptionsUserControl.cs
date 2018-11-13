@@ -19,6 +19,7 @@ namespace PharmacyManagementSystem
 
         private void viewPrescriptionButton_Click(object sender, EventArgs e)
         {
+            Prescription.retrievePrescriptionDetails(listView4.SelectedIndices.IndexOf(0));
             newPrescriptionsPanel.Hide();
             prescriptionDetailPanel.Show();
         }
@@ -27,6 +28,20 @@ namespace PharmacyManagementSystem
         {
             prescriptionDetailPanel.Hide();
             newPrescriptionsPanel.Show();
+        }
+
+        private void NewPrescriptionsUserControl_Load(object sender, EventArgs e)
+        {
+            int i = 0;
+            foreach (Prescription prescription in Prescription.displayPrescriptions())
+            {
+                listView4.Items.Add(prescription.Date);
+                listView4.Items[i].SubItems.Add(prescription.PatientName);
+                listView4.Items[i].SubItems.Add(prescription.PrescriberName);
+                listView4.Items[i].SubItems.Add(prescription.Status);
+                listView4.Items[i].SubItems.Add(prescription.Refills.ToString());
+                i++;
+            }
         }
     }
 }

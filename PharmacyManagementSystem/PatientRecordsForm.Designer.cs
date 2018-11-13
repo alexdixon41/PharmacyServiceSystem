@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.patientSearchListBox = new System.Windows.Forms.ListBox();
             this.patientSearchLabel = new System.Windows.Forms.Label();
             this.patientSearchPanel = new System.Windows.Forms.Panel();
-            this.searchTextBox = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.searchBox = new System.Windows.Forms.TextBox();
+            this.patientSearchButton = new System.Windows.Forms.Button();
             this.patientSearchSelectButton = new System.Windows.Forms.Button();
             this.patientRecordPanel = new System.Windows.Forms.Panel();
             this.doctorNoticeButton = new System.Windows.Forms.Button();
@@ -51,31 +50,13 @@
             this.searchButton = new System.Windows.Forms.Button();
             this.doctorSearchListView = new System.Windows.Forms.ListView();
             this.label11 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label12 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label13 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.birthDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.patientSearchPanel.SuspendLayout();
             this.patientRecordPanel.SuspendLayout();
             this.doctorSearchPanel.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // patientSearchListBox
-            // 
-            this.patientSearchListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.patientSearchListBox.FormattingEnabled = true;
-            this.patientSearchListBox.ItemHeight = 16;
-            this.patientSearchListBox.Location = new System.Drawing.Point(27, 130);
-            this.patientSearchListBox.Name = "patientSearchListBox";
-            this.patientSearchListBox.Size = new System.Drawing.Size(1208, 452);
-            this.patientSearchListBox.TabIndex = 0;
             // 
             // patientSearchLabel
             // 
@@ -89,44 +70,45 @@
             // 
             // patientSearchPanel
             // 
-            this.patientSearchPanel.Controls.Add(this.tableLayoutPanel1);
-            this.patientSearchPanel.Controls.Add(this.button1);
+            this.patientSearchPanel.Controls.Add(this.searchBox);
+            this.patientSearchPanel.Controls.Add(this.patientSearchButton);
             this.patientSearchPanel.Controls.Add(this.patientSearchSelectButton);
             this.patientSearchPanel.Controls.Add(this.patientSearchLabel);
-            this.patientSearchPanel.Controls.Add(this.patientSearchListBox);
+            this.patientSearchPanel.Controls.Add(this.listView1);
             this.patientSearchPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.patientSearchPanel.Location = new System.Drawing.Point(0, 0);
             this.patientSearchPanel.Name = "patientSearchPanel";
             this.patientSearchPanel.Size = new System.Drawing.Size(1244, 594);
             this.patientSearchPanel.TabIndex = 3;
             // 
-            // searchTextBox
+            // searchBox
             // 
-            this.searchTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.searchBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.searchTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchTextBox.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.searchTextBox.Location = new System.Drawing.Point(137, 2);
-            this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(380, 34);
-            this.searchTextBox.TabIndex = 4;
-            this.searchTextBox.Text = "Search for a patient";
-            this.searchTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.searchTextBox.Click += new System.EventHandler(this.searchTextBox_Click);
+            this.searchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchBox.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.searchBox.Location = new System.Drawing.Point(27, 87);
+            this.searchBox.Name = "searchBox";
+            this.searchBox.Size = new System.Drawing.Size(1067, 34);
+            this.searchBox.TabIndex = 1;
+            this.searchBox.Text = "Search for a patient";
+            this.searchBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.searchBox.Enter += new System.EventHandler(this.searchBox_Enter);
             // 
-            // button1
+            // patientSearchButton
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.AutoSize = true;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(1111, 82);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.button1.Size = new System.Drawing.Size(116, 42);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Search";
-            this.button1.UseVisualStyleBackColor = true;
+            this.patientSearchButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.patientSearchButton.AutoSize = true;
+            this.patientSearchButton.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.patientSearchButton.Location = new System.Drawing.Point(1100, 82);
+            this.patientSearchButton.Name = "patientSearchButton";
+            this.patientSearchButton.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.patientSearchButton.Size = new System.Drawing.Size(135, 42);
+            this.patientSearchButton.TabIndex = 2;
+            this.patientSearchButton.Text = "Search";
+            this.patientSearchButton.UseVisualStyleBackColor = true;
+            this.patientSearchButton.Click += new System.EventHandler(this.patientSearchButton_Click);
             // 
             // patientSearchSelectButton
             // 
@@ -136,7 +118,7 @@
             this.patientSearchSelectButton.Location = new System.Drawing.Point(1033, 14);
             this.patientSearchSelectButton.Name = "patientSearchSelectButton";
             this.patientSearchSelectButton.Size = new System.Drawing.Size(202, 42);
-            this.patientSearchSelectButton.TabIndex = 2;
+            this.patientSearchSelectButton.TabIndex = 3;
             this.patientSearchSelectButton.Text = "Select Patient";
             this.patientSearchSelectButton.UseVisualStyleBackColor = true;
             this.patientSearchSelectButton.Click += new System.EventHandler(this.patientSearchSelectButton_Click);
@@ -325,78 +307,32 @@
             this.label11.TabIndex = 0;
             this.label11.Text = "Doctor Search";
             // 
-            // tableLayoutPanel1
+            // listView1
             // 
-            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(27, 82);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1070, 42);
-            this.tableLayoutPanel1.TabIndex = 5;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(3, 5);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(128, 29);
-            this.label12.TabIndex = 6;
-            this.label12.Text = "Last Name";
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.label12);
-            this.panel1.Controls.Add(this.searchTextBox);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(555, 3);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 3, 20, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(520, 39);
-            this.panel1.TabIndex = 0;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.label13);
-            this.panel2.Controls.Add(this.textBox1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 3);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 3, 20, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(546, 36);
-            this.panel2.TabIndex = 1;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(3, 5);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(131, 29);
-            this.label13.TabIndex = 7;
-            this.label13.Text = "First Name";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.textBox1.Location = new System.Drawing.Point(140, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(403, 34);
-            this.textBox1.TabIndex = 8;
-            this.textBox1.Text = "Search for a patient";
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.name,
+            this.birthDate});
+            this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView1.FullRowSelect = true;
+            this.listView1.Location = new System.Drawing.Point(27, 131);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(1208, 451);
+            this.listView1.TabIndex = 6;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            // 
+            // name
+            // 
+            this.name.Text = "Name";
+            this.name.Width = 240;
+            // 
+            // birthDate
+            // 
+            this.birthDate.Text = "Date of Birth";
+            this.birthDate.Width = 200;
             // 
             // PatientRecordsForm
             // 
@@ -413,17 +349,11 @@
             this.patientRecordPanel.PerformLayout();
             this.doctorSearchPanel.ResumeLayout(false);
             this.doctorSearchPanel.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.ListBox patientSearchListBox;
         private System.Windows.Forms.Label patientSearchLabel;
         private System.Windows.Forms.Panel patientSearchPanel;
         private System.Windows.Forms.Button patientSearchSelectButton;
@@ -438,19 +368,16 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox searchTextBox;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox searchBox;
+        private System.Windows.Forms.Button patientSearchButton;
         private System.Windows.Forms.Button doctorNoticeButton;
         private System.Windows.Forms.Panel doctorSearchPanel;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.ListView doctorSearchListView;
         private System.Windows.Forms.TextBox doctorSearchBox;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader name;
+        private System.Windows.Forms.ColumnHeader birthDate;
     }
 }

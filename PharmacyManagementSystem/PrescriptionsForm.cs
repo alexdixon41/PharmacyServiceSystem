@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -67,6 +68,29 @@ namespace PharmacyManagementSystem
 
         private void PrescriptionsForm_Load(object sender, EventArgs e)
         {
+        }
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            listView4.Items.Clear();
+            if (prescriptionSearchBox.Text.Equals("Search for a prescription"))
+                prescriptionSearchBox.Text = "";
+            ArrayList prescriptions;
+            if (radioButton2.Checked)
+                prescriptions = Prescription.retrievePrescriptions(Prescription.SEARCH_BY_PATIENT, prescriptionSearchBox.Text);
+            else
+                prescriptions = Prescription.retrievePrescriptions(Prescription.SEARCH_BY_DOCTOR, prescriptionSearchBox.Text);
+
+            int i = 0;
+            foreach (Prescription prescription in prescriptions)
+            {                
+                listView4.Items.Add(prescription.Date);
+                listView4.Items[i].SubItems.Add(prescription.PatientName);
+                listView4.Items[i].SubItems.Add(prescription.PrescriberName);
+                listView4.Items[i].SubItems.Add(prescription.Status);
+                listView4.Items[i].SubItems.Add("" + prescription.Refills);
+                i++;
+            }
         }
     }
 }

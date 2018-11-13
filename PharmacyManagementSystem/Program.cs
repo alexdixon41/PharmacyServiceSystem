@@ -16,7 +16,16 @@ namespace PharmacyManagementSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainMenu());
+            Application.Run(new Login());
+
+            if (Login.loginSuccess)
+            {
+                //TODO add cases for other user types
+                Notice.retrieveNotices();
+                Prescription.retrieveNewPrescriptions();
+                RefillRequest.retrieveRefillRequests();
+                Application.Run(new MainMenu());               
+            }
         }
     }
 }

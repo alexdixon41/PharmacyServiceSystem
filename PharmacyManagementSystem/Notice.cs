@@ -102,14 +102,13 @@ namespace PharmacyManagementSystem
                 id = value;
             }
         }
-        private static ArrayList notices = new ArrayList();
-        
+        private static ArrayList notices = new ArrayList();       
+
         public static ArrayList displayNotices()
         {
             return notices;
         }   
 
-        //TODO only retrieve notices where the current user is the receiver
         public static void retrieveNotices()
         {
             ArrayList noticeList = new ArrayList();
@@ -120,9 +119,40 @@ namespace PharmacyManagementSystem
             {
                 Console.WriteLine("Connecting to MySQL...");
                 conn.Open();
-                string sql = "SELECT * FROM DixonNotice";
+                string sql = "";
+                switch (User.Type)
+                {
+                    case User.PHARMACIST_USER_TYPE:
+                        sql = "SELECT n.noticeID, n.noticeType, n.noticeStatus, n.sentDate, n.message, doc.name AS docName, " +
+                            "pa.name AS paName, ph.name AS phName " +
+                            "FROM DixonNotice n LEFT OUTER JOIN DixonDoctor doc ON n.doctorSender = doc.id " +
+                            "LEFT OUTER JOIN DixonPatient pa ON n.patientSender = pa.patientID " +
+                            "LEFT OUTER JOIN DixonPharmacy ph ON n.pharmacySender = ph.id " +
+                            "WHERE pharmacyReceiver = @id " +
+                            "ORDER BY n.noticeStatus ASC";
+                        break;
+                    case User.PATIENT_USER_TYPE:
+                        sql = "SELECT n.noticeID, n.noticeType, n.noticeStatus, n.sentDate, n.message, doc.name AS docName, " +
+                            "pa.name AS paName, ph.name AS phName " +
+                            "FROM DixonNotice n LEFT OUTER JOIN DixonDoctor doc ON n.doctorSender = doc.id " +
+                            "LEFT OUTER JOIN DixonPatient pa ON n.patientSender = pa.patientID " +
+                            "LEFT OUTER JOIN DixonPharmacy ph ON n.pharmacySender = ph.id " +
+                            "WHERE patientReceiver = @id " +
+                            "ORDER BY n.noticeStatus ASC";
+                        break;
+                    case User.DOCTOR_USER_TYPE:
+                        sql = "SELECT n.noticeID, n.noticeType, n.noticeStatus, n.sentDate, n.message, doc.name AS docName, " +
+                            "pa.name AS paName, ph.name AS phName " +
+                            "FROM DixonNotice n LEFT OUTER JOIN DixonDoctor doc ON n.doctorSender = doc.id " +
+                            "LEFT OUTER JOIN DixonPatient pa ON n.patientSender = pa.patientID " +
+                            "LEFT OUTER JOIN DixonPharmacy ph ON n.pharmacySender = ph.id " +
+                            "WHERE doctorReceiver = @id " +
+                            "ORDER BY n.noticeStatus ASC";
+                        break;
+                }
 
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@id", User.Id);
                 MySqlDataAdapter myAdapter = new MySqlDataAdapter(cmd);
                 myAdapter.Fill(table);
                 Console.WriteLine("Table is ready.");
@@ -140,8 +170,13 @@ namespace PharmacyManagementSystem
                 newNotice.Type = row["noticeType"].ToString();
                 newNotice.Status = row["noticeStatus"].ToString();
                 newNotice.SentDate = row["sentDate"].ToString();
-                newNotice.Sender = row["sender"].ToString();
                 newNotice.Message = row["message"].ToString();
+                if (row["docName"] != null)
+                    newNotice.Sender = row["docName"].ToString();
+                else if (row["paName"] != null)
+                    newNotice.Sender = row["paName"].ToString();
+                else if (row["phName"] != null)
+                    newNotice.Sender = row["phName"].ToString();
                 noticeList.Add(newNotice);
             }
             notices =  noticeList;

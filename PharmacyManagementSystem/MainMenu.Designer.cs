@@ -169,7 +169,7 @@
             this.newNoticesButton.Name = "newNoticesButton";
             this.newNoticesButton.Size = new System.Drawing.Size(230, 122);
             this.newNoticesButton.TabIndex = 0;
-            this.newNoticesButton.Text = "New Notices";
+            this.newNoticesButton.Text = "Notices";
             this.newNoticesButton.UseVisualStyleBackColor = false;
             this.newNoticesButton.Click += new System.EventHandler(this.newNoticesButton_Click);
             // 

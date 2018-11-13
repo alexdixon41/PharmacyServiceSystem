@@ -25,6 +25,7 @@ namespace PharmacyManagementSystem
 
         private void ReceiveNoticeForm_Load(object sender, EventArgs e)
         {
+            
             int i = 0;
             foreach (Notice notice in Notice.displayNotices())
             {

@@ -52,6 +52,11 @@
             this.label7 = new System.Windows.Forms.Label();
             this.backButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.patientName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.prescriber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.status = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.refills = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.newPrescriptionsPanel.SuspendLayout();
             this.prescriptionDetailPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -103,11 +108,22 @@
             this.listView4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.listView4.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.date,
+            this.patientName,
+            this.prescriber,
+            this.status,
+            this.refills});
+            this.listView4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView4.FullRowSelect = true;
             this.listView4.Location = new System.Drawing.Point(27, 82);
+            this.listView4.MultiSelect = false;
             this.listView4.Name = "listView4";
             this.listView4.Size = new System.Drawing.Size(997, 519);
+            this.listView4.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.listView4.TabIndex = 0;
             this.listView4.UseCompatibleStateImageBehavior = false;
+            this.listView4.View = System.Windows.Forms.View.Details;
             // 
             // prescriptionDetailPanel
             // 
@@ -351,14 +367,39 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Prescription Information (New)";
             // 
+            // date
+            // 
+            this.date.Text = "Date";
+            this.date.Width = 220;
+            // 
+            // patientName
+            // 
+            this.patientName.Text = "Patient";
+            this.patientName.Width = 200;
+            // 
+            // prescriber
+            // 
+            this.prescriber.Text = "Prescriber";
+            this.prescriber.Width = 200;
+            // 
+            // status
+            // 
+            this.status.Text = "Status";
+            this.status.Width = 160;
+            // 
+            // refills
+            // 
+            this.refills.Text = "Refills";
+            // 
             // NewPrescriptionsUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.prescriptionDetailPanel);
             this.Controls.Add(this.newPrescriptionsPanel);
+            this.Controls.Add(this.prescriptionDetailPanel);
             this.Name = "NewPrescriptionsUserControl";
             this.Size = new System.Drawing.Size(1036, 621);
+            this.Load += new System.EventHandler(this.NewPrescriptionsUserControl_Load);
             this.newPrescriptionsPanel.ResumeLayout(false);
             this.newPrescriptionsPanel.PerformLayout();
             this.prescriptionDetailPanel.ResumeLayout(false);
@@ -404,5 +445,10 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button backButton;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ColumnHeader date;
+        private System.Windows.Forms.ColumnHeader patientName;
+        private System.Windows.Forms.ColumnHeader prescriber;
+        private System.Windows.Forms.ColumnHeader status;
+        private System.Windows.Forms.ColumnHeader refills;
     }
 }

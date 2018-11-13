@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,12 +24,6 @@ namespace PharmacyManagementSystem
             patientRecordPanel.Show();
         }
 
-        private void searchTextBox_Click(object sender, EventArgs e)
-        {
-            searchTextBox.Text = "";
-            searchTextBox.ForeColor = Color.Black;
-        }
-
         private void doctorNoticeButton_Click(object sender, EventArgs e)
         {
             patientRecordPanel.Hide();
@@ -46,6 +41,26 @@ namespace PharmacyManagementSystem
             SendDoctorNotice sendNotice = new SendDoctorNotice("We would like to discuss Alex Dixon's case with you. "
                 + "Please contact us soon so we can discuss this case. Thank you.");
             sendNotice.ShowDialog();
+        }
+
+        private void patientSearchButton_Click(object sender, EventArgs e)
+        {
+            if (searchBox.Text.Equals("Search for a patient"))
+                searchBox.Text = "";
+            listView1.Items.Clear();
+            int i = 0;     
+            foreach (Patient patient in Patient.retrievePatients(searchBox.Text))
+            {
+                listView1.Items.Add(patient.Name);
+                listView1.Items[i].SubItems.Add(patient.BirthDate);
+                i++;
+            }
+        }
+
+        private void searchBox_Enter(object sender, EventArgs e)
+        {
+            searchBox.Text = "";
+            searchBox.ForeColor = Color.Black;
         }
     }
 }

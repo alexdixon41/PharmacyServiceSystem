@@ -26,7 +26,8 @@ namespace PharmacyManagementSystem
         ReceiveNoticeForm noticesForm = new ReceiveNoticeForm();
 
         private void newNoticesButton_Click(object sender, EventArgs e)
-        {       
+        {
+            
             foreach (Control c in splitContainer1.Panel2.Controls)
             {
                 c.Hide();
@@ -44,7 +45,7 @@ namespace PharmacyManagementSystem
             }
             splitContainer1.Panel2.Controls.Add(newPrescriptions);
             newPrescriptions.Dock = DockStyle.Fill;
-            newPrescriptions.Show();
+            newPrescriptions.Show();                       
         }
 
         private void newRefillRequestsButton_Click(object sender, EventArgs e)
@@ -93,11 +94,10 @@ namespace PharmacyManagementSystem
 
         private void MainMenu_Load(object sender, EventArgs e)
         {
-            Notice.retrieveNotices();                        
-            splitContainer1.Panel2.Controls.Add(noticesForm);
-            noticesForm.Dock = DockStyle.Fill;
-            noticesForm.Show();
             splitContainer2.SplitterDistance = 500;
+            newNoticesButton.Text += "  (" + Notice.displayNotices().Count + ")";          
+            newPrescriptionsButton.Text += "  (" + Prescription.displayPrescriptions().Count + ")";
+            newRefillRequestsButton.Text += "  (" + RefillRequest.displayRefillRequests().Count + ")";
         }
     }
 }

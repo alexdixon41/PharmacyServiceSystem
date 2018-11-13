@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlertDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AlertDialog.designer.cs">
+      <DependentUpon>AlertDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="ButtonControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -57,6 +63,12 @@
       <DependentUpon>ConfirmationPopup.cs</DependentUpon>
     </Compile>
     <Compile Include="Doctor.cs" />
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="NewPrescriptionsUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -83,12 +95,6 @@
     </Compile>
     <Compile Include="MainMenu.Designer.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="NewPrescriptionForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="NewPrescriptionForm.Designer.cs">
-      <DependentUpon>NewPrescriptionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -117,8 +123,15 @@
     <Compile Include="PrescriptionsForm.Designer.cs">
       <DependentUpon>PrescriptionsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="User.cs" />
+    <EmbeddedResource Include="AlertDialog.resx">
+      <DependentUpon>AlertDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ConfirmationPopup.resx">
       <DependentUpon>ConfirmationPopup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewPrescriptionsUserControl.resx">
       <DependentUpon>NewPrescriptionsUserControl.cs</DependentUpon>
@@ -131,9 +144,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NewPrescriptionForm.resx">
-      <DependentUpon>NewPrescriptionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

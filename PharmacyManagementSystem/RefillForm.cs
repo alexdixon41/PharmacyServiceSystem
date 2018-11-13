@@ -25,12 +25,16 @@ namespace PharmacyManagementSystem
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
-        }
-
-        private void changeStatusButton_Click(object sender, EventArgs e)
-        {
-
+            int i = 0;
+            foreach(RefillRequest request in RefillRequest.displayRefillRequests())
+            {
+                newRefillRequestsListBox.Items.Add(request.Date);                
+                newRefillRequestsListBox.Items[i].SubItems.Add(request.Patient);
+                newRefillRequestsListBox.Items[i].SubItems.Add(request.Prescriber);
+                newRefillRequestsListBox.Items[i].SubItems.Add(request.Status);
+                newRefillRequestsListBox.Items[i].SubItems.Add(request.Refills.ToString());
+                i++;
+            }
         }
 
         private void backButton_Click(object sender, EventArgs e)

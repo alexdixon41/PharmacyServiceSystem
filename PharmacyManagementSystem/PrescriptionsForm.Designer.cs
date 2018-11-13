@@ -32,11 +32,9 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.prescriptionSearchBox = new System.Windows.Forms.TextBox();
             this.searchButton = new System.Windows.Forms.Button();
             this.selectPrescriptionButton = new System.Windows.Forms.Button();
-            this.prescriptionListBox = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.prescriptionDetailPanel = new System.Windows.Forms.Panel();
             this.statusGroupBox = new System.Windows.Forms.GroupBox();
@@ -63,6 +61,12 @@
             this.label7 = new System.Windows.Forms.Label();
             this.backButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.listView4 = new System.Windows.Forms.ListView();
+            this.date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.patient = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.prescriber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.status = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.refills = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.prescriptionListPanel.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.prescriptionDetailPanel.SuspendLayout();
@@ -83,8 +87,8 @@
             this.prescriptionListPanel.Controls.Add(this.prescriptionSearchBox);
             this.prescriptionListPanel.Controls.Add(this.searchButton);
             this.prescriptionListPanel.Controls.Add(this.selectPrescriptionButton);
-            this.prescriptionListPanel.Controls.Add(this.prescriptionListBox);
             this.prescriptionListPanel.Controls.Add(this.label1);
+            this.prescriptionListPanel.Controls.Add(this.listView4);
             this.prescriptionListPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.prescriptionListPanel.Location = new System.Drawing.Point(0, 0);
             this.prescriptionListPanel.MinimumSize = new System.Drawing.Size(450, 300);
@@ -98,7 +102,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.radioButton3);
             this.groupBox3.Controls.Add(this.radioButton2);
-            this.groupBox3.Controls.Add(this.radioButton1);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(27, 80);
             this.groupBox3.Name = "groupBox3";
@@ -112,7 +115,7 @@
             this.radioButton3.AutoSize = true;
             this.radioButton3.Dock = System.Windows.Forms.DockStyle.Left;
             this.radioButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton3.Location = new System.Drawing.Point(425, 23);
+            this.radioButton3.Location = new System.Drawing.Point(193, 23);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
             this.radioButton3.Size = new System.Drawing.Size(218, 37);
@@ -123,30 +126,17 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
+            this.radioButton2.Checked = true;
             this.radioButton2.Dock = System.Windows.Forms.DockStyle.Left;
             this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.Location = new System.Drawing.Point(235, 23);
+            this.radioButton2.Location = new System.Drawing.Point(3, 23);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
             this.radioButton2.Size = new System.Drawing.Size(190, 37);
             this.radioButton2.TabIndex = 1;
+            this.radioButton2.TabStop = true;
             this.radioButton2.Text = "Patient Name";
             this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.Location = new System.Drawing.Point(3, 23);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
-            this.radioButton1.Size = new System.Drawing.Size(232, 37);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Prescription Name";
-            this.radioButton1.UseVisualStyleBackColor = true;
             // 
             // prescriptionSearchBox
             // 
@@ -173,6 +163,7 @@
             this.searchButton.TabIndex = 3;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // selectPrescriptionButton
             // 
@@ -186,18 +177,6 @@
             this.selectPrescriptionButton.Text = "Select Prescription";
             this.selectPrescriptionButton.UseVisualStyleBackColor = true;
             this.selectPrescriptionButton.Click += new System.EventHandler(this.selectPrescriptionButton_Click);
-            // 
-            // prescriptionListBox
-            // 
-            this.prescriptionListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.prescriptionListBox.FormattingEnabled = true;
-            this.prescriptionListBox.ItemHeight = 16;
-            this.prescriptionListBox.Location = new System.Drawing.Point(27, 197);
-            this.prescriptionListBox.Name = "prescriptionListBox";
-            this.prescriptionListBox.Size = new System.Drawing.Size(1255, 420);
-            this.prescriptionListBox.TabIndex = 1;
             // 
             // label1
             // 
@@ -522,6 +501,48 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Prescription Information";
             // 
+            // listView4
+            // 
+            this.listView4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listView4.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.date,
+            this.patient,
+            this.prescriber,
+            this.status,
+            this.refills});
+            this.listView4.Location = new System.Drawing.Point(27, 197);
+            this.listView4.Name = "listView4";
+            this.listView4.Size = new System.Drawing.Size(1255, 420);
+            this.listView4.TabIndex = 6;
+            this.listView4.UseCompatibleStateImageBehavior = false;
+            this.listView4.View = System.Windows.Forms.View.Details;
+            // 
+            // date
+            // 
+            this.date.Text = "Date";
+            this.date.Width = 200;
+            // 
+            // patient
+            // 
+            this.patient.Text = "Patient";
+            this.patient.Width = 240;
+            // 
+            // prescriber
+            // 
+            this.prescriber.Text = "Prescriber";
+            this.prescriber.Width = 240;
+            // 
+            // status
+            // 
+            this.status.Text = "Status";
+            this.status.Width = 160;
+            // 
+            // refills
+            // 
+            this.refills.Text = "Refills";
+            // 
             // PrescriptionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -560,7 +581,6 @@
         #endregion
         private System.Windows.Forms.Panel prescriptionListPanel;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox prescriptionListBox;
         private System.Windows.Forms.Button selectPrescriptionButton;
         private System.Windows.Forms.TextBox prescriptionSearchBox;
         private System.Windows.Forms.Button searchButton;
@@ -588,10 +608,15 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.Button deletedStatusButton;
         private System.Windows.Forms.Button completeStatusButton;
         private System.Windows.Forms.Button readyStatusButton;
         private System.Windows.Forms.Button activeStatusButton;
+        private System.Windows.Forms.ListView listView4;
+        private System.Windows.Forms.ColumnHeader date;
+        private System.Windows.Forms.ColumnHeader patient;
+        private System.Windows.Forms.ColumnHeader prescriber;
+        private System.Windows.Forms.ColumnHeader status;
+        private System.Windows.Forms.ColumnHeader refills;
     }
 }
