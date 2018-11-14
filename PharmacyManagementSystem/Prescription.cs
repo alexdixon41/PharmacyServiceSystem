@@ -10,9 +10,7 @@ using System.Threading.Tasks;
 namespace PharmacyManagementSystem
 {
     class Prescription
-    {      
-        private static ArrayList prescriptions = new ArrayList();
-
+    {              
         public const int SEARCH_BY_PATIENT = 0;
         public const int SEARCH_BY_DOCTOR = 1;        
 
@@ -108,6 +106,27 @@ namespace PharmacyManagementSystem
             }
         }
 
+        public static int NewPrescriptionCount
+        {
+            get
+            {
+                return newPrescriptionCount;
+            }
+
+            set
+            {
+                newPrescriptionCount = value;
+            }
+        }
+        private static int newPrescriptionCount;
+        private static ArrayList prescriptions = new ArrayList();
+
+
+        public static ArrayList displayPrescriptions()
+        {
+            return prescriptions;
+        }
+
         public static void retrievePrescriptionDetails(int selectedPrescriptionIndex)
         {
             DataTable table = new DataTable();
@@ -159,6 +178,7 @@ namespace PharmacyManagementSystem
             }
             conn.Close();
 
+            int newCount = 0;
             foreach (DataRow row in table.Rows)
             {
                 Prescription newPrescription = new Prescription();
@@ -168,8 +188,11 @@ namespace PharmacyManagementSystem
                 newPrescription.PatientName = row["patientName"].ToString();
                 newPrescription.PrescriberName = row["doctorName"].ToString();
                 newPrescription.Id = (int)row["id"];
+                if (newPrescription.Status.Equals("New"))
+                    newCount++;
                 prescriptions.Add(newPrescription);
             }
+            newPrescriptionCount = newCount;
         }
 
         /// <summary>
@@ -223,11 +246,6 @@ namespace PharmacyManagementSystem
                 prescriptions.Add(newPrescription);
             }
             return prescriptions;
-        }
-
-        public static ArrayList displayPrescriptions()
-        {
-            return prescriptions;
-        }
+        }        
     }
 }

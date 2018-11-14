@@ -94,7 +94,7 @@ namespace PharmacyManagementSystem
         {
             get
             {
-                return Id;
+                return id;
             }
 
             set
@@ -102,6 +102,20 @@ namespace PharmacyManagementSystem
                 id = value;
             }
         }
+
+        public static int Unread
+        {
+            get
+            {
+                return unread;
+            }
+
+            set
+            {
+                unread = value;
+            }
+        }
+        private static int unread;
         private static ArrayList notices = new ArrayList();       
 
         public static ArrayList displayNotices()
@@ -163,12 +177,13 @@ namespace PharmacyManagementSystem
             }
             conn.Close();
 
+            int unreadCount = 0;
             foreach (DataRow row in table.Rows)
             {
                 Notice newNotice = new Notice();
                 newNotice.Id = (int)row["noticeId"];
                 newNotice.Type = row["noticeType"].ToString();
-                newNotice.Status = row["noticeStatus"].ToString();
+                newNotice.Status = row["noticeStatus"].ToString();                
                 newNotice.SentDate = row["sentDate"].ToString();
                 newNotice.Message = row["message"].ToString();
                 if (row["docName"] != null)
@@ -177,9 +192,33 @@ namespace PharmacyManagementSystem
                     newNotice.Sender = row["paName"].ToString();
                 else if (row["phName"] != null)
                     newNotice.Sender = row["phName"].ToString();
+                if (newNotice.Status.Equals("New"))
+                    unreadCount++;
                 noticeList.Add(newNotice);
             }
             notices =  noticeList;
+            Notice.Unread = unreadCount;
+        }
+
+        public void updateStatus()
+        {
+            string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;SSLMode=None";
+            MySqlConnection conn = new MySqlConnection(connStr);
+            try
+            {
+                Console.WriteLine("Connecting to MySQL...");
+                conn.Open();
+                string sql = "UPDATE DixonNotice SET noticeStatus = 'Received' WHERE noticeID = @id";            
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@id", Id);
+                cmd.ExecuteNonQuery();
+                Console.WriteLine("Table is ready.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            conn.Close();
         }
     }
 }

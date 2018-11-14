@@ -8,8 +8,6 @@ namespace PharmacyManagementSystem
 {
     public class RefillRequest
     {
-        private static ArrayList refillRequests = new ArrayList();
-
         private string date;
         private string status;
         private string patient;
@@ -76,6 +74,22 @@ namespace PharmacyManagementSystem
             }
         }
 
+        public static int NewRefillRequestCount
+        {
+            get
+            {
+                return newRefillRequestCount;
+            }
+
+            set
+            {
+                newRefillRequestCount = value;
+            }
+        }
+        private static int newRefillRequestCount;
+        private static ArrayList refillRequests = new ArrayList();
+        
+
         public static ArrayList displayRefillRequests()
         {
             return refillRequests;
@@ -108,6 +122,7 @@ namespace PharmacyManagementSystem
             }
             conn.Close();
 
+            int newCount = 0;
             foreach (DataRow row in table.Rows)
             {
                 RefillRequest request = new RefillRequest();
@@ -116,8 +131,11 @@ namespace PharmacyManagementSystem
                 request.Patient = row["patientName"].ToString();
                 request.Prescriber = row["name"].ToString();
                 request.Refills = (int)row["refills"];
+                if (request.Status.Equals("New"))
+                    newCount++;
                 refillRequests.Add(request);
             }
+            newRefillRequestCount = newCount;
         }
 
     }

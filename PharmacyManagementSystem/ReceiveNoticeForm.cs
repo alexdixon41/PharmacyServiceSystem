@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,18 +20,25 @@ namespace PharmacyManagementSystem
 
         private void ViewNoticeButton_Click(object sender, EventArgs e)
         {
+            Notice notice = (Notice)Notice.displayNotices()[noticesListView.SelectedIndices[0]];
+            typeTextBox.Text = notice.Type;
+            dateTextBox.Text = notice.SentDate;
+            fromTextBox.Text = notice.Sender;
+            messageTextBox.Text = notice.Message;
             noticeListPanel.Hide();
             noticeDetailPanel.Show();
+            notice.updateStatus();
         }
 
         private void ReceiveNoticeForm_Load(object sender, EventArgs e)
         {
-            
+            noticesListView.Items.Clear();     
             int i = 0;
             foreach (Notice notice in Notice.displayNotices())
             {
                 noticesListView.Items.Add(notice.Type);
                 noticesListView.Items[i].SubItems.Add(notice.SentDate);
+                noticesListView.Items[i].SubItems.Add(notice.Status);
                 noticesListView.Items[i].SubItems.Add(notice.Sender);
                 noticesListView.Items[i].SubItems.Add(notice.Message);
                 i++;
@@ -39,6 +47,18 @@ namespace PharmacyManagementSystem
 
         private void backButton_Click(object sender, EventArgs e)
         {
+            Notice.retrieveNotices();
+            noticesListView.Items.Clear();
+            int i = 0;
+            foreach (Notice notice in Notice.displayNotices())
+            {
+                noticesListView.Items.Add(notice.Type);
+                noticesListView.Items[i].SubItems.Add(notice.SentDate);
+                noticesListView.Items[i].SubItems.Add(notice.Status);
+                noticesListView.Items[i].SubItems.Add(notice.Sender);
+                noticesListView.Items[i].SubItems.Add(notice.Message);
+                i++;
+            }
             noticeDetailPanel.Hide();
             noticeListPanel.Show();
         }

@@ -57,6 +57,7 @@
             // 
             this.splitContainer1.Panel1.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.splitContainer1.Panel1.Controls.Add(this.splitContainer2);
+            this.splitContainer1.Panel1MinSize = 240;
             // 
             // splitContainer1.Panel2
             // 
@@ -115,7 +116,7 @@
             this.newRefillRequestsButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.newRefillRequestsButton.FlatAppearance.BorderSize = 0;
             this.newRefillRequestsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.newRefillRequestsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newRefillRequestsButton.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newRefillRequestsButton.Location = new System.Drawing.Point(10, 274);
             this.newRefillRequestsButton.Margin = new System.Windows.Forms.Padding(10, 10, 10, 0);
             this.newRefillRequestsButton.Name = "newRefillRequestsButton";
@@ -131,7 +132,7 @@
             this.prescriptionsButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.prescriptionsButton.FlatAppearance.BorderSize = 0;
             this.prescriptionsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.prescriptionsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.prescriptionsButton.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.prescriptionsButton.Location = new System.Drawing.Point(10, 406);
             this.prescriptionsButton.Margin = new System.Windows.Forms.Padding(10, 10, 10, 0);
             this.prescriptionsButton.Name = "prescriptionsButton";
@@ -147,7 +148,7 @@
             this.patientRecordsButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.patientRecordsButton.FlatAppearance.BorderSize = 0;
             this.patientRecordsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.patientRecordsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.patientRecordsButton.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.patientRecordsButton.Location = new System.Drawing.Point(10, 538);
             this.patientRecordsButton.Margin = new System.Windows.Forms.Padding(10, 10, 10, 0);
             this.patientRecordsButton.Name = "patientRecordsButton";
@@ -163,7 +164,7 @@
             this.newNoticesButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.newNoticesButton.FlatAppearance.BorderSize = 0;
             this.newNoticesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.newNoticesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newNoticesButton.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newNoticesButton.Location = new System.Drawing.Point(10, 10);
             this.newNoticesButton.Margin = new System.Windows.Forms.Padding(10, 10, 10, 0);
             this.newNoticesButton.Name = "newNoticesButton";
@@ -179,7 +180,7 @@
             this.newPrescriptionsButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.newPrescriptionsButton.FlatAppearance.BorderSize = 0;
             this.newPrescriptionsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.newPrescriptionsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newPrescriptionsButton.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newPrescriptionsButton.Location = new System.Drawing.Point(10, 142);
             this.newPrescriptionsButton.Margin = new System.Windows.Forms.Padding(10, 10, 10, 0);
             this.newPrescriptionsButton.Name = "newPrescriptionsButton";
