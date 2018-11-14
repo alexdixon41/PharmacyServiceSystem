@@ -19,7 +19,15 @@ namespace PharmacyManagementSystem
 
         private void viewPrescriptionButton_Click(object sender, EventArgs e)
         {
-            Prescription.retrievePrescriptionDetails(listView4.SelectedIndices.IndexOf(0));
+            int i = 0;
+            foreach (Medicine medicine in Prescription.retrievePrescriptionDetails(listView4.SelectedIndices.IndexOf(0)))
+            {
+                listView1.Items.Add(medicine.Date);
+                listView1.Items[i].SubItems.Add(medicine.Name);
+                listView1.Items[i].SubItems.Add("" + medicine.Quantity);
+                listView1.Items[i].SubItems.Add(medicine.Dosage);
+                i++;
+            }
             newPrescriptionsPanel.Hide();
             prescriptionDetailPanel.Show();
         }

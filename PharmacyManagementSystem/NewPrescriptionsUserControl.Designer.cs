@@ -32,6 +32,11 @@
             this.viewPrescriptionButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.listView4 = new System.Windows.Forms.ListView();
+            this.date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.patientName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.prescriber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.status = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.refills = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.prescriptionDetailPanel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -39,7 +44,6 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
-            this.listView3 = new System.Windows.Forms.ListView();
             this.panel4 = new System.Windows.Forms.Panel();
             this.listView1 = new System.Windows.Forms.ListView();
             this.label6 = new System.Windows.Forms.Label();
@@ -52,11 +56,11 @@
             this.label7 = new System.Windows.Forms.Label();
             this.backButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.patientName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.prescriber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.status = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.refills = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.dateFilled = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.quantity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.dosage = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.newPrescriptionsPanel.SuspendLayout();
             this.prescriptionDetailPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -124,6 +128,30 @@
             this.listView4.TabIndex = 0;
             this.listView4.UseCompatibleStateImageBehavior = false;
             this.listView4.View = System.Windows.Forms.View.Details;
+            // 
+            // date
+            // 
+            this.date.Text = "Date";
+            this.date.Width = 220;
+            // 
+            // patientName
+            // 
+            this.patientName.Text = "Patient";
+            this.patientName.Width = 200;
+            // 
+            // prescriber
+            // 
+            this.prescriber.Text = "Prescriber";
+            this.prescriber.Width = 200;
+            // 
+            // status
+            // 
+            this.status.Text = "Status";
+            this.status.Width = 160;
+            // 
+            // refills
+            // 
+            this.refills.Text = "Refills";
             // 
             // prescriptionDetailPanel
             // 
@@ -204,7 +232,7 @@
             // 
             this.panel3.AutoScroll = true;
             this.panel3.Controls.Add(this.label8);
-            this.panel3.Controls.Add(this.listView3);
+            this.panel3.Controls.Add(this.textBox1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 195);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
@@ -222,19 +250,6 @@
             this.label8.TabIndex = 1;
             this.label8.Text = "Allergies";
             // 
-            // listView3
-            // 
-            this.listView3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.listView3.Location = new System.Drawing.Point(4, 32);
-            this.listView3.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.listView3.Name = "listView3";
-            this.listView3.Size = new System.Drawing.Size(474, 154);
-            this.listView3.TabIndex = 0;
-            this.listView3.UseCompatibleStateImageBehavior = false;
-            this.listView3.View = System.Windows.Forms.View.Details;
-            // 
             // panel4
             // 
             this.panel4.Controls.Add(this.listView1);
@@ -250,11 +265,18 @@
             this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.dateFilled,
+            this.name,
+            this.quantity,
+            this.dosage});
+            this.listView1.FullRowSelect = true;
             this.listView1.Location = new System.Drawing.Point(4, 33);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(474, 150);
             this.listView1.TabIndex = 1;
             this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
             // 
             // label6
             // 
@@ -367,36 +389,43 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Prescription Information (New)";
             // 
-            // date
+            // dateFilled
             // 
-            this.date.Text = "Date";
-            this.date.Width = 220;
+            this.dateFilled.Text = "Date";
+            this.dateFilled.Width = 120;
             // 
-            // patientName
+            // name
             // 
-            this.patientName.Text = "Patient";
-            this.patientName.Width = 200;
+            this.name.Text = "Name";
+            this.name.Width = 200;
             // 
-            // prescriber
+            // quantity
             // 
-            this.prescriber.Text = "Prescriber";
-            this.prescriber.Width = 200;
+            this.quantity.Text = "Quantity";
+            this.quantity.Width = 100;
             // 
-            // status
+            // dosage
             // 
-            this.status.Text = "Status";
-            this.status.Width = 160;
+            this.dosage.Text = "Dosage";
+            this.dosage.Width = 80;
             // 
-            // refills
+            // textBox1
             // 
-            this.refills.Text = "Refills";
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1.Location = new System.Drawing.Point(3, 32);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(475, 155);
+            this.textBox1.TabIndex = 2;
             // 
             // NewPrescriptionsUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.newPrescriptionsPanel);
             this.Controls.Add(this.prescriptionDetailPanel);
+            this.Controls.Add(this.newPrescriptionsPanel);
             this.Name = "NewPrescriptionsUserControl";
             this.Size = new System.Drawing.Size(1036, 621);
             this.Load += new System.EventHandler(this.NewPrescriptionsUserControl_Load);
@@ -432,7 +461,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ListView listView3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Label label6;
@@ -450,5 +478,10 @@
         private System.Windows.Forms.ColumnHeader prescriber;
         private System.Windows.Forms.ColumnHeader status;
         private System.Windows.Forms.ColumnHeader refills;
+        private System.Windows.Forms.ColumnHeader dateFilled;
+        private System.Windows.Forms.ColumnHeader name;
+        private System.Windows.Forms.ColumnHeader quantity;
+        private System.Windows.Forms.ColumnHeader dosage;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

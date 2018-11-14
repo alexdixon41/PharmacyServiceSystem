@@ -21,6 +21,7 @@ namespace PharmacyManagementSystem
         private String homeNumber;
         private String officeNumber;
         private String address;
+        private ArrayList medicineHistory;
         public string Name
         {
             get
@@ -117,6 +118,18 @@ namespace PharmacyManagementSystem
                 address = value;
             }
         }
+        public ArrayList MedicineHistory
+        {
+            get
+            {
+                return medicineHistory;
+            }
+
+            set
+            {
+                medicineHistory = value;
+            }
+        }
 
         public static Patient retrievePatientDetails(int patientId)
         {
@@ -157,6 +170,11 @@ namespace PharmacyManagementSystem
             return newPatient;
         }
 
+        public static ArrayList displayPatients()
+        {
+            return patients;
+        }
+
         public static ArrayList retrievePatients(string name)
         {
             DataTable table = new DataTable();
@@ -189,9 +207,40 @@ namespace PharmacyManagementSystem
             return patients;
         }
 
-        public static ArrayList displayPatients()
+        public void retrieveMedicineHistory()
         {
-            return patients;
+            DataTable table = new DataTable();
+            string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;SSLMode=None";
+            MySqlConnection conn = new MySqlConnection(connStr);
+            try
+            {
+                Console.WriteLine("Connecting to MySQL...");
+                conn.Open();
+                string sql = "SELECT m.name, m.quantity, m.dosage, m.route, m.instructions, m.prescriptionID " +
+                            "FROM DixonPatient pa JOIN DixonPrescription pr ON pr.patientID = pa.patientID " +
+                            "JOIN DixonMedicine m ON m.prescriptionID = pr.id WHERE pa.patientID = 1;";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                MySqlDataAdapter myAdapter = new MySqlDataAdapter(cmd);
+                myAdapter.Fill(table);
+                Console.WriteLine("Table is ready.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            conn.Close();
+           
+            foreach (DataRow row in table.Rows)
+            {
+                Medicine medicine = new Medicine();
+                medicine.Name = row["name"].ToString();
+                medicine.Quantity = (int)row["quantity"];
+                medicine.Dosage = row["dosage"].ToString();
+                medicine.Route = row["route"].ToString();
+                medicine.Instructions = row["instructions"].ToString();
+                medicine.PrescriptionID = (int)row["prescriptionID"];
+                medicineHistory.Add(medicine);
+            }
         }
 
     }
