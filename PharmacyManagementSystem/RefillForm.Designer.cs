@@ -29,9 +29,14 @@
         private void InitializeComponent()
         {
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.viewRefillRequestsButton = new System.Windows.Forms.Button();
             this.newRefillRequestsPanel = new System.Windows.Forms.Panel();
-            this.newRefillRequestsListBox = new System.Windows.Forms.ListView();
+            this.newRefillRequestsListView = new System.Windows.Forms.ListView();
+            this.date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.patient = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.prescriber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.status = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.refills = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.prescriptionDetailPanel = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -53,11 +58,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.backButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.patient = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.prescriber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.status = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.refills = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.newRefillRequestsPanel.SuspendLayout();
             this.prescriptionDetailPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -80,23 +80,23 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "New Refill Requests";
             // 
-            // button1
+            // viewRefillRequestsButton
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.AutoSize = true;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(982, 14);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(262, 48);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "View Refill Request";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.viewRefillRequestsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.viewRefillRequestsButton.AutoSize = true;
+            this.viewRefillRequestsButton.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.viewRefillRequestsButton.Location = new System.Drawing.Point(982, 14);
+            this.viewRefillRequestsButton.Name = "viewRefillRequestsButton";
+            this.viewRefillRequestsButton.Size = new System.Drawing.Size(262, 48);
+            this.viewRefillRequestsButton.TabIndex = 12;
+            this.viewRefillRequestsButton.Text = "View Refill Request";
+            this.viewRefillRequestsButton.UseVisualStyleBackColor = true;
+            this.viewRefillRequestsButton.Click += new System.EventHandler(this.viewRefillRequestsButton_Click);
             // 
             // newRefillRequestsPanel
             // 
-            this.newRefillRequestsPanel.Controls.Add(this.newRefillRequestsListBox);
-            this.newRefillRequestsPanel.Controls.Add(this.button1);
+            this.newRefillRequestsPanel.Controls.Add(this.newRefillRequestsListView);
+            this.newRefillRequestsPanel.Controls.Add(this.viewRefillRequestsButton);
             this.newRefillRequestsPanel.Controls.Add(this.label2);
             this.newRefillRequestsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.newRefillRequestsPanel.Location = new System.Drawing.Point(0, 0);
@@ -104,24 +104,48 @@
             this.newRefillRequestsPanel.Size = new System.Drawing.Size(1256, 576);
             this.newRefillRequestsPanel.TabIndex = 20;
             // 
-            // newRefillRequestsListBox
+            // newRefillRequestsListView
             // 
-            this.newRefillRequestsListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.newRefillRequestsListView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.newRefillRequestsListBox.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.newRefillRequestsListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.date,
             this.patient,
             this.prescriber,
             this.status,
             this.refills});
-            this.newRefillRequestsListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newRefillRequestsListBox.Location = new System.Drawing.Point(27, 82);
-            this.newRefillRequestsListBox.Name = "newRefillRequestsListBox";
-            this.newRefillRequestsListBox.Size = new System.Drawing.Size(1217, 480);
-            this.newRefillRequestsListBox.TabIndex = 13;
-            this.newRefillRequestsListBox.UseCompatibleStateImageBehavior = false;
-            this.newRefillRequestsListBox.View = System.Windows.Forms.View.Details;
+            this.newRefillRequestsListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newRefillRequestsListView.Location = new System.Drawing.Point(27, 82);
+            this.newRefillRequestsListView.Name = "newRefillRequestsListView";
+            this.newRefillRequestsListView.Size = new System.Drawing.Size(1217, 480);
+            this.newRefillRequestsListView.TabIndex = 13;
+            this.newRefillRequestsListView.UseCompatibleStateImageBehavior = false;
+            this.newRefillRequestsListView.View = System.Windows.Forms.View.Details;
+            // 
+            // date
+            // 
+            this.date.Text = "Date";
+            this.date.Width = 220;
+            // 
+            // patient
+            // 
+            this.patient.Text = "Patient";
+            this.patient.Width = 200;
+            // 
+            // prescriber
+            // 
+            this.prescriber.Text = "Prescriber";
+            this.prescriber.Width = 200;
+            // 
+            // status
+            // 
+            this.status.Text = "Status";
+            this.status.Width = 160;
+            // 
+            // refills
+            // 
+            this.refills.Text = "Refills";
             // 
             // prescriptionDetailPanel
             // 
@@ -378,30 +402,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Prescription Information (Refill)";
             // 
-            // date
-            // 
-            this.date.Text = "Date";
-            this.date.Width = 220;
-            // 
-            // patient
-            // 
-            this.patient.Text = "Patient";
-            this.patient.Width = 200;
-            // 
-            // prescriber
-            // 
-            this.prescriber.Text = "Prescriber";
-            this.prescriber.Width = 200;
-            // 
-            // status
-            // 
-            this.status.Text = "Status";
-            this.status.Width = 160;
-            // 
-            // refills
-            // 
-            this.refills.Text = "Refills";
-            // 
             // RefillForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -434,9 +434,9 @@
 
         #endregion
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button viewRefillRequestsButton;
         private System.Windows.Forms.Panel newRefillRequestsPanel;
-        private System.Windows.Forms.ListView newRefillRequestsListBox;
+        private System.Windows.Forms.ListView newRefillRequestsListView;
         private System.Windows.Forms.Panel prescriptionDetailPanel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.GroupBox groupBox1;

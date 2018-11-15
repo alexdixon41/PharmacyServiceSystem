@@ -20,14 +20,17 @@ namespace PharmacyManagementSystem
 
         private void ViewNoticeButton_Click(object sender, EventArgs e)
         {
-            Notice notice = (Notice)Notice.displayNotices()[noticesListView.SelectedIndices[0]];
-            typeTextBox.Text = notice.Type;
-            dateTextBox.Text = notice.SentDate;
-            fromTextBox.Text = notice.Sender;
-            messageTextBox.Text = notice.Message;
-            noticeListPanel.Hide();
-            noticeDetailPanel.Show();
-            notice.updateStatus();
+            if (!(noticesListView.SelectedIndices.Count == 0))
+            {
+                Notice notice = (Notice)Notice.displayNotices()[noticesListView.SelectedIndices[0]];
+                typeTextBox.Text = notice.Type;
+                dateTextBox.Text = notice.SentDate;
+                fromTextBox.Text = notice.Sender;
+                messageTextBox.Text = notice.Message;
+                noticeListPanel.Hide();
+                noticeDetailPanel.Show();
+                notice.updateStatus();
+            }
         }
 
         private void ReceiveNoticeForm_Load(object sender, EventArgs e)

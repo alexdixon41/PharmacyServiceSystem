@@ -20,8 +20,9 @@ namespace PharmacyManagementSystem
         private string prescriberName;
         private string status;
         private int refills;
-        private int patientId;
-        private ArrayList medicines;
+        private int remainingRefills;
+        private int patientId;        
+        private ArrayList medicines = new ArrayList();
         public int Id
         {
             get
@@ -93,7 +94,19 @@ namespace PharmacyManagementSystem
             {
                 refills = value;
             }
-        }    
+        }
+        public int RemainingRefills
+        {
+            get
+            {
+                return remainingRefills;
+            }
+
+            set
+            {
+                remainingRefills = value;
+            }
+        }
         public int PatientId
         {
             get
@@ -105,7 +118,7 @@ namespace PharmacyManagementSystem
             {
                 patientId = value;
             }
-        }
+        }        
         public ArrayList Medicines
         {
             get
@@ -140,26 +153,29 @@ namespace PharmacyManagementSystem
             return prescriptions;
         }
 
-        public static ArrayList retrievePrescriptionDetails(int selectedPrescriptionIndex)
+        /// <summary>
+        /// Get information about the selected prescription, including all medicines it contains.
+        /// </summary>
+        /// <param name="selectedPrescriptionIndex">The index of the prescriptions list where the selected prescription
+        /// is located.</param>
+        /// <returns></returns>
+        public static Prescription retrievePrescriptionDetails(int selectedPrescriptionIndex)
         {
-            DataTable patientTable = new DataTable();
-            DataTable prescriptionDetailTable = new DataTable();
+            Prescription prescription = (Prescription)prescriptions[selectedPrescriptionIndex];
+            DataTable table = new DataTable();
             string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;SSLMode=None";
             MySqlConnection conn = new MySqlConnection(connStr);
             try
             {
                 Console.WriteLine("Connecting to MySQL...");
                 conn.Open();
-                string sql = "SELECT DATE_FORMAT(pr.dateFilled, \"%Y-%m-%d\") AS 'date', m.name, m.quantity, m.dosage, m.route, m.instructions, m.prescriptionID " +
-                            "FROM DixonPatient pa JOIN DixonPrescription pr ON pr.patientID = pa.patientID " +
-                            "JOIN DixonMedicine m ON m.prescriptionID = pr.id WHERE pa.patientID = @id;";
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                Prescription prescription = (Prescription)prescriptions[selectedPrescriptionIndex];
-                cmd.Parameters.AddWithValue("@id", prescription.PatientId);
-                
+                string sql = "SELECT m.name, m.quantity, m.dosage, m.route, m.instructions " +
+                            "FROM DixonPrescription pr JOIN DixonMedicine m ON m.prescriptionID = pr.id " +
+                            "WHERE pr.id = @id;";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);                
+                cmd.Parameters.AddWithValue("@id", prescription.Id);
                 MySqlDataAdapter myAdapter = new MySqlDataAdapter(cmd);
-                myAdapter.Fill(patientTable);
-                
+                myAdapter.Fill(table);                               
                 Console.WriteLine("Table is ready.");
             }
             catch (Exception ex)
@@ -167,9 +183,8 @@ namespace PharmacyManagementSystem
                 Console.WriteLine(ex.ToString());
             }
             conn.Close();
-
-            ArrayList medicines = new ArrayList();
-            foreach (DataRow row in patientTable.Rows)
+            
+            foreach (DataRow row in table.Rows)
             {
                 Medicine medicine = new Medicine();
                 medicine.Name = row["name"].ToString();
@@ -177,12 +192,10 @@ namespace PharmacyManagementSystem
                 medicine.Dosage = row["dosage"].ToString();
                 medicine.Route = row["route"].ToString();
                 medicine.Instructions = row["instructions"].ToString();
-                medicine.PrescriptionID = (int)row["prescriptionID"];
-                medicine.Date = row["date"].ToString();
-                medicines.Add(medicine);
+                prescription.Medicines.Add(medicine);
             }
-            return medicines;
-        }
+            return prescription;
+        }        
 
         public static void retrieveNewPrescriptions()
         {
@@ -194,7 +207,8 @@ namespace PharmacyManagementSystem
             {
                 Console.WriteLine("Connecting to MySQL...");
                 conn.Open();
-                string sql = "SELECT pr.id, pr.dateFilled, pr.refills, pr.prescriptionStatus, pa.name AS patientName, pa.patientID, doc.name AS doctorName " +
+                string sql = "SELECT pr.id, DATE_FORMAT(pr.dateFilled, \"%m-%d-%Y\") AS 'dateFilled', pr.refills, " +
+                "pr.remainingRefills, pr.prescriptionStatus, pa.name AS patientName, pa.patientID, doc.name AS doctorName " +
                 "FROM(DixonPrescription pr JOIN DixonPatient pa ON pr.patientID = pa.patientID JOIN DixonDoctor doc ON pr.doctorID = doc.id) " +
                 "WHERE pr.prescriptionStatus = 'New' AND pr.pharmacyID = @id; ";                
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
@@ -215,6 +229,7 @@ namespace PharmacyManagementSystem
                 Prescription newPrescription = new Prescription();
                 newPrescription.Date = row["dateFilled"].ToString();
                 newPrescription.Refills = (int)row["refills"];
+                newPrescription.RemainingRefills = (int)row["remainingRefills"];
                 newPrescription.Status = row["prescriptionStatus"].ToString();
                 newPrescription.PatientName = row["patientName"].ToString();
                 newPrescription.PatientId = (int)row["patientID"];
@@ -242,14 +257,16 @@ namespace PharmacyManagementSystem
                 string sql;
                 if (searchTypeCode == SEARCH_BY_DOCTOR)
                 {
-                    sql = "SELECT pa.name AS PatientName, doc.name AS DoctorName, pr.dateFilled, pr.prescriptionStatus, pr.refills " +
+                    sql = "SELECT pa.name AS PatientName, doc.name AS DoctorName, " +
+                    "DATE_FORMAT(pr.dateFilled, \"%m-%d-%Y\") AS 'dateFilled', pr.prescriptionStatus, pr.refills " +
                     "FROM DixonPrescription pr JOIN DixonPatient pa ON pr.patientID = pa.patientID " +
                     "JOIN DixonDoctor doc ON pr.doctorID = doc.id JOIN DixonPharmacy ph ON pr.pharmacyID = ph.id " +
                     "WHERE doc.name LIKE '" + searchKey + "%' AND ph.id = @id;";
                 }
                 else
                 {
-                    sql = "SELECT pa.name AS PatientName, doc.name AS DoctorName, pr.dateFilled, pr.prescriptionStatus, pr.refills " +
+                    sql = "SELECT pa.name AS PatientName, doc.name AS DoctorName, " +
+                    "DATE_FORMAT(pr.dateFilled, \"%m-%d-%Y\") AS 'dateFilled', pr.prescriptionStatus, pr.refills " +
                     "FROM DixonPrescription pr JOIN DixonPatient pa ON pr.patientID = pa.patientID " +
                     "JOIN DixonDoctor doc ON pr.doctorID = doc.id JOIN DixonPharmacy ph ON pr.pharmacyID = ph.id " +
                     "WHERE pa.name LIKE '" + searchKey + "%' AND ph.id = @id;";

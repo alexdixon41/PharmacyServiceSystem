@@ -17,10 +17,13 @@ namespace PharmacyManagementSystem
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void viewRefillRequestsButton_Click(object sender, EventArgs e)
         {
-            newRefillRequestsPanel.Hide();
-            prescriptionDetailPanel.Show();
+            if (!(newRefillRequestsListView.SelectedIndices.Count == 0))
+            {
+                newRefillRequestsPanel.Hide();
+                prescriptionDetailPanel.Show();
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -28,11 +31,11 @@ namespace PharmacyManagementSystem
             int i = 0;
             foreach(RefillRequest request in RefillRequest.displayRefillRequests())
             {
-                newRefillRequestsListBox.Items.Add(request.Date);                
-                newRefillRequestsListBox.Items[i].SubItems.Add(request.Patient);
-                newRefillRequestsListBox.Items[i].SubItems.Add(request.Prescriber);
-                newRefillRequestsListBox.Items[i].SubItems.Add(request.Status);
-                newRefillRequestsListBox.Items[i].SubItems.Add(request.Refills.ToString());
+                newRefillRequestsListView.Items.Add(request.Date);                
+                newRefillRequestsListView.Items[i].SubItems.Add(request.Patient);
+                newRefillRequestsListView.Items[i].SubItems.Add(request.Prescriber);
+                newRefillRequestsListView.Items[i].SubItems.Add(request.Status);
+                newRefillRequestsListView.Items[i].SubItems.Add(request.Refills.ToString());
                 i++;
             }
         }

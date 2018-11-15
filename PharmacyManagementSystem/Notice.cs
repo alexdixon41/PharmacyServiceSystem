@@ -137,7 +137,8 @@ namespace PharmacyManagementSystem
                 switch (User.Type)
                 {
                     case User.PHARMACIST_USER_TYPE:
-                        sql = "SELECT n.noticeID, n.noticeType, n.noticeStatus, n.sentDate, n.message, doc.name AS docName, " +
+                        sql = "SELECT n.noticeID, n.noticeType, n.noticeStatus, " +
+                            "DATE_FORMAT(n.sentDate, \"%m-%d-%Y\") AS 'sentDate', n.message, doc.name AS docName, " +
                             "pa.name AS paName, ph.name AS phName " +
                             "FROM DixonNotice n LEFT OUTER JOIN DixonDoctor doc ON n.doctorSender = doc.id " +
                             "LEFT OUTER JOIN DixonPatient pa ON n.patientSender = pa.patientID " +
@@ -146,7 +147,8 @@ namespace PharmacyManagementSystem
                             "ORDER BY n.noticeStatus ASC";
                         break;
                     case User.PATIENT_USER_TYPE:
-                        sql = "SELECT n.noticeID, n.noticeType, n.noticeStatus, n.sentDate, n.message, doc.name AS docName, " +
+                        sql = "SELECT n.noticeID, n.noticeType, n.noticeStatus, " +
+                            "DATE_FORMAT(n.sentDate, \"%m-%d-%Y\") AS 'sentDate', n.message, doc.name AS docName, " +
                             "pa.name AS paName, ph.name AS phName " +
                             "FROM DixonNotice n LEFT OUTER JOIN DixonDoctor doc ON n.doctorSender = doc.id " +
                             "LEFT OUTER JOIN DixonPatient pa ON n.patientSender = pa.patientID " +
@@ -155,7 +157,8 @@ namespace PharmacyManagementSystem
                             "ORDER BY n.noticeStatus ASC";
                         break;
                     case User.DOCTOR_USER_TYPE:
-                        sql = "SELECT n.noticeID, n.noticeType, n.noticeStatus, n.sentDate, n.message, doc.name AS docName, " +
+                        sql = "SELECT n.noticeID, n.noticeType, n.noticeStatus, " +
+                            "DATE_FORMAT(n.sentDate, \"%m-%d-%Y\") AS 'sentDate', n.message, doc.name AS docName, " +
                             "pa.name AS paName, ph.name AS phName " +
                             "FROM DixonNotice n LEFT OUTER JOIN DixonDoctor doc ON n.doctorSender = doc.id " +
                             "LEFT OUTER JOIN DixonPatient pa ON n.patientSender = pa.patientID " +
