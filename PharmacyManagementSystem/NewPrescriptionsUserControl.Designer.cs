@@ -38,6 +38,7 @@
             this.status = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.refills = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.prescriptionDetailPanel = new System.Windows.Forms.Panel();
+            this.updateStatusButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -71,7 +72,6 @@
             this.dose = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.route = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.instructions = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label3 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.backButton = new System.Windows.Forms.Button();
@@ -170,6 +170,7 @@
             // 
             // prescriptionDetailPanel
             // 
+            this.prescriptionDetailPanel.Controls.Add(this.updateStatusButton);
             this.prescriptionDetailPanel.Controls.Add(this.tableLayoutPanel1);
             this.prescriptionDetailPanel.Controls.Add(this.backButton);
             this.prescriptionDetailPanel.Controls.Add(this.label2);
@@ -179,6 +180,19 @@
             this.prescriptionDetailPanel.Size = new System.Drawing.Size(1036, 621);
             this.prescriptionDetailPanel.TabIndex = 5;
             this.prescriptionDetailPanel.Visible = false;
+            // 
+            // updateStatusButton
+            // 
+            this.updateStatusButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.updateStatusButton.AutoSize = true;
+            this.updateStatusButton.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updateStatusButton.Location = new System.Drawing.Point(762, 17);
+            this.updateStatusButton.Name = "updateStatusButton";
+            this.updateStatusButton.Size = new System.Drawing.Size(262, 48);
+            this.updateStatusButton.TabIndex = 26;
+            this.updateStatusButton.Text = "Update Status";
+            this.updateStatusButton.UseVisualStyleBackColor = true;
+            this.updateStatusButton.Click += new System.EventHandler(this.updateStatusButton_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -224,7 +238,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(490, 499);
             this.panel1.TabIndex = 25;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // birthDateLabel
             // 
@@ -432,7 +445,7 @@
             // 
             this.remainingLabel.AutoSize = true;
             this.remainingLabel.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.remainingLabel.Location = new System.Drawing.Point(164, 122);
+            this.remainingLabel.Location = new System.Drawing.Point(169, 122);
             this.remainingLabel.Name = "remainingLabel";
             this.remainingLabel.Size = new System.Drawing.Size(0, 23);
             this.remainingLabel.TabIndex = 11;
@@ -485,9 +498,9 @@
             this.count,
             this.dose,
             this.route,
-            this.instructions,
-            this.columnHeader1});
+            this.instructions});
             this.listView2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView2.FullRowSelect = true;
             this.listView2.Location = new System.Drawing.Point(7, 206);
             this.listView2.Name = "listView2";
             this.listView2.Size = new System.Drawing.Size(481, 276);
@@ -570,8 +583,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.prescriptionDetailPanel);
             this.Controls.Add(this.newPrescriptionsPanel);
+            this.Controls.Add(this.prescriptionDetailPanel);
             this.Name = "NewPrescriptionsUserControl";
             this.Size = new System.Drawing.Size(1036, 621);
             this.Load += new System.EventHandler(this.NewPrescriptionsUserControl_Load);
@@ -643,6 +656,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label dateLabel;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.Button updateStatusButton;
     }
 }

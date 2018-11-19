@@ -34,7 +34,7 @@ namespace PharmacyManagementSystem
 
         private void sendButton_Click(object sender, EventArgs e)
         {
-            ConfirmationPopup deliveryPopup = new ConfirmationPopup("The notice was delivered to the patient.", "", 4);
+            ConfirmationPopup deliveryPopup = new ConfirmationPopup("The notice was delivered to the patient.", "");
             deliveryPopup.ShowDialog();
             this.Close();
         }

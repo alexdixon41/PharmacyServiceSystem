@@ -10,9 +10,8 @@ namespace PharmacyManagementSystem
     {
         private string date;
         private string status;
-        private string patient;
-        private string prescriber;
-        private int refills;
+        private string id;
+        private Prescription prescription;
         public string Date
         {
             get
@@ -37,43 +36,31 @@ namespace PharmacyManagementSystem
                 status = value;
             }
         }
-        public string Patient
+        public string Id
         {
             get
             {
-                return patient;
+                return id;
             }
 
             set
             {
-                patient = value;
+                id = value;
             }
         }
-        public string Prescriber
+        internal Prescription Prescription
         {
             get
             {
-                return prescriber;
+                return prescription;
             }
 
             set
             {
-                prescriber = value;
+                prescription = value;
             }
-        }
-        public int Refills
-        {
-            get
-            {
-                return refills;
-            }
-
-            set
-            {
-                refills = value;
-            }
-        }
-
+        }        
+                
         public static int NewRefillRequestCount
         {
             get
@@ -88,7 +75,9 @@ namespace PharmacyManagementSystem
         }
         private static int newRefillRequestCount;
         private static ArrayList refillRequests = new ArrayList();
-        
+
+        public const int ACCEPTED_STATUS_CODE = 0;
+        public const int DENIED_STATUS_CODE = 1;
 
         public static ArrayList displayRefillRequests()
         {
@@ -97,7 +86,7 @@ namespace PharmacyManagementSystem
 
         public static void retrieveRefillRequests()
         {
-            ArrayList noticeList = new ArrayList();
+            refillRequests.Clear();
             DataTable table = new DataTable();
             string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;SSLMode=None";
             MySqlConnection conn = new MySqlConnection(connStr);
@@ -105,10 +94,11 @@ namespace PharmacyManagementSystem
             {
                 Console.WriteLine("Connecting to MySQL...");
                 conn.Open();
-                string sql = "SELECT re.dateRequested, re.refillRequestStatus, pa.name AS patientName, doc.name, pr.refills " +
+                string sql = "SELECT DATE_FORMAT(re.dateRequested, \"%m-%d-%Y\") AS dateRequested, re.refillRequestStatus, " +
+                        "re.id, pa.name AS patientName, pa.patientID, doc.name, pr.refills, pr.remainingRefills, pr.id AS 'pid'" +
                         "FROM DixonRefillRequest re JOIN DixonPrescription pr ON re.prescriptionID = pr.id " +
                         "JOIN DixonPatient pa ON re.patientID = pa.patientID JOIN DixonDoctor doc ON pr.doctorID = doc.id " +
-                        "WHERE re.refillRequestStatus = 'New' AND pr.pharmacyID = @id;";
+                        "WHERE pr.pharmacyID = @id;";
 
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@id", User.Id);
@@ -121,21 +111,57 @@ namespace PharmacyManagementSystem
                 Console.WriteLine(ex.ToString());
             }
             conn.Close();
-
+            
             int newCount = 0;
             foreach (DataRow row in table.Rows)
             {
                 RefillRequest request = new RefillRequest();
+                request.Prescription = new Prescription();
                 request.Date = row["dateRequested"].ToString();
                 request.Status = row["refillRequestStatus"].ToString();
-                request.Patient = row["patientName"].ToString();
-                request.Prescriber = row["name"].ToString();
-                request.Refills = (int)row["refills"];
+                request.Id = row["id"].ToString();
+                request.Prescription.PatientName = row["patientName"].ToString();                
+                request.Prescription.PrescriberName = row["name"].ToString();
+                request.Prescription.Refills = (int)row["refills"];
+                request.Prescription.RemainingRefills = (int)row["remainingRefills"];                
+                request.Prescription.Id = (int)row["pid"];
+                request.Prescription.PatientId = (int)row["patientID"];
                 if (request.Status.Equals("New"))
                     newCount++;
                 refillRequests.Add(request);
             }
             newRefillRequestCount = newCount;
+        }
+
+        public void changeStatus(int newStatusCode)
+        {
+            string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;SSLMode=None";
+            MySqlConnection conn = new MySqlConnection(connStr);
+            try
+            {
+                Console.WriteLine("Connecting to MySQL...");
+                conn.Open();
+                string sql = "";
+                switch (newStatusCode)
+                {
+                    case ACCEPTED_STATUS_CODE:
+                        sql = "UPDATE DixonRefillRequest SET refillRequestStatus = 'Accepted' WHERE id = @id;";
+                        break;
+                    case DENIED_STATUS_CODE:
+                        sql = "UPDATE DixonRefillRequest SET refillRequestStatus = 'Denied' WHERE id = @id;";
+                        break;                    
+                }
+
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@id", Id);
+                cmd.ExecuteNonQuery();
+                Console.WriteLine("Table is ready.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            conn.Close();
         }
 
     }

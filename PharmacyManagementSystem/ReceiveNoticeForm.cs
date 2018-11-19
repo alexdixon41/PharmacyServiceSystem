@@ -18,39 +18,10 @@ namespace PharmacyManagementSystem
             InitializeComponent();
         }
 
-        private void ViewNoticeButton_Click(object sender, EventArgs e)
-        {
-            if (!(noticesListView.SelectedIndices.Count == 0))
-            {
-                Notice notice = (Notice)Notice.displayNotices()[noticesListView.SelectedIndices[0]];
-                typeTextBox.Text = notice.Type;
-                dateTextBox.Text = notice.SentDate;
-                fromTextBox.Text = notice.Sender;
-                messageTextBox.Text = notice.Message;
-                noticeListPanel.Hide();
-                noticeDetailPanel.Show();
-                notice.updateStatus();
-            }
-        }
+        private Notice selectedNotice;
 
-        private void ReceiveNoticeForm_Load(object sender, EventArgs e)
+        public void populateList()
         {
-            noticesListView.Items.Clear();     
-            int i = 0;
-            foreach (Notice notice in Notice.displayNotices())
-            {
-                noticesListView.Items.Add(notice.Type);
-                noticesListView.Items[i].SubItems.Add(notice.SentDate);
-                noticesListView.Items[i].SubItems.Add(notice.Status);
-                noticesListView.Items[i].SubItems.Add(notice.Sender);
-                noticesListView.Items[i].SubItems.Add(notice.Message);
-                i++;
-            }
-        }
-
-        private void backButton_Click(object sender, EventArgs e)
-        {
-            Notice.retrieveNotices();
             noticesListView.Items.Clear();
             int i = 0;
             foreach (Notice notice in Notice.displayNotices())
@@ -62,6 +33,32 @@ namespace PharmacyManagementSystem
                 noticesListView.Items[i].SubItems.Add(notice.Message);
                 i++;
             }
+        }
+
+        private void ViewNoticeButton_Click(object sender, EventArgs e)
+        {
+            if (!(noticesListView.SelectedIndices.Count == 0))
+            {
+                selectedNotice = (Notice)Notice.displayNotices()[noticesListView.SelectedIndices[0]];
+                typeTextBox.Text = selectedNotice.Type;
+                dateTextBox.Text = selectedNotice.SentDate;
+                fromTextBox.Text = selectedNotice.Sender;
+                messageTextBox.Text = selectedNotice.Message;
+                noticeListPanel.Hide();
+                noticeDetailPanel.Show();
+                selectedNotice.updateStatus();
+            }
+        }
+
+        private void ReceiveNoticeForm_Load(object sender, EventArgs e)
+        {
+            populateList();
+        }        
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            Notice.retrieveNotices();
+            populateList();
             noticeDetailPanel.Hide();
             noticeListPanel.Show();
         }

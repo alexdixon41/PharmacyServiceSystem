@@ -70,12 +70,6 @@
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Medicine.cs" />
-    <Compile Include="NewPrescriptionsUserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="NewPrescriptionsUserControl.Designer.cs">
-      <DependentUpon>NewPrescriptionsUserControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="Notice.cs" />
     <Compile Include="Patient.cs" />
     <Compile Include="Prescription.cs" />
@@ -133,9 +127,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NewPrescriptionsUserControl.resx">
-      <DependentUpon>NewPrescriptionsUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RefillForm.resx">
       <DependentUpon>RefillForm.cs</DependentUpon>

@@ -19,55 +19,48 @@ namespace PharmacyManagementSystem
         }
 
         ReceiveNoticeForm newNoticesForm = new ReceiveNoticeForm();
-        NewPrescriptionsUserControl newPrescriptions = new NewPrescriptionsUserControl();
-        PrescriptionsForm searchPrescriptionsForm = new PrescriptionsForm();        
+        PrescriptionsForm prescriptionsForm = new PrescriptionsForm();        
         RefillForm refillForm = new RefillForm();
         PatientRecordsForm patientRecordsForm = new PatientRecordsForm();
-        ReceiveNoticeForm noticesForm = new ReceiveNoticeForm();
 
         private void newNoticesButton_Click(object sender, EventArgs e)
-        {            
+        {
+            Notice.retrieveNotices();
             foreach (Control c in splitContainer1.Panel2.Controls)
             {
                 c.Hide();
             }     
             splitContainer1.Panel2.Controls.Add(newNoticesForm);
+            newNoticesForm.populateList();
             newNoticesForm.Dock = DockStyle.Fill;
             newNoticesForm.Show();
         }
 
         private void newPrescriptionsButton_Click(object sender, EventArgs e)
         {
+            Prescription.retrieveNewPrescriptions();
             foreach (Control c in splitContainer1.Panel2.Controls)
             {
                 c.Hide();
             }
-            splitContainer1.Panel2.Controls.Add(newPrescriptions);
-            newPrescriptions.Dock = DockStyle.Fill;
-            newPrescriptions.Show();                       
+            splitContainer1.Panel2.Controls.Add(prescriptionsForm);
+            prescriptionsForm.populateList();
+            prescriptionsForm.Dock = DockStyle.Fill;
+            prescriptionsForm.Show();                       
         }
 
         private void newRefillRequestsButton_Click(object sender, EventArgs e)
         {
+            RefillRequest.retrieveRefillRequests();
             foreach (Control c in splitContainer1.Panel2.Controls)
             {
                 c.Hide();
             }
             splitContainer1.Panel2.Controls.Add(refillForm);
+            refillForm.populateList();
             refillForm.Dock = DockStyle.Fill;
             refillForm.Show();
-        } 
-
-        private void prescriptionsButton_Click(object sender, EventArgs e)
-        {
-            foreach (Control c in splitContainer1.Panel2.Controls)
-            {
-                c.Hide();
-            }
-            splitContainer1.Panel2.Controls.Add(searchPrescriptionsForm);
-            searchPrescriptionsForm.Dock = DockStyle.Fill;
-            searchPrescriptionsForm.Show();
-        }
+        }         
 
         private void patientRecordsButton_Click(object sender, EventArgs e)
         {

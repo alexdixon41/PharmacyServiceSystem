@@ -33,6 +33,9 @@
             this.searchBox = new System.Windows.Forms.TextBox();
             this.patientSearchButton = new System.Windows.Forms.Button();
             this.patientSearchSelectButton = new System.Windows.Forms.Button();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.birthDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.patientRecordPanel = new System.Windows.Forms.Panel();
             this.doctorNoticeButton = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
@@ -50,9 +53,6 @@
             this.searchButton = new System.Windows.Forms.Button();
             this.doctorSearchListView = new System.Windows.Forms.ListView();
             this.label11 = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.birthDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.patientSearchPanel.SuspendLayout();
             this.patientRecordPanel.SuspendLayout();
             this.doctorSearchPanel.SuspendLayout();
@@ -122,6 +122,33 @@
             this.patientSearchSelectButton.Text = "Select Patient";
             this.patientSearchSelectButton.UseVisualStyleBackColor = true;
             this.patientSearchSelectButton.Click += new System.EventHandler(this.patientSearchSelectButton_Click);
+            // 
+            // listView1
+            // 
+            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.name,
+            this.birthDate});
+            this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView1.FullRowSelect = true;
+            this.listView1.Location = new System.Drawing.Point(27, 131);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(1208, 451);
+            this.listView1.TabIndex = 6;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            // 
+            // name
+            // 
+            this.name.Text = "Name";
+            this.name.Width = 240;
+            // 
+            // birthDate
+            // 
+            this.birthDate.Text = "Date of Birth";
+            this.birthDate.Width = 200;
             // 
             // patientRecordPanel
             // 
@@ -307,40 +334,13 @@
             this.label11.TabIndex = 0;
             this.label11.Text = "Doctor Search";
             // 
-            // listView1
-            // 
-            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.name,
-            this.birthDate});
-            this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listView1.FullRowSelect = true;
-            this.listView1.Location = new System.Drawing.Point(27, 131);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(1208, 451);
-            this.listView1.TabIndex = 6;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            // 
-            // name
-            // 
-            this.name.Text = "Name";
-            this.name.Width = 240;
-            // 
-            // birthDate
-            // 
-            this.birthDate.Text = "Date of Birth";
-            this.birthDate.Width = 200;
-            // 
             // PatientRecordsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.patientRecordPanel);
             this.Controls.Add(this.patientSearchPanel);
             this.Controls.Add(this.doctorSearchPanel);
-            this.Controls.Add(this.patientRecordPanel);
             this.Name = "PatientRecordsForm";
             this.Size = new System.Drawing.Size(1244, 594);
             this.patientSearchPanel.ResumeLayout(false);

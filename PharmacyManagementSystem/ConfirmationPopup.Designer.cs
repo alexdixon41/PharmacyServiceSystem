@@ -89,12 +89,13 @@
             this.confirmButton.TabIndex = 1;
             this.confirmButton.Text = "OK";
             this.confirmButton.UseVisualStyleBackColor = true;
-            this.confirmButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // ConfirmationPopup
             // 
+            this.AcceptButton = this.confirmButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.cancelButton;
             this.ClientSize = new System.Drawing.Size(482, 153);
             this.Controls.Add(this.panel1);
             this.Name = "ConfirmationPopup";

@@ -22,7 +22,7 @@ namespace PharmacyManagementSystem
 
         private void sendButton_Click(object sender, EventArgs e)
         {
-            ConfirmationPopup deliveryConfirmation = new ConfirmationPopup("The notice was delivered to the doctor.", "", 5);
+            ConfirmationPopup deliveryConfirmation = new ConfirmationPopup("The notice was delivered to the doctor.", "");
             deliveryConfirmation.ShowDialog();
             this.Close();
         }

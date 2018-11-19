@@ -30,23 +30,23 @@
         {
             this.noticeListPanel = new System.Windows.Forms.Panel();
             this.noticesListView = new System.Windows.Forms.ListView();
-            this.ViewNoticeButton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.noticeDetailPanel = new System.Windows.Forms.Panel();
-            this.backButton = new System.Windows.Forms.Button();
-            this.noticeTitleLabel = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.fromTextBox = new System.Windows.Forms.TextBox();
-            this.messageTextBox = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.typeTextBox = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.dateTextBox = new System.Windows.Forms.TextBox();
             this.type = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.status = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.sender = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.message = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ViewNoticeButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.noticeDetailPanel = new System.Windows.Forms.Panel();
+            this.dateTextBox = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.typeTextBox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.messageTextBox = new System.Windows.Forms.TextBox();
+            this.fromTextBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.backButton = new System.Windows.Forms.Button();
+            this.noticeTitleLabel = new System.Windows.Forms.Label();
             this.noticeListPanel.SuspendLayout();
             this.noticeDetailPanel.SuspendLayout();
             this.SuspendLayout();
@@ -84,6 +84,31 @@
             this.noticesListView.TabIndex = 0;
             this.noticesListView.UseCompatibleStateImageBehavior = false;
             this.noticesListView.View = System.Windows.Forms.View.Details;
+            // 
+            // type
+            // 
+            this.type.Text = "Type";
+            this.type.Width = 160;
+            // 
+            // date
+            // 
+            this.date.Text = "Date";
+            this.date.Width = 200;
+            // 
+            // status
+            // 
+            this.status.Text = "Status";
+            this.status.Width = 100;
+            // 
+            // sender
+            // 
+            this.sender.Text = "Sender";
+            this.sender.Width = 220;
+            // 
+            // message
+            // 
+            this.message.Text = "Message";
+            this.message.Width = 500;
             // 
             // ViewNoticeButton
             // 
@@ -126,6 +151,86 @@
             this.noticeDetailPanel.TabIndex = 3;
             this.noticeDetailPanel.Visible = false;
             // 
+            // dateTextBox
+            // 
+            this.dateTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dateTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTextBox.Location = new System.Drawing.Point(115, 147);
+            this.dateTextBox.Name = "dateTextBox";
+            this.dateTextBox.ReadOnly = true;
+            this.dateTextBox.Size = new System.Drawing.Size(708, 34);
+            this.dateTextBox.TabIndex = 12;
+            this.dateTextBox.TabStop = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(27, 147);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(75, 29);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Date: ";
+            // 
+            // typeTextBox
+            // 
+            this.typeTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.typeTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.typeTextBox.Location = new System.Drawing.Point(115, 82);
+            this.typeTextBox.Name = "typeTextBox";
+            this.typeTextBox.ReadOnly = true;
+            this.typeTextBox.Size = new System.Drawing.Size(708, 34);
+            this.typeTextBox.TabIndex = 10;
+            this.typeTextBox.TabStop = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(27, 82);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(74, 29);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Type:";
+            // 
+            // messageTextBox
+            // 
+            this.messageTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.messageTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.messageTextBox.Location = new System.Drawing.Point(32, 278);
+            this.messageTextBox.Multiline = true;
+            this.messageTextBox.Name = "messageTextBox";
+            this.messageTextBox.ReadOnly = true;
+            this.messageTextBox.Size = new System.Drawing.Size(791, 411);
+            this.messageTextBox.TabIndex = 8;
+            this.messageTextBox.TabStop = false;
+            // 
+            // fromTextBox
+            // 
+            this.fromTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.fromTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fromTextBox.Location = new System.Drawing.Point(115, 212);
+            this.fromTextBox.Name = "fromTextBox";
+            this.fromTextBox.ReadOnly = true;
+            this.fromTextBox.Size = new System.Drawing.Size(708, 34);
+            this.fromTextBox.TabIndex = 7;
+            this.fromTextBox.TabStop = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(27, 212);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(82, 29);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "From: ";
+            // 
             // backButton
             // 
             this.backButton.AutoSize = true;
@@ -152,118 +257,13 @@
             this.noticeTitleLabel.TabIndex = 0;
             this.noticeTitleLabel.Text = "Notice Details";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(27, 212);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 29);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "From: ";
-            // 
-            // fromTextBox
-            // 
-            this.fromTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.fromTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fromTextBox.Location = new System.Drawing.Point(115, 212);
-            this.fromTextBox.Name = "fromTextBox";
-            this.fromTextBox.ReadOnly = true;
-            this.fromTextBox.Size = new System.Drawing.Size(708, 34);
-            this.fromTextBox.TabIndex = 7;
-            this.fromTextBox.TabStop = false;
-            // 
-            // messageTextBox
-            // 
-            this.messageTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.messageTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.messageTextBox.Location = new System.Drawing.Point(32, 278);
-            this.messageTextBox.Multiline = true;
-            this.messageTextBox.Name = "messageTextBox";
-            this.messageTextBox.ReadOnly = true;
-            this.messageTextBox.Size = new System.Drawing.Size(791, 411);
-            this.messageTextBox.TabIndex = 8;
-            this.messageTextBox.TabStop = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(27, 82);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 29);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "Type:";
-            // 
-            // typeTextBox
-            // 
-            this.typeTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.typeTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.typeTextBox.Location = new System.Drawing.Point(115, 82);
-            this.typeTextBox.Name = "typeTextBox";
-            this.typeTextBox.ReadOnly = true;
-            this.typeTextBox.Size = new System.Drawing.Size(708, 34);
-            this.typeTextBox.TabIndex = 10;
-            this.typeTextBox.TabStop = false;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(27, 147);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(75, 29);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "Date: ";
-            // 
-            // dateTextBox
-            // 
-            this.dateTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTextBox.Location = new System.Drawing.Point(115, 147);
-            this.dateTextBox.Name = "dateTextBox";
-            this.dateTextBox.ReadOnly = true;
-            this.dateTextBox.Size = new System.Drawing.Size(708, 34);
-            this.dateTextBox.TabIndex = 12;
-            this.dateTextBox.TabStop = false;
-            // 
-            // type
-            // 
-            this.type.Text = "Type";
-            this.type.Width = 160;
-            // 
-            // date
-            // 
-            this.date.Text = "Date";
-            this.date.Width = 200;
-            // 
-            // status
-            // 
-            this.status.Text = "Status";
-            this.status.Width = 100;
-            // 
-            // sender
-            // 
-            this.sender.Text = "Sender";
-            this.sender.Width = 220;
-            // 
-            // message
-            // 
-            this.message.Text = "Message";
-            this.message.Width = 500;
-            // 
             // ReceiveNoticeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.Controls.Add(this.noticeDetailPanel);
             this.Controls.Add(this.noticeListPanel);
+            this.Controls.Add(this.noticeDetailPanel);
             this.Name = "ReceiveNoticeForm";
             this.Size = new System.Drawing.Size(835, 701);
             this.Load += new System.EventHandler(this.ReceiveNoticeForm_Load);

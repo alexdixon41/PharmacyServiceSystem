@@ -23,7 +23,7 @@ namespace PharmacyManagementSystem
             {
                 listView1.Items.Clear();
                 listView2.Items.Clear();
-                Patient patient = Patient.retrievePatientDetails(listView4.SelectedIndices.IndexOf(0));
+                Patient patient = Patient.retrievePatientPrescriptionDetails(listView4.SelectedIndices.IndexOf(0));
                 Prescription prescription = Prescription.retrievePrescriptionDetails(listView4.SelectedIndices.IndexOf(0));
                 int i = 0;
                 foreach (Medicine medicine in patient.MedicineHistory)
@@ -58,12 +58,24 @@ namespace PharmacyManagementSystem
 
         private void backButton_Click(object sender, EventArgs e)
         {
+            Prescription.retrieveNewPrescriptions();
+            listView4.Items.Clear();
+            int i = 0;
+            foreach (Prescription prescription in Prescription.displayPrescriptions())
+            {
+                listView4.Items.Add(prescription.Date);
+                listView4.Items[i].SubItems.Add(prescription.PatientName);
+                listView4.Items[i].SubItems.Add(prescription.PrescriberName);
+                listView4.Items[i].SubItems.Add(prescription.Status);
+                listView4.Items[i].SubItems.Add(prescription.Refills.ToString());
+                i++;
+            }
             prescriptionDetailPanel.Hide();
             newPrescriptionsPanel.Show();
         }
 
         private void NewPrescriptionsUserControl_Load(object sender, EventArgs e)
-        {
+        {            
             int i = 0;
             foreach (Prescription prescription in Prescription.displayPrescriptions())
             {
@@ -75,10 +87,16 @@ namespace PharmacyManagementSystem
                 i++;
             }
         }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
+             
+        private void updateStatusButton_Click(object sender, EventArgs e)
         {
-
+            if (new ConfirmationPopup("Change the status of this prescription to Active?", "").ShowDialog()
+                == DialogResult.OK)
+            {
+                Prescription prescription = (Prescription)Prescription.displayPrescriptions()[listView4.SelectedIndices.IndexOf(0)];
+                prescription.changeStatus(Prescription.ACTIVE_STATUS_CODE);
+                new AlertDialog("Prescription status changed successfully").ShowDialog();
+            }
         }
     }
 }
