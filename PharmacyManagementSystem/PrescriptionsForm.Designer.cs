@@ -732,8 +732,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.Controls.Add(this.prescriptionDetailPanel);
             this.Controls.Add(this.prescriptionListPanel);
+            this.Controls.Add(this.prescriptionDetailPanel);
             this.MinimumSize = new System.Drawing.Size(750, 300);
             this.Name = "PrescriptionsForm";
             this.Size = new System.Drawing.Size(1294, 627);

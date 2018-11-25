@@ -178,9 +178,11 @@ namespace PharmacyManagementSystem
                 myAdapter.Fill(patientTable);
 
                 sql = "SELECT p.name, p.patientID, DATE_FORMAT(p.birthDate, \"%m-%d-%Y\") AS 'birthDate', p.saddress1, " +
-                            "p.saddress2, p.city, p.state, p.country, p.zip, p.allergies, d.id, n.cellNumber, n.homeNumber, " +
-                            "n.officeNumber FROM DixonPatient p JOIN DixonDoctor d ON p.familyDoctor = d.id " +
-                            "JOIN DixonPhoneNumber n ON p.phoneNumber = n.id WHERE p.patientID = @id;";
+                    "p.saddress2, p.city, p.state, p.country, p.zip, m.allergies AS 'MedAllergies', d.id AS 'DocID', n.cellNumber, n.homeNumber, " +
+                    "n.officeNumber FROM DixonPatient p JOIN DixonDoctor d ON p.familyDoctor = d.id " +
+                    "JOIN DixonPhoneNumber n ON p.phoneNumber = n.id " +
+                    "JOIN DixonMedicalRecord m ON m.patientID = p.patientID " +
+                    "WHERE p.patientID = @id;";
                 cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@id", PatientId);
                 MySqlDataReader reader = cmd.ExecuteReader();
@@ -192,11 +194,11 @@ namespace PharmacyManagementSystem
                     patient.Address = reader["saddress1"].ToString() + " " + reader["saddress2"].ToString() + " " +
                                 reader["city"].ToString() + " " + reader["state"].ToString() + " " +
                                 reader["country"].ToString() + " " + reader["zip"].ToString();
-                    patient.Allergies = reader["allergies"].ToString();
+                    patient.Allergies = reader["MedAllergies"].ToString();
                     patient.CellNumber = reader["cellNumber"].ToString();
                     patient.HomeNumber = reader["homeNumber"].ToString();
                     patient.OfficeNumber = reader["officeNumber"].ToString();
-                    patient.FamilyDoctorId = (int)reader["id"];
+                    patient.FamilyDoctorId = (int)reader["DocID"];
                 }
 
                 Console.WriteLine("Table is ready.");

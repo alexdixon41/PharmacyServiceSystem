@@ -18,10 +18,40 @@ namespace PharmacyManagementSystem
             InitializeComponent();
         }
 
+        private Patient selectedPatient;
+
         private void patientSearchSelectButton_Click(object sender, EventArgs e)
         {
-            patientSearchPanel.Hide();
-            patientRecordPanel.Show();
+            if (!(patientSearchListView.SelectedIndices.Count == 0))
+            {                
+                selectedPatient = (Patient)Patient.displayPatients()[patientSearchListView.SelectedIndices.IndexOf(0)];                
+                listView1.Items.Clear();
+                allergyTextBox.Clear();
+                disordersTextBox.Clear();
+                notesTextBox.Clear();
+                selectedPatient.retrieveMedicalRecord();
+                selectedPatient.retrieveMedicineHistory();
+
+                int i = 0;
+                foreach (Medicine medicine in selectedPatient.MedicineHistory)
+                {
+                    listView1.Items.Add(medicine.Date);
+                    listView1.Items[i].SubItems.Add(medicine.Name);
+                    listView1.Items[i].SubItems.Add("" + medicine.Quantity);
+                    listView1.Items[i].SubItems.Add(medicine.Dosage);
+                    i++;
+                }
+
+                nameLabel.Text = selectedPatient.Name;
+                birthDateLabel.Text = selectedPatient.BirthDate;
+                maritalStatusLabel.Text = selectedPatient.MaritalStatus;
+                allergyTextBox.Text = selectedPatient.Allergies;
+                disordersTextBox.Text = selectedPatient.Disorders;
+                notesTextBox.Text = selectedPatient.Notes;
+
+                patientSearchPanel.Hide();
+                patientRecordPanel.Show();
+            }
         }
 
         private void doctorNoticeButton_Click(object sender, EventArgs e)
@@ -36,24 +66,19 @@ namespace PharmacyManagementSystem
             doctorSearchBox.ForeColor = Color.Black;
         }
 
-        private void searchButton_Click(object sender, EventArgs e)
-        {
-            SendDoctorNotice sendNotice = new SendDoctorNotice("We would like to discuss Alex Dixon's case with you. "
-                + "Please contact us soon so we can discuss this case. Thank you.");
-            sendNotice.ShowDialog();
-        }
-
         private void patientSearchButton_Click(object sender, EventArgs e)
         {
-            if (searchBox.Text.Equals("Search for a patient"))
-                searchBox.Text = "";
-            listView1.Items.Clear();
-            int i = 0;     
-            foreach (Patient patient in Patient.retrievePatients(searchBox.Text))
+            Patient.retrievePatients(searchBox.Text);
+            patientSearchListView.Items.Clear();
+            if (!(searchBox.Text.Equals("Search for a patient") || searchBox.Text.Equals("")))
             {
-                listView1.Items.Add(patient.Name);
-                listView1.Items[i].SubItems.Add(patient.BirthDate);
-                i++;
+                int i = 0;
+                foreach (Patient patient in Patient.displayPatients())
+                {
+                    patientSearchListView.Items.Add(patient.Name);
+                    patientSearchListView.Items[i].SubItems.Add(patient.BirthDate);
+                    i++;
+                }
             }
         }
 
@@ -61,6 +86,26 @@ namespace PharmacyManagementSystem
         {
             searchBox.Text = "";
             searchBox.ForeColor = Color.Black;
+        }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            patientSearchListView.Items.Clear();
+            patientRecordPanel.Hide();
+            patientSearchPanel.Show();
+        }
+
+        private void doctorSearchBackButton_Click(object sender, EventArgs e)
+        {
+            doctorSearchPanel.Hide();
+            patientRecordPanel.Show();
+        }
+
+        private void sendDoctorNoticeButton_Click(object sender, EventArgs e)
+        {
+            SendDoctorNotice sendNotice = new SendDoctorNotice("We would like to discuss Alex Dixon's case with you. "
+                + "Please contact us soon so we can discuss this case. Thank you.");
+            sendNotice.ShowDialog();
         }
     }
 }

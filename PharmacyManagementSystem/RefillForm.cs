@@ -88,12 +88,7 @@ namespace PharmacyManagementSystem
                 newRefillRequestsPanel.Hide();
                 prescriptionDetailPanel.Show();
             }
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            populateList();
-        }
+        }    
 
         private void backButton_Click(object sender, EventArgs e)
         {
@@ -105,7 +100,11 @@ namespace PharmacyManagementSystem
 
         private void acceptButton_Click(object sender, EventArgs e)
         {
-            if (new ConfirmationPopup("Accept this refill request?", "Note: This will update the prescription status to Active.")
+            if (selectedRefillRequest.Prescription.RemainingRefills == 0)
+            {
+                new AlertDialog("There are no remaining refills for this prescription.").ShowDialog();
+            }
+            else if (new ConfirmationPopup("Accept this refill request?", "Note: This will update the prescription status to Active.")
                 .ShowDialog() == DialogResult.OK)
             {
                 selectedRefillRequest.changeStatus(RefillRequest.ACCEPTED_STATUS_CODE);

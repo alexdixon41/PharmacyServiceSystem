@@ -240,7 +240,7 @@
             this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backButton.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backButton.Image = global::PharmacyManagementSystem.Properties.Resources.icons8_left_32;
-            this.backButton.Location = new System.Drawing.Point(27, 11);
+            this.backButton.Location = new System.Drawing.Point(19, 18);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(75, 40);
             this.backButton.TabIndex = 5;
@@ -251,7 +251,7 @@
             // 
             this.noticeTitleLabel.AutoSize = true;
             this.noticeTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.noticeTitleLabel.Location = new System.Drawing.Point(108, 11);
+            this.noticeTitleLabel.Location = new System.Drawing.Point(100, 18);
             this.noticeTitleLabel.Name = "noticeTitleLabel";
             this.noticeTitleLabel.Size = new System.Drawing.Size(255, 44);
             this.noticeTitleLabel.TabIndex = 0;
@@ -262,8 +262,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.Controls.Add(this.noticeListPanel);
             this.Controls.Add(this.noticeDetailPanel);
+            this.Controls.Add(this.noticeListPanel);
             this.Name = "ReceiveNoticeForm";
             this.Size = new System.Drawing.Size(835, 701);
             this.Load += new System.EventHandler(this.ReceiveNoticeForm_Load);
