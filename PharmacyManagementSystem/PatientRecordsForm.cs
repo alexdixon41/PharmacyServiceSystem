@@ -103,9 +103,35 @@ namespace PharmacyManagementSystem
 
         private void sendDoctorNoticeButton_Click(object sender, EventArgs e)
         {
-            SendDoctorNotice sendNotice = new SendDoctorNotice("We would like to discuss Alex Dixon's case with you. "
-                + "Please contact us soon so we can discuss this case. Thank you.");
-            sendNotice.ShowDialog();
+            
+            if (!(doctorSearchListView.SelectedIndices.Count == 0))
+            {                
+                Doctor selectedDoctor = (Doctor)Doctor.displayDoctors()[doctorSearchListView.SelectedIndices[0]];                
+                SendDoctorNotice sendNotice = new SendDoctorNotice("We would like to discuss " + selectedPatient.Name + "'s case with you. "
+                    + "Please contact us soon so we can discuss this case. Thank you.", selectedDoctor.Id);
+                sendNotice.ShowDialog();
+                if (sendNotice.DialogResult == DialogResult.OK)
+                    new AlertDialog("The notice was sent to the doctor.").ShowDialog();
+            }                            
+        }
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            doctorSearchListView.Items.Clear();
+
+            if (doctorSearchBox.Text.Equals("Search for a Doctor"))
+                doctorSearchBox.Text = "";
+            Doctor.retrieveDoctors(doctorSearchBox.Text);
+
+            int i = 0;
+            foreach (Doctor doctor in Doctor.displayDoctors())
+            {
+                doctorSearchListView.Items.Add(doctor.Name);
+                doctorSearchListView.Items[i].SubItems.Add(doctor.OfficeName);
+                doctorSearchListView.Items[i].SubItems.Add(doctor.OfficeNumber);
+                i++;
+            }
+
         }
     }
 }

@@ -20,7 +20,7 @@ namespace PharmacyManagementSystem
 
             if (Login.loginSuccess)
             {
-                //TODO add cases for other user types
+                //TODO [TEAM PROJECT] Add cases for other user types
 
                 Application.Run(new MainMenu());               
             }

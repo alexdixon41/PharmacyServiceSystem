@@ -112,6 +112,13 @@ namespace PharmacyManagementSystem
                 selectedRefillRequest.Prescription.updateRefills();
                 remainingLabel.Text = "" + (selectedRefillRequest.Prescription.RemainingRefills);
                 statusLabel.Text = "Accepted";
+
+                //notify patient that their refill request was accepted
+                Notice.sendNotice(selectedRefillRequest.Prescription.PatientId,
+                    "Your refill request was accepted. We will notify you when your prescription is ready for pickup", 
+                    Notice.SEND_REFILL_REQUEST_ACCEPT_NOTICE_TYPE);
+
+                //disable buttons                
                 acceptButton.Enabled = false;
                 rejectButton.Enabled = false;
             }
@@ -122,6 +129,12 @@ namespace PharmacyManagementSystem
             if (new ConfirmationPopup("Deny this refill request?", "Note: This cannot be undone.").ShowDialog() == DialogResult.OK) {
                 selectedRefillRequest.changeStatus(RefillRequest.DENIED_STATUS_CODE);
                 statusLabel.Text = "Denied";
+
+                //notify patient that their refill request was denied
+                Notice.sendNotice(selectedRefillRequest.Prescription.PatientId,
+                    "Your refill request was denied. Please contact your doctor about receiving a new prescription.",
+                    Notice.SEND_REFILL_REQUEST_REJECT_NOTICE_TYPE);
+
                 acceptButton.Enabled = false;
                 rejectButton.Enabled = false;     
             }

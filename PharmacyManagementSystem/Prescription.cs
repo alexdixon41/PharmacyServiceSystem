@@ -328,22 +328,24 @@ namespace PharmacyManagementSystem
                 string sql;
                 if (searchTypeCode == SEARCH_BY_DOCTOR)
                 {
-                    sql = "SELECT pa.name AS PatientName, doc.name AS DoctorName, " +
-                    "DATE_FORMAT(pr.dateFilled, \"%m-%d-%Y\") AS 'dateFilled', pr.prescriptionStatus, pr.refills " +
-                    "FROM DixonPrescription pr JOIN DixonPatient pa ON pr.patientID = pa.patientID " +
-                    "JOIN DixonDoctor doc ON pr.doctorID = doc.id JOIN DixonPharmacy ph ON pr.pharmacyID = ph.id " +
-                    "WHERE doc.name LIKE '" + searchKey + "%' AND ph.id = @id;";
+                    sql = @"SELECT pa.name AS PatientName, doc.name AS DoctorName, 
+                    DATE_FORMAT(pr.dateFilled, ""%m-%d-%Y"") AS 'dateFilled', pr.prescriptionStatus, pr.refills
+                    FROM DixonPrescription pr JOIN DixonPatient pa ON pr.patientID = pa.patientID
+                    JOIN DixonDoctor doc ON pr.doctorID = doc.id JOIN DixonPharmacy ph ON pr.pharmacyID = ph.id
+                    WHERE (doc.name LIKE @searchKey1 OR doc.name LIKE @searchKey2) AND ph.id = @id;";
                 }
                 else
                 {
-                    sql = "SELECT pa.name AS PatientName, doc.name AS DoctorName, " +
-                    "DATE_FORMAT(pr.dateFilled, \"%m-%d-%Y\") AS 'dateFilled', pr.prescriptionStatus, pr.refills " +
-                    "FROM DixonPrescription pr JOIN DixonPatient pa ON pr.patientID = pa.patientID " +
-                    "JOIN DixonDoctor doc ON pr.doctorID = doc.id JOIN DixonPharmacy ph ON pr.pharmacyID = ph.id " +
-                    "WHERE pa.name LIKE '" + searchKey + "%' AND ph.id = @id;";
+                    sql = @"SELECT pa.name AS PatientName, doc.name AS DoctorName, 
+                    DATE_FORMAT(pr.dateFilled, ""%m-%d-%Y"") AS 'dateFilled', pr.prescriptionStatus, pr.refills
+                    FROM DixonPrescription pr JOIN DixonPatient pa ON pr.patientID = pa.patientID
+                    JOIN DixonDoctor doc ON pr.doctorID = doc.id JOIN DixonPharmacy ph ON pr.pharmacyID = ph.id
+                    WHERE (pa.name LIKE @searchKey1 OR pa.name LIKE @searchKey2) AND ph.id = @id;";
                 }
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@id", User.Id);                     
+                cmd.Parameters.AddWithValue("@id", User.Id);
+                cmd.Parameters.AddWithValue("@searchKey1", "" + searchKey + "%");
+                cmd.Parameters.AddWithValue("@searchKey2", "% " + searchKey + "%");                 
                 MySqlDataAdapter myAdapter = new MySqlDataAdapter(cmd);
                 myAdapter.Fill(table);
                 Console.WriteLine("Table is ready.");

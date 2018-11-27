@@ -89,29 +89,29 @@ namespace PharmacyManagementSystem
                 {
                     activeStatusButton.Enabled = false;
                     readyStatusButton.Enabled = true;
-                    completeStatusButton.Enabled = true;
+                    completeStatusButton.Enabled = false;
                     deletedStatusButton.Enabled = true;
                 }
                 else if (selectedPrescription.Status.Equals("Ready"))
                 {
                     readyStatusButton.Enabled = false;
-                    activeStatusButton.Enabled = true;
+                    activeStatusButton.Enabled = false;
                     completeStatusButton.Enabled = true;
                     deletedStatusButton.Enabled = true;
                 }
                 else if (selectedPrescription.Status.Equals("Complete"))
                 {
                     completeStatusButton.Enabled = false;
-                    activeStatusButton.Enabled = true;
-                    readyStatusButton.Enabled = true;
+                    activeStatusButton.Enabled = false;
+                    readyStatusButton.Enabled = false;
                     deletedStatusButton.Enabled = true;
                 }
                 else if (selectedPrescription.Status.Equals("Deleted"))
                 {
                     deletedStatusButton.Enabled = false;
-                    activeStatusButton.Enabled = true;
-                    readyStatusButton.Enabled = true;
-                    completeStatusButton.Enabled = true;
+                    activeStatusButton.Enabled = false;
+                    readyStatusButton.Enabled = false;
+                    completeStatusButton.Enabled = false;
                 }
 
                 prescriptionListPanel.Hide();
@@ -127,7 +127,7 @@ namespace PharmacyManagementSystem
                 statusLabel.Text = "Active";
                 activeStatusButton.Enabled = false;
                 readyStatusButton.Enabled = true;
-                completeStatusButton.Enabled = true;
+                completeStatusButton.Enabled = false;
                 new AlertDialog("Prescription status changed successfully.").ShowDialog();
             }            
         }
@@ -137,10 +137,12 @@ namespace PharmacyManagementSystem
             if (new ConfirmationPopup("Change the status of this prescription to Ready?",
                                       "Note: This will send a notice to the patient.").ShowDialog() == DialogResult.OK)
             {
+                //Notify the patient
+                Notice.sendNotice(selectedPrescription.PatientId, "Your prescription is ready to be picked up.", Notice.SEND_PICKUP_NOTICE_TYPE);
                 selectedPrescription.changeStatus(Prescription.READY_STATUS_CODE);
                 statusLabel.Text = "Ready for Pickup";
                 readyStatusButton.Enabled = false;
-                activeStatusButton.Enabled = true;
+                activeStatusButton.Enabled = false;
                 completeStatusButton.Enabled = true;
                 new AlertDialog("Prescription status changed successfully.").ShowDialog();
             }            
@@ -153,8 +155,8 @@ namespace PharmacyManagementSystem
                 selectedPrescription.changeStatus(Prescription.COMPLETE_STATUS_CODE);
                 statusLabel.Text = "Complete";
                 completeStatusButton.Enabled = false;
-                activeStatusButton.Enabled = true;
-                readyStatusButton.Enabled = true;
+                activeStatusButton.Enabled = false;
+                readyStatusButton.Enabled = false;
             }
         }
 

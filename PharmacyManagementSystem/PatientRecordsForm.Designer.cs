@@ -37,12 +37,11 @@
             this.name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.birthDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.patientRecordPanel = new System.Windows.Forms.Panel();
-            this.backButton = new System.Windows.Forms.Button();
-            this.doctorNoticeButton = new System.Windows.Forms.Button();
-            this.doctorSearchPanel = new System.Windows.Forms.Panel();
-            this.doctorSearchBox = new System.Windows.Forms.TextBox();
-            this.searchButton = new System.Windows.Forms.Button();
-            this.doctorSearchListView = new System.Windows.Forms.ListView();
+            this.nameLabel = new System.Windows.Forms.Label();
+            this.maritalStatusLabel = new System.Windows.Forms.Label();
+            this.birthDateLabel = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
@@ -54,28 +53,32 @@
             this.quantity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.dosage = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label6 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.disordersTextBox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.notesTextBox = new System.Windows.Forms.TextBox();
-            this.birthDateLabel = new System.Windows.Forms.Label();
-            this.maritalStatusLabel = new System.Windows.Forms.Label();
-            this.doctorSearchBackButton = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.nameLabel = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.backButton = new System.Windows.Forms.Button();
+            this.doctorNoticeButton = new System.Windows.Forms.Button();
+            this.doctorSearchPanel = new System.Windows.Forms.Panel();
             this.sendDoctorNoticeButton = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.doctorSearchBackButton = new System.Windows.Forms.Button();
+            this.doctorSearchBox = new System.Windows.Forms.TextBox();
+            this.searchButton = new System.Windows.Forms.Button();
+            this.doctorSearchListView = new System.Windows.Forms.ListView();
+            this.docName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.officeName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.officeNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.patientSearchPanel.SuspendLayout();
             this.patientRecordPanel.SuspendLayout();
-            this.doctorSearchPanel.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.doctorSearchPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // patientSearchLabel
@@ -187,85 +190,53 @@
             this.patientRecordPanel.TabIndex = 1;
             this.patientRecordPanel.Visible = false;
             // 
-            // backButton
+            // nameLabel
             // 
-            this.backButton.AutoSize = true;
-            this.backButton.BackColor = System.Drawing.Color.Transparent;
-            this.backButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.backButton.FlatAppearance.BorderSize = 0;
-            this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.backButton.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.backButton.Image = global::PharmacyManagementSystem.Properties.Resources.icons8_left_32;
-            this.backButton.Location = new System.Drawing.Point(19, 18);
-            this.backButton.Name = "backButton";
-            this.backButton.Size = new System.Drawing.Size(75, 40);
-            this.backButton.TabIndex = 12;
-            this.backButton.UseVisualStyleBackColor = false;
-            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            this.nameLabel.AutoSize = true;
+            this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameLabel.Location = new System.Drawing.Point(100, 18);
+            this.nameLabel.Name = "nameLabel";
+            this.nameLabel.Size = new System.Drawing.Size(303, 44);
+            this.nameLabel.TabIndex = 25;
+            this.nameLabel.Text = "Medical Records";
             // 
-            // doctorNoticeButton
+            // maritalStatusLabel
             // 
-            this.doctorNoticeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.doctorNoticeButton.AutoSize = true;
-            this.doctorNoticeButton.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.doctorNoticeButton.Location = new System.Drawing.Point(929, 14);
-            this.doctorNoticeButton.Name = "doctorNoticeButton";
-            this.doctorNoticeButton.Size = new System.Drawing.Size(303, 48);
-            this.doctorNoticeButton.TabIndex = 11;
-            this.doctorNoticeButton.Text = "Send Notice to Doctor";
-            this.doctorNoticeButton.UseVisualStyleBackColor = true;
-            this.doctorNoticeButton.Click += new System.EventHandler(this.doctorNoticeButton_Click);
+            this.maritalStatusLabel.AutoSize = true;
+            this.maritalStatusLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maritalStatusLabel.Location = new System.Drawing.Point(169, 131);
+            this.maritalStatusLabel.Name = "maritalStatusLabel";
+            this.maritalStatusLabel.Size = new System.Drawing.Size(0, 28);
+            this.maritalStatusLabel.TabIndex = 24;
             // 
-            // doctorSearchPanel
+            // birthDateLabel
             // 
-            this.doctorSearchPanel.Controls.Add(this.sendDoctorNoticeButton);
-            this.doctorSearchPanel.Controls.Add(this.label5);
-            this.doctorSearchPanel.Controls.Add(this.doctorSearchBackButton);
-            this.doctorSearchPanel.Controls.Add(this.doctorSearchBox);
-            this.doctorSearchPanel.Controls.Add(this.searchButton);
-            this.doctorSearchPanel.Controls.Add(this.doctorSearchListView);
-            this.doctorSearchPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.doctorSearchPanel.Location = new System.Drawing.Point(0, 0);
-            this.doctorSearchPanel.Name = "doctorSearchPanel";
-            this.doctorSearchPanel.Size = new System.Drawing.Size(1244, 594);
-            this.doctorSearchPanel.TabIndex = 4;
-            this.doctorSearchPanel.Visible = false;
+            this.birthDateLabel.AutoSize = true;
+            this.birthDateLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.birthDateLabel.Location = new System.Drawing.Point(159, 90);
+            this.birthDateLabel.Name = "birthDateLabel";
+            this.birthDateLabel.Size = new System.Drawing.Size(0, 28);
+            this.birthDateLabel.TabIndex = 23;
             // 
-            // doctorSearchBox
+            // label2
             // 
-            this.doctorSearchBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.doctorSearchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.doctorSearchBox.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.doctorSearchBox.Location = new System.Drawing.Point(168, 87);
-            this.doctorSearchBox.Name = "doctorSearchBox";
-            this.doctorSearchBox.Size = new System.Drawing.Size(1064, 34);
-            this.doctorSearchBox.TabIndex = 3;
-            this.doctorSearchBox.Text = "Search for a Doctor";
-            this.doctorSearchBox.Click += new System.EventHandler(this.doctorSearchBox_Click);
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(22, 131);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(141, 28);
+            this.label2.TabIndex = 22;
+            this.label2.Text = "Marital Status: ";
             // 
-            // searchButton
+            // label1
             // 
-            this.searchButton.AutoSize = true;
-            this.searchButton.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchButton.Location = new System.Drawing.Point(27, 83);
-            this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(135, 42);
-            this.searchButton.TabIndex = 2;
-            this.searchButton.Text = "Search";
-            this.searchButton.UseVisualStyleBackColor = true;
-            // 
-            // doctorSearchListView
-            // 
-            this.doctorSearchListView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.doctorSearchListView.Location = new System.Drawing.Point(27, 131);
-            this.doctorSearchListView.Name = "doctorSearchListView";
-            this.doctorSearchListView.Size = new System.Drawing.Size(1205, 451);
-            this.doctorSearchListView.TabIndex = 1;
-            this.doctorSearchListView.UseCompatibleStateImageBehavior = false;
-            this.doctorSearchListView.View = System.Windows.Forms.View.List;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(22, 90);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(131, 28);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "Date of Birth: ";
             // 
             // tableLayoutPanel2
             // 
@@ -382,26 +353,6 @@
             this.label6.TabIndex = 0;
             this.label6.Text = "Medicine History";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(22, 90);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(131, 28);
-            this.label1.TabIndex = 21;
-            this.label1.Text = "Date of Birth: ";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(22, 131);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(141, 28);
-            this.label2.TabIndex = 22;
-            this.label2.Text = "Marital Status: ";
-            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.disordersTextBox);
@@ -411,36 +362,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(597, 185);
             this.panel1.TabIndex = 2;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.notesTextBox);
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(605, 194);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(597, 186);
-            this.panel2.TabIndex = 3;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(0, 5);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(95, 25);
-            this.label3.TabIndex = 23;
-            this.label3.Text = "Disorders";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(3, 4);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(63, 25);
-            this.label4.TabIndex = 24;
-            this.label4.Text = "Notes";
             // 
             // disordersTextBox
             // 
@@ -455,6 +376,26 @@
             this.disordersTextBox.Size = new System.Drawing.Size(590, 149);
             this.disordersTextBox.TabIndex = 24;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(0, 5);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(95, 25);
+            this.label3.TabIndex = 23;
+            this.label3.Text = "Disorders";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.notesTextBox);
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(605, 194);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(597, 186);
+            this.panel2.TabIndex = 3;
+            // 
             // notesTextBox
             // 
             this.notesTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -468,23 +409,82 @@
             this.notesTextBox.Size = new System.Drawing.Size(590, 154);
             this.notesTextBox.TabIndex = 25;
             // 
-            // birthDateLabel
+            // label4
             // 
-            this.birthDateLabel.AutoSize = true;
-            this.birthDateLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.birthDateLabel.Location = new System.Drawing.Point(159, 90);
-            this.birthDateLabel.Name = "birthDateLabel";
-            this.birthDateLabel.Size = new System.Drawing.Size(0, 28);
-            this.birthDateLabel.TabIndex = 23;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(3, 4);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(63, 25);
+            this.label4.TabIndex = 24;
+            this.label4.Text = "Notes";
             // 
-            // maritalStatusLabel
+            // backButton
             // 
-            this.maritalStatusLabel.AutoSize = true;
-            this.maritalStatusLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maritalStatusLabel.Location = new System.Drawing.Point(169, 131);
-            this.maritalStatusLabel.Name = "maritalStatusLabel";
-            this.maritalStatusLabel.Size = new System.Drawing.Size(0, 28);
-            this.maritalStatusLabel.TabIndex = 24;
+            this.backButton.AutoSize = true;
+            this.backButton.BackColor = System.Drawing.Color.Transparent;
+            this.backButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.backButton.FlatAppearance.BorderSize = 0;
+            this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.backButton.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.backButton.Image = global::PharmacyManagementSystem.Properties.Resources.icons8_left_32;
+            this.backButton.Location = new System.Drawing.Point(19, 18);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(75, 40);
+            this.backButton.TabIndex = 12;
+            this.backButton.UseVisualStyleBackColor = false;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            // 
+            // doctorNoticeButton
+            // 
+            this.doctorNoticeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.doctorNoticeButton.AutoSize = true;
+            this.doctorNoticeButton.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.doctorNoticeButton.Location = new System.Drawing.Point(929, 14);
+            this.doctorNoticeButton.Name = "doctorNoticeButton";
+            this.doctorNoticeButton.Size = new System.Drawing.Size(303, 48);
+            this.doctorNoticeButton.TabIndex = 11;
+            this.doctorNoticeButton.Text = "Send Notice to Doctor";
+            this.doctorNoticeButton.UseVisualStyleBackColor = true;
+            this.doctorNoticeButton.Click += new System.EventHandler(this.doctorNoticeButton_Click);
+            // 
+            // doctorSearchPanel
+            // 
+            this.doctorSearchPanel.Controls.Add(this.sendDoctorNoticeButton);
+            this.doctorSearchPanel.Controls.Add(this.label5);
+            this.doctorSearchPanel.Controls.Add(this.doctorSearchBackButton);
+            this.doctorSearchPanel.Controls.Add(this.doctorSearchBox);
+            this.doctorSearchPanel.Controls.Add(this.searchButton);
+            this.doctorSearchPanel.Controls.Add(this.doctorSearchListView);
+            this.doctorSearchPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.doctorSearchPanel.Location = new System.Drawing.Point(0, 0);
+            this.doctorSearchPanel.Name = "doctorSearchPanel";
+            this.doctorSearchPanel.Size = new System.Drawing.Size(1244, 594);
+            this.doctorSearchPanel.TabIndex = 4;
+            this.doctorSearchPanel.Visible = false;
+            // 
+            // sendDoctorNoticeButton
+            // 
+            this.sendDoctorNoticeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.sendDoctorNoticeButton.AutoSize = true;
+            this.sendDoctorNoticeButton.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sendDoctorNoticeButton.Location = new System.Drawing.Point(1033, 14);
+            this.sendDoctorNoticeButton.Name = "sendDoctorNoticeButton";
+            this.sendDoctorNoticeButton.Size = new System.Drawing.Size(199, 48);
+            this.sendDoctorNoticeButton.TabIndex = 15;
+            this.sendDoctorNoticeButton.Text = "Select Doctor";
+            this.sendDoctorNoticeButton.UseVisualStyleBackColor = true;
+            this.sendDoctorNoticeButton.Click += new System.EventHandler(this.sendDoctorNoticeButton_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(100, 18);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(348, 44);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Send Doctor Notice";
             // 
             // doctorSearchBackButton
             // 
@@ -502,54 +502,78 @@
             this.doctorSearchBackButton.UseVisualStyleBackColor = false;
             this.doctorSearchBackButton.Click += new System.EventHandler(this.doctorSearchBackButton_Click);
             // 
-            // label5
+            // doctorSearchBox
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(100, 18);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(348, 44);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Send Doctor Notice";
+            this.doctorSearchBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.doctorSearchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.doctorSearchBox.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.doctorSearchBox.Location = new System.Drawing.Point(168, 87);
+            this.doctorSearchBox.Name = "doctorSearchBox";
+            this.doctorSearchBox.Size = new System.Drawing.Size(1064, 34);
+            this.doctorSearchBox.TabIndex = 3;
+            this.doctorSearchBox.Text = "Search for a Doctor";
+            this.doctorSearchBox.Click += new System.EventHandler(this.doctorSearchBox_Click);
             // 
-            // nameLabel
+            // searchButton
             // 
-            this.nameLabel.AutoSize = true;
-            this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameLabel.Location = new System.Drawing.Point(100, 18);
-            this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(303, 44);
-            this.nameLabel.TabIndex = 25;
-            this.nameLabel.Text = "Medical Records";
+            this.searchButton.AutoSize = true;
+            this.searchButton.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchButton.Location = new System.Drawing.Point(27, 83);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(135, 42);
+            this.searchButton.TabIndex = 2;
+            this.searchButton.Text = "Search";
+            this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
-            // sendDoctorNoticeButton
+            // doctorSearchListView
             // 
-            this.sendDoctorNoticeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.sendDoctorNoticeButton.AutoSize = true;
-            this.sendDoctorNoticeButton.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sendDoctorNoticeButton.Location = new System.Drawing.Point(1033, 14);
-            this.sendDoctorNoticeButton.Name = "sendDoctorNoticeButton";
-            this.sendDoctorNoticeButton.Size = new System.Drawing.Size(199, 48);
-            this.sendDoctorNoticeButton.TabIndex = 15;
-            this.sendDoctorNoticeButton.Text = "Select Doctor";
-            this.sendDoctorNoticeButton.UseVisualStyleBackColor = true;
-            this.sendDoctorNoticeButton.Click += new System.EventHandler(this.sendDoctorNoticeButton_Click);
+            this.doctorSearchListView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.doctorSearchListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.docName,
+            this.officeName,
+            this.officeNumber});
+            this.doctorSearchListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.doctorSearchListView.FullRowSelect = true;
+            this.doctorSearchListView.Location = new System.Drawing.Point(27, 131);
+            this.doctorSearchListView.MultiSelect = false;
+            this.doctorSearchListView.Name = "doctorSearchListView";
+            this.doctorSearchListView.Size = new System.Drawing.Size(1205, 451);
+            this.doctorSearchListView.TabIndex = 16;
+            this.doctorSearchListView.UseCompatibleStateImageBehavior = false;
+            this.doctorSearchListView.View = System.Windows.Forms.View.Details;
+            // 
+            // docName
+            // 
+            this.docName.Text = "Name";
+            this.docName.Width = 200;
+            // 
+            // officeName
+            // 
+            this.officeName.Text = "Office Name";
+            this.officeName.Width = 200;
+            // 
+            // officeNumber
+            // 
+            this.officeNumber.Text = "Office Number";
+            this.officeNumber.Width = 180;
             // 
             // PatientRecordsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.doctorSearchPanel);
             this.Controls.Add(this.patientRecordPanel);
             this.Controls.Add(this.patientSearchPanel);
-            this.Controls.Add(this.doctorSearchPanel);
             this.Name = "PatientRecordsForm";
             this.Size = new System.Drawing.Size(1244, 594);
             this.patientSearchPanel.ResumeLayout(false);
             this.patientSearchPanel.PerformLayout();
             this.patientRecordPanel.ResumeLayout(false);
             this.patientRecordPanel.PerformLayout();
-            this.doctorSearchPanel.ResumeLayout(false);
-            this.doctorSearchPanel.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -559,6 +583,8 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.doctorSearchPanel.ResumeLayout(false);
+            this.doctorSearchPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -573,7 +599,6 @@
         private System.Windows.Forms.Button doctorNoticeButton;
         private System.Windows.Forms.Panel doctorSearchPanel;
         private System.Windows.Forms.Button searchButton;
-        private System.Windows.Forms.ListView doctorSearchListView;
         private System.Windows.Forms.TextBox doctorSearchBox;
         private System.Windows.Forms.ListView patientSearchListView;
         private System.Windows.Forms.ColumnHeader name;
@@ -604,5 +629,9 @@
         private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button sendDoctorNoticeButton;
+        private System.Windows.Forms.ListView doctorSearchListView;
+        private System.Windows.Forms.ColumnHeader docName;
+        private System.Windows.Forms.ColumnHeader officeName;
+        private System.Windows.Forms.ColumnHeader officeNumber;
     }
 }

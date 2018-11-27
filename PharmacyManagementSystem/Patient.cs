@@ -189,7 +189,7 @@ namespace PharmacyManagementSystem
             return patients;
         }
 
-        public static void retrievePatients(string name)
+        public static void retrievePatients(string searchKey)
         {
             DataTable table = new DataTable();
             string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;SSLMode=None";
@@ -198,8 +198,11 @@ namespace PharmacyManagementSystem
             {
                 Console.WriteLine("Connecting to MySQL...");
                 conn.Open();
-                string sql = "SELECT name, DATE_FORMAT(birthDate, \"%m-%d-%Y\") AS birthDate, patientID FROM DixonPatient WHERE name LIKE '" + name + "%' OR name LIKE '% " + name + "%';";
+                string sql = @"SELECT name, DATE_FORMAT(birthDate, ""%m-%d-%Y"") AS birthDate, patientID FROM DixonPatient 
+                            WHERE name LIKE @searchKey1 OR name LIKE @searchKey2;";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@searchKey1", "" + searchKey + "%");
+                cmd.Parameters.AddWithValue("@searchKey2", "% " + searchKey + "%");
                 MySqlDataAdapter myAdapter = new MySqlDataAdapter(cmd);
                 myAdapter.Fill(table);
                 Console.WriteLine("Table is ready.");

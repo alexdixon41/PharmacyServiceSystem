@@ -103,6 +103,12 @@ namespace PharmacyManagementSystem
             }
         }
 
+        public const int SEND_PICKUP_NOTICE_TYPE = 0;                   //notify patient when prescription is ready for pickup
+        public const int SEND_CASE_DISCUSSION_NOTICE_TYPE = 1;          //notify doctor to discuss a case
+        public const int SEND_REFILL_REQUEST_ACCEPT_NOTICE_TYPE = 2;    //notify patient when refill request accepted
+        public const int SEND_REFILL_REQUEST_REJECT_NOTICE_TYPE = 3;    //notify patient when refill request denied
+
+
         public static int Unread
         {
             get
@@ -214,6 +220,71 @@ namespace PharmacyManagementSystem
                 string sql = "UPDATE DixonNotice SET noticeStatus = 'Received' WHERE noticeID = @id";            
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@id", Id);
+                cmd.ExecuteNonQuery();
+                Console.WriteLine("Table is ready.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            conn.Close();
+        }        
+
+        /// <summary>
+        /// Add a notice of the specified type to the database with the specified recipient and message content
+        /// </summary>
+        /// <param name="receiverID">The recipient of the notice</param>
+        /// <param name="message">The message content of the notice</param>
+        /// <param name="noticeType">The type of notice</param>
+        public static void sendNotice(int receiverID, string message, int noticeType)
+        {
+            string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;SSLMode=None";
+            MySqlConnection conn = new MySqlConnection(connStr);
+            try
+            {
+                Console.WriteLine("Connecting to MySQL...");
+                conn.Open();
+                string sql;
+                MySqlCommand cmd;
+                switch (noticeType)
+                {
+                    case SEND_CASE_DISCUSSION_NOTICE_TYPE:
+                        sql = @"INSERT INTO DixonNotice (noticeType, noticeStatus, sentDate, message, pharmacySender, doctorReceiver)
+                        VALUES ('Case Discussion', 'New', CURRENT_DATE, @message, @pharmID, @docID);";
+                        cmd = new MySqlCommand(sql, conn);
+                        cmd.Parameters.AddWithValue("@message", message);
+                        cmd.Parameters.AddWithValue("@pharmID", User.Id);
+                        cmd.Parameters.AddWithValue("@docID", receiverID);
+                        break;
+                    case SEND_PICKUP_NOTICE_TYPE:
+                        sql = @"INSERT INTO DixonNotice (noticeType, noticeStatus, sentDate, message, pharmacySender, patientReceiver)
+                        VALUES ('Pickup', 'New', CURRENT_DATE, @message, @pharmID, @patientID);";
+                        cmd = new MySqlCommand(sql, conn);
+                        cmd.Parameters.AddWithValue("@message", message);
+                        cmd.Parameters.AddWithValue("@pharmID", User.Id);
+                        cmd.Parameters.AddWithValue("patientID", receiverID);
+                        break;
+                    case SEND_REFILL_REQUEST_ACCEPT_NOTICE_TYPE:
+                        sql = @"INSERT INTO DixonNotice (noticeType, noticeStatus, sentDate, message, pharmacySender, patientReceiver)
+                        VALUES ('Refill Request Accepted', 'New', CURRENT_DATE, @message, @pharmID, @patientID);";
+                        cmd = new MySqlCommand(sql, conn);
+                        cmd.Parameters.AddWithValue("@message", message);
+                        cmd.Parameters.AddWithValue("@pharmID", User.Id);
+                        cmd.Parameters.AddWithValue("@patientID", receiverID);
+                        break;
+                    case SEND_REFILL_REQUEST_REJECT_NOTICE_TYPE:
+                        sql = @"INSERT INTO DixonNotice (noticeType, noticeStatus, sentDate, message, pharmacySender, patientReceiver)
+                        VALUES ('Refill Request Denied', 'New', CURRENT_DATE, @message, @pharmID, @patientID);";
+                        cmd = new MySqlCommand(sql, conn);
+                        cmd.Parameters.AddWithValue("@message", message);
+                        cmd.Parameters.AddWithValue("@pharmID", User.Id);
+                        cmd.Parameters.AddWithValue("@patientID", receiverID);
+                        break;
+                    default:
+                        sql = "";
+                        cmd = new MySqlCommand(sql, conn);
+                        break;
+                }                
                 cmd.ExecuteNonQuery();
                 Console.WriteLine("Table is ready.");
             }
