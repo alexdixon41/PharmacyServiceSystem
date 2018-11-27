@@ -84,10 +84,10 @@
             // patientSearchLabel
             // 
             this.patientSearchLabel.AutoSize = true;
-            this.patientSearchLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.patientSearchLabel.Location = new System.Drawing.Point(19, 18);
+            this.patientSearchLabel.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.patientSearchLabel.Location = new System.Drawing.Point(19, 16);
             this.patientSearchLabel.Name = "patientSearchLabel";
-            this.patientSearchLabel.Size = new System.Drawing.Size(269, 44);
+            this.patientSearchLabel.Size = new System.Drawing.Size(260, 51);
             this.patientSearchLabel.TabIndex = 1;
             this.patientSearchLabel.Text = "Patient Search";
             // 
@@ -111,11 +111,11 @@
             this.searchBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.searchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchBox.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchBox.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.searchBox.Location = new System.Drawing.Point(168, 88);
+            this.searchBox.Location = new System.Drawing.Point(168, 85);
             this.searchBox.Name = "searchBox";
-            this.searchBox.Size = new System.Drawing.Size(1067, 34);
+            this.searchBox.Size = new System.Drawing.Size(1067, 38);
             this.searchBox.TabIndex = 1;
             this.searchBox.Text = "Search for a patient";
             this.searchBox.Enter += new System.EventHandler(this.searchBox_Enter);
@@ -154,7 +154,7 @@
             this.patientSearchListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.name,
             this.birthDate});
-            this.patientSearchListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.patientSearchListView.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.patientSearchListView.FullRowSelect = true;
             this.patientSearchListView.Location = new System.Drawing.Point(27, 131);
             this.patientSearchListView.Name = "patientSearchListView";
@@ -193,10 +193,10 @@
             // nameLabel
             // 
             this.nameLabel.AutoSize = true;
-            this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameLabel.Location = new System.Drawing.Point(100, 18);
+            this.nameLabel.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameLabel.Location = new System.Drawing.Point(100, 16);
             this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(303, 44);
+            this.nameLabel.Size = new System.Drawing.Size(296, 51);
             this.nameLabel.TabIndex = 25;
             this.nameLabel.Text = "Medical Records";
             // 
@@ -221,20 +221,20 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(22, 131);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(141, 28);
+            this.label2.Size = new System.Drawing.Size(146, 28);
             this.label2.TabIndex = 22;
             this.label2.Text = "Marital Status: ";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(22, 90);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(131, 28);
+            this.label1.Size = new System.Drawing.Size(140, 28);
             this.label1.TabIndex = 21;
             this.label1.Text = "Date of Birth: ";
             // 
@@ -274,10 +274,10 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(-1, 4);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(87, 25);
+            this.label8.Size = new System.Drawing.Size(90, 28);
             this.label8.TabIndex = 1;
             this.label8.Text = "Allergies";
             // 
@@ -286,12 +286,12 @@
             this.allergyTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.allergyTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.allergyTextBox.Location = new System.Drawing.Point(3, 32);
+            this.allergyTextBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.allergyTextBox.Location = new System.Drawing.Point(3, 35);
             this.allergyTextBox.Multiline = true;
             this.allergyTextBox.Name = "allergyTextBox";
             this.allergyTextBox.ReadOnly = true;
-            this.allergyTextBox.Size = new System.Drawing.Size(590, 154);
+            this.allergyTextBox.Size = new System.Drawing.Size(590, 151);
             this.allergyTextBox.TabIndex = 2;
             // 
             // panel4
@@ -314,11 +314,11 @@
             this.columnHeader1,
             this.quantity,
             this.dosage});
-            this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listView1.FullRowSelect = true;
-            this.listView1.Location = new System.Drawing.Point(4, 33);
+            this.listView1.Location = new System.Drawing.Point(4, 36);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(589, 149);
+            this.listView1.Size = new System.Drawing.Size(589, 146);
             this.listView1.TabIndex = 1;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -346,10 +346,10 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(-1, 5);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(156, 25);
+            this.label6.Size = new System.Drawing.Size(167, 28);
             this.label6.TabIndex = 0;
             this.label6.Text = "Medicine History";
             // 
@@ -368,21 +368,21 @@
             this.disordersTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.disordersTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.disordersTextBox.Location = new System.Drawing.Point(3, 33);
+            this.disordersTextBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.disordersTextBox.Location = new System.Drawing.Point(3, 36);
             this.disordersTextBox.Multiline = true;
             this.disordersTextBox.Name = "disordersTextBox";
             this.disordersTextBox.ReadOnly = true;
-            this.disordersTextBox.Size = new System.Drawing.Size(590, 149);
+            this.disordersTextBox.Size = new System.Drawing.Size(590, 146);
             this.disordersTextBox.TabIndex = 24;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(0, 5);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(95, 25);
+            this.label3.Size = new System.Drawing.Size(98, 28);
             this.label3.TabIndex = 23;
             this.label3.Text = "Disorders";
             // 
@@ -401,21 +401,21 @@
             this.notesTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.notesTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.notesTextBox.Location = new System.Drawing.Point(3, 32);
+            this.notesTextBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.notesTextBox.Location = new System.Drawing.Point(3, 35);
             this.notesTextBox.Multiline = true;
             this.notesTextBox.Name = "notesTextBox";
             this.notesTextBox.ReadOnly = true;
-            this.notesTextBox.Size = new System.Drawing.Size(590, 154);
+            this.notesTextBox.Size = new System.Drawing.Size(590, 151);
             this.notesTextBox.TabIndex = 25;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(3, 4);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(63, 25);
+            this.label4.Size = new System.Drawing.Size(66, 28);
             this.label4.TabIndex = 24;
             this.label4.Text = "Notes";
             // 
@@ -479,10 +479,10 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(100, 18);
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(100, 16);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(348, 44);
+            this.label5.Size = new System.Drawing.Size(351, 51);
             this.label5.TabIndex = 14;
             this.label5.Text = "Send Doctor Notice";
             // 
@@ -506,11 +506,11 @@
             // 
             this.doctorSearchBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.doctorSearchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.doctorSearchBox.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.doctorSearchBox.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.doctorSearchBox.Location = new System.Drawing.Point(168, 87);
+            this.doctorSearchBox.Location = new System.Drawing.Point(168, 85);
             this.doctorSearchBox.Name = "doctorSearchBox";
-            this.doctorSearchBox.Size = new System.Drawing.Size(1064, 34);
+            this.doctorSearchBox.Size = new System.Drawing.Size(1064, 38);
             this.doctorSearchBox.TabIndex = 3;
             this.doctorSearchBox.Text = "Search for a Doctor";
             this.doctorSearchBox.Click += new System.EventHandler(this.doctorSearchBox_Click);
@@ -536,7 +536,7 @@
             this.docName,
             this.officeName,
             this.officeNumber});
-            this.doctorSearchListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.doctorSearchListView.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.doctorSearchListView.FullRowSelect = true;
             this.doctorSearchListView.Location = new System.Drawing.Point(27, 131);
             this.doctorSearchListView.MultiSelect = false;

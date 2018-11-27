@@ -74,7 +74,7 @@
             this.status,
             this.sender,
             this.message});
-            this.noticesListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.noticesListView.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.noticesListView.FullRowSelect = true;
             this.noticesListView.Location = new System.Drawing.Point(27, 82);
             this.noticesListView.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
@@ -126,10 +126,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(19, 18);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(19, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(147, 44);
+            this.label1.Size = new System.Drawing.Size(148, 51);
             this.label1.TabIndex = 0;
             this.label1.Text = "Notices";
             // 
@@ -155,21 +155,21 @@
             // 
             this.dateTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTextBox.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTextBox.Location = new System.Drawing.Point(115, 147);
             this.dateTextBox.Name = "dateTextBox";
             this.dateTextBox.ReadOnly = true;
-            this.dateTextBox.Size = new System.Drawing.Size(708, 34);
+            this.dateTextBox.Size = new System.Drawing.Size(708, 38);
             this.dateTextBox.TabIndex = 12;
             this.dateTextBox.TabStop = false;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(27, 147);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(75, 29);
+            this.label4.Size = new System.Drawing.Size(80, 32);
             this.label4.TabIndex = 11;
             this.label4.Text = "Date: ";
             // 
@@ -177,21 +177,21 @@
             // 
             this.typeTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.typeTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.typeTextBox.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.typeTextBox.Location = new System.Drawing.Point(115, 82);
             this.typeTextBox.Name = "typeTextBox";
             this.typeTextBox.ReadOnly = true;
-            this.typeTextBox.Size = new System.Drawing.Size(708, 34);
+            this.typeTextBox.Size = new System.Drawing.Size(708, 38);
             this.typeTextBox.TabIndex = 10;
             this.typeTextBox.TabStop = false;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(27, 82);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 29);
+            this.label3.Size = new System.Drawing.Size(72, 32);
             this.label3.TabIndex = 9;
             this.label3.Text = "Type:";
             // 
@@ -200,7 +200,7 @@
             this.messageTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.messageTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.messageTextBox.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.messageTextBox.Location = new System.Drawing.Point(32, 278);
             this.messageTextBox.Multiline = true;
             this.messageTextBox.Name = "messageTextBox";
@@ -213,21 +213,21 @@
             // 
             this.fromTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.fromTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fromTextBox.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fromTextBox.Location = new System.Drawing.Point(115, 212);
             this.fromTextBox.Name = "fromTextBox";
             this.fromTextBox.ReadOnly = true;
-            this.fromTextBox.Size = new System.Drawing.Size(708, 34);
+            this.fromTextBox.Size = new System.Drawing.Size(708, 38);
             this.fromTextBox.TabIndex = 7;
             this.fromTextBox.TabStop = false;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(27, 212);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 29);
+            this.label2.Size = new System.Drawing.Size(84, 32);
             this.label2.TabIndex = 6;
             this.label2.Text = "From: ";
             // 
@@ -250,10 +250,10 @@
             // noticeTitleLabel
             // 
             this.noticeTitleLabel.AutoSize = true;
-            this.noticeTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.noticeTitleLabel.Location = new System.Drawing.Point(100, 18);
+            this.noticeTitleLabel.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.noticeTitleLabel.Location = new System.Drawing.Point(100, 16);
             this.noticeTitleLabel.Name = "noticeTitleLabel";
-            this.noticeTitleLabel.Size = new System.Drawing.Size(255, 44);
+            this.noticeTitleLabel.Size = new System.Drawing.Size(255, 51);
             this.noticeTitleLabel.TabIndex = 0;
             this.noticeTitleLabel.Text = "Notice Details";
             // 
@@ -262,8 +262,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.Controls.Add(this.noticeDetailPanel);
             this.Controls.Add(this.noticeListPanel);
+            this.Controls.Add(this.noticeDetailPanel);
             this.Name = "ReceiveNoticeForm";
             this.Size = new System.Drawing.Size(835, 701);
             this.Load += new System.EventHandler(this.ReceiveNoticeForm_Load);
