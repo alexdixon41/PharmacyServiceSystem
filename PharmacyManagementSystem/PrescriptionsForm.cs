@@ -75,9 +75,13 @@ namespace PharmacyManagementSystem
                     i++;
                 }
 
-                //Display patient information
-                nameLabel.Text = patient.Name;
-                birthDateLabel.Text = patient.BirthDate;
+                //Display patient information    
+                generalListView.Items.Clear();            
+                generalListView.Items.Add("Name: " + patient.Name);               
+                generalListView.Items.Add("Date of Birth: " + patient.BirthDate);
+                generalListView.Items.Add("Height: " + patient.Height);
+                generalListView.Items.Add("Weight: " + patient.Weight);
+                generalListView.Items.Add("Body Mass Index: " + patient.BodyMassIndex);
                 dateLabel.Text = selectedPrescription.Date;
                 statusLabel.Text = selectedPrescription.Status;
                 refillsLabel.Text = "" + selectedPrescription.Refills;

@@ -262,11 +262,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.Controls.Add(this.noticeListPanel);
             this.Controls.Add(this.noticeDetailPanel);
+            this.Controls.Add(this.noticeListPanel);
             this.Name = "ReceiveNoticeForm";
             this.Size = new System.Drawing.Size(835, 701);
-            this.Load += new System.EventHandler(this.ReceiveNoticeForm_Load);
             this.noticeListPanel.ResumeLayout(false);
             this.noticeListPanel.PerformLayout();
             this.noticeDetailPanel.ResumeLayout(false);

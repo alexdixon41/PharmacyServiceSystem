@@ -25,7 +25,8 @@ namespace PharmacyManagementSystem
         private string status;
         private int refills;
         private int remainingRefills;
-        private int patientId;        
+        private int patientId;      
+        private string patientBirthDate;  
         private ArrayList medicines = new ArrayList();
         public int Id
         {
@@ -135,6 +136,18 @@ namespace PharmacyManagementSystem
                 medicines = value;
             }
         }
+        public string PatientBirthDate
+        {
+            get
+            {
+                return patientBirthDate;
+            }
+
+            set
+            {
+                patientBirthDate = value;
+            }
+        }
 
         public static int NewPrescriptionCount
         {
@@ -160,69 +173,11 @@ namespace PharmacyManagementSystem
         public Patient retrievePatientDetails()
         {
             Patient patient = new Patient();
-            DataTable patientTable = new DataTable();
-            DataTable prescriptionDetailTable = new DataTable();
-            string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;SSLMode=None";
-            MySqlConnection conn = new MySqlConnection(connStr);
-            try
-            {
-                Console.WriteLine("Connecting to MySQL...");
-                conn.Open();
-                string sql = "SELECT DATE_FORMAT(pr.dateFilled, \"%m-%d-%Y\") AS 'date', m.name, m.quantity, m.dosage, " +
-                            "m.route, m.instructions, m.prescriptionID " +
-                            "FROM DixonPatient pa JOIN DixonPrescription pr ON pr.patientID = pa.patientID " +
-                            "JOIN DixonMedicine m ON m.prescriptionID = pr.id WHERE pa.patientID = @id;";
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@id", PatientId);
-                MySqlDataAdapter myAdapter = new MySqlDataAdapter(cmd);
-                myAdapter.Fill(patientTable);
-
-                sql = "SELECT p.name, p.patientID, DATE_FORMAT(p.birthDate, \"%m-%d-%Y\") AS 'birthDate', p.saddress1, " +
-                    "p.saddress2, p.city, p.state, p.country, p.zip, m.allergies AS 'MedAllergies', d.id AS 'DocID', n.cellNumber, n.homeNumber, " +
-                    "n.officeNumber FROM DixonPatient p JOIN DixonDoctor d ON p.familyDoctor = d.id " +
-                    "JOIN DixonPhoneNumber n ON p.phoneNumber = n.id " +
-                    "JOIN DixonMedicalRecord m ON m.patientID = p.patientID " +
-                    "WHERE p.patientID = @id;";
-                cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@id", PatientId);
-                MySqlDataReader reader = cmd.ExecuteReader();
-                if (reader.Read())
-                {
-                    patient.Name = reader["name"].ToString();
-                    patient.Id = (int)reader["patientID"];
-                    patient.BirthDate = reader["birthDate"].ToString();
-                    patient.Address = reader["saddress1"].ToString() + " " + reader["saddress2"].ToString() + " " +
-                                reader["city"].ToString() + " " + reader["state"].ToString() + " " +
-                                reader["country"].ToString() + " " + reader["zip"].ToString();
-                    patient.Allergies = reader["MedAllergies"].ToString();
-                    patient.CellNumber = reader["cellNumber"].ToString();
-                    patient.HomeNumber = reader["homeNumber"].ToString();
-                    patient.OfficeNumber = reader["officeNumber"].ToString();
-                    patient.FamilyDoctorId = (int)reader["DocID"];
-                }
-
-                Console.WriteLine("Table is ready.");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
-            conn.Close();
-
-            ArrayList medicines = new ArrayList();
-            foreach (DataRow row in patientTable.Rows)
-            {
-                Medicine medicine = new Medicine();
-                medicine.Name = row["name"].ToString();
-                medicine.Quantity = (int)row["quantity"];
-                medicine.Dosage = row["dosage"].ToString();
-                medicine.Route = row["route"].ToString();
-                medicine.Instructions = row["instructions"].ToString();
-                medicine.PrescriptionID = (int)row["prescriptionID"];
-                medicine.Date = row["date"].ToString();
-                medicines.Add(medicine);
-            }
-            patient.MedicineHistory = medicines;
+            patient.Id = PatientId;
+            patient.Name = PatientName;
+            patient.BirthDate = PatientBirthDate;
+            patient.retrieveMedicalRecord();
+            patient.retrieveMedicineHistory();                        
             return patient;
         }
 
@@ -277,10 +232,11 @@ namespace PharmacyManagementSystem
             {
                 Console.WriteLine("Connecting to MySQL...");
                 conn.Open();
-                string sql = "SELECT pr.id, DATE_FORMAT(pr.dateFilled, \"%m-%d-%Y\") AS 'dateFilled', pr.refills, " +
-                "pr.remainingRefills, pr.prescriptionStatus, pa.name AS patientName, pa.patientID, doc.name AS doctorName " +
-                "FROM(DixonPrescription pr JOIN DixonPatient pa ON pr.patientID = pa.patientID JOIN DixonDoctor doc ON pr.doctorID = doc.id) " +
-                "WHERE pr.pharmacyID = @id ORDER BY pr.prescriptionStatus; ";                
+                string sql = @"SELECT pr.id, DATE_FORMAT(pr.dateFilled, ""%m-%d-%Y"") AS 'dateFilled', pr.refills, 
+                pr.remainingRefills, pr.prescriptionStatus, pa.name AS patientName, pa.patientID, 
+                DATE_FORMAT(pa.birthDate, ""%m-%d-%Y"") AS 'birthDate', doc.name AS doctorName 
+                FROM(DixonPrescription pr JOIN DixonPatient pa ON pr.patientID = pa.patientID JOIN DixonDoctor doc ON pr.doctorID = doc.id) 
+                WHERE pr.pharmacyID = @id ORDER BY pr.prescriptionStatus; ";                
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@id", User.Id);                               
                 MySqlDataAdapter myAdapter = new MySqlDataAdapter(cmd);
@@ -303,6 +259,7 @@ namespace PharmacyManagementSystem
                 newPrescription.Status = row["prescriptionStatus"].ToString();
                 newPrescription.PatientName = row["patientName"].ToString();
                 newPrescription.PatientId = (int)row["patientID"];
+                newPrescription.PatientBirthDate = row["birthDate"].ToString();
                 newPrescription.PrescriberName = row["doctorName"].ToString();
                 newPrescription.Id = (int)row["id"];
                 if (newPrescription.Status.Equals("New"))
@@ -328,17 +285,19 @@ namespace PharmacyManagementSystem
                 string sql;
                 if (searchTypeCode == SEARCH_BY_DOCTOR)
                 {
-                    sql = @"SELECT pa.name AS PatientName, doc.name AS DoctorName, 
-                    DATE_FORMAT(pr.dateFilled, ""%m-%d-%Y"") AS 'dateFilled', pr.prescriptionStatus, pr.refills
-                    FROM DixonPrescription pr JOIN DixonPatient pa ON pr.patientID = pa.patientID
+                    sql = @"SELECT pr.id, DATE_FORMAT(pr.dateFilled, ""%m-%d-%Y"") AS 'dateFilled', pr.refills, 
+                    pr.remainingRefills, pr.prescriptionStatus, pa.name AS patientName, pa.patientID, 
+                    DATE_FORMAT(pa.birthDate, ""%m-%d-%Y"") AS 'birthDate', doc.name AS doctorName 
+                    FROM(DixonPrescription pr JOIN DixonPatient pa ON pr.patientID = pa.patientID 
                     JOIN DixonDoctor doc ON pr.doctorID = doc.id JOIN DixonPharmacy ph ON pr.pharmacyID = ph.id
                     WHERE (doc.name LIKE @searchKey1 OR doc.name LIKE @searchKey2) AND ph.id = @id;";
                 }
                 else
                 {
-                    sql = @"SELECT pa.name AS PatientName, doc.name AS DoctorName, 
-                    DATE_FORMAT(pr.dateFilled, ""%m-%d-%Y"") AS 'dateFilled', pr.prescriptionStatus, pr.refills
-                    FROM DixonPrescription pr JOIN DixonPatient pa ON pr.patientID = pa.patientID
+                    sql = @"SELECT pr.id, DATE_FORMAT(pr.dateFilled, ""%m-%d-%Y"") AS 'dateFilled', pr.refills, 
+                    pr.remainingRefills, pr.prescriptionStatus, pa.name AS patientName, pa.patientID, 
+                    DATE_FORMAT(pa.birthDate, ""%m-%d-%Y"") AS 'birthDate', doc.name AS doctorName 
+                    FROM DixonPrescription pr JOIN DixonPatient pa ON pr.patientID = pa.patientID 
                     JOIN DixonDoctor doc ON pr.doctorID = doc.id JOIN DixonPharmacy ph ON pr.pharmacyID = ph.id
                     WHERE (pa.name LIKE @searchKey1 OR pa.name LIKE @searchKey2) AND ph.id = @id;";
                 }
@@ -359,11 +318,15 @@ namespace PharmacyManagementSystem
             foreach (DataRow row in table.Rows)
             {
                 Prescription newPrescription = new Prescription();
-                newPrescription.PatientName = row["PatientName"].ToString();
-                newPrescription.PrescriberName = row["DoctorName"].ToString();
                 newPrescription.Date = row["dateFilled"].ToString();
-                newPrescription.Status = row["prescriptionStatus"].ToString();
                 newPrescription.Refills = (int)row["refills"];
+                newPrescription.RemainingRefills = (int)row["remainingRefills"];
+                newPrescription.Status = row["prescriptionStatus"].ToString();
+                newPrescription.PatientName = row["patientName"].ToString();
+                newPrescription.PatientId = (int)row["patientID"];
+                newPrescription.PatientBirthDate = row["birthDate"].ToString();
+                newPrescription.PrescriberName = row["doctorName"].ToString();
+                newPrescription.Id = (int)row["id"];
                 prescriptions.Add(newPrescription);
             }            
         }     

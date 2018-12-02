@@ -28,6 +28,7 @@ namespace PharmacyManagementSystem
             loginMenuPanel.Hide();
             loginTitleLabel.Text = "Pharmacist Login";
             loginPanel.Show();
+            textBox1.Select();
             userType = User.PHARMACIST_USER_TYPE;
         }
 
@@ -38,6 +39,7 @@ namespace PharmacyManagementSystem
             loginMenuPanel.Hide();
             loginTitleLabel.Text = "Doctor Login";
             loginPanel.Show();
+            textBox1.Select();
             userType = User.DOCTOR_USER_TYPE;
         }
 
@@ -48,6 +50,7 @@ namespace PharmacyManagementSystem
             loginMenuPanel.Hide();
             loginTitleLabel.Text = "Patient Login";
             loginPanel.Show();
+            textBox1.Select();
             userType = User.PATIENT_USER_TYPE;
         }
 

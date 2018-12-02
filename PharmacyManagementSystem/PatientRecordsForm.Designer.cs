@@ -565,9 +565,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.patientSearchPanel);
             this.Controls.Add(this.doctorSearchPanel);
             this.Controls.Add(this.patientRecordPanel);
-            this.Controls.Add(this.patientSearchPanel);
             this.Name = "PatientRecordsForm";
             this.Size = new System.Drawing.Size(1244, 594);
             this.patientSearchPanel.ResumeLayout(false);

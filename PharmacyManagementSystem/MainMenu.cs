@@ -18,10 +18,10 @@ namespace PharmacyManagementSystem
             InitializeComponent();
         }
 
-        ReceiveNoticeForm newNoticesForm = new ReceiveNoticeForm();
-        PrescriptionsForm prescriptionsForm = new PrescriptionsForm();        
-        RefillForm refillForm = new RefillForm();
-        PatientRecordsForm patientRecordsForm = new PatientRecordsForm();
+        private ReceiveNoticeForm newNoticesForm = new ReceiveNoticeForm();
+        private PrescriptionsForm prescriptionsForm = new PrescriptionsForm();        
+        private RefillForm refillForm = new RefillForm();
+        private PatientRecordsForm patientRecordsForm = new PatientRecordsForm();
 
         private void newNoticesButton_Click(object sender, EventArgs e)
         {
@@ -75,7 +75,6 @@ namespace PharmacyManagementSystem
 
         private void MainMenu_Load(object sender, EventArgs e)
         {
-            splitContainer2.SplitterDistance = 500;
             newNoticesButton.Text += "  (" + Notice.Unread + ")";          
             newPrescriptionsButton.Text += "  (" + Prescription.NewPrescriptionCount + ")";
             newRefillRequestsButton.Text += "  (" + RefillRequest.NewRefillRequestCount + ")";

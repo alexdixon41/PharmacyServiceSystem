@@ -24,7 +24,10 @@ namespace PharmacyManagementSystem
         private string allergies;
         private string maritalStatus;
         private string disorders;
-        private string notes;        
+        private string notes;
+        private int weight;
+        private int height;
+        private double bodyMassIndex;
         private ArrayList medicineHistory = new ArrayList();
         public string Name
         {
@@ -49,7 +52,7 @@ namespace PharmacyManagementSystem
             {
                 birthDate = value;
             }
-        }
+        }        
         public int FamilyDoctorId
         {
             get
@@ -169,6 +172,42 @@ namespace PharmacyManagementSystem
             {
                 notes = value;
             }
+        }        
+        public int Weight
+        {
+            get
+            {
+                return weight;
+            }
+
+            set
+            {
+                weight = value;
+            }
+        }    
+        public int Height
+        {
+            get
+            {
+                return height;
+            }
+
+            set
+            {
+                height = value;
+            }
+        }
+        public double BodyMassIndex
+        {
+            get
+            {
+                return bodyMassIndex;
+            }
+
+            set
+            {
+                bodyMassIndex = value;
+            }
         }
         public ArrayList MedicineHistory
         {
@@ -182,7 +221,6 @@ namespace PharmacyManagementSystem
                 medicineHistory = value;
             }
         }
-        
 
         public static ArrayList displayPatients()
         {
@@ -273,7 +311,7 @@ namespace PharmacyManagementSystem
             {
                 Console.WriteLine("Connecting to MySQL...");
                 conn.Open();
-                string sql = "SELECT maritalStatus, disorders, allergies, notes " +
+                string sql = "SELECT height, weight, maritalStatus, disorders, allergies, notes " +
                         "FROM DixonMedicalRecord WHERE patientID = @id;";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@id", Id);
@@ -285,6 +323,9 @@ namespace PharmacyManagementSystem
                     Disorders = reader["disorders"].ToString();
                     Allergies = reader["allergies"].ToString();
                     Notes = reader["notes"].ToString();
+                    Height = (int)reader["height"];
+                    Weight = (int)reader["weight"];
+                    BodyMassIndex = Weight * .45 / (Height * Height * .000625);
                 }
             }
             catch (Exception ex)
