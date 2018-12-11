@@ -14,8 +14,6 @@ namespace PharmacyManagementSystem
     {
         public static bool loginSuccess = false;
 
-        private int userType = -1;
-
         public Login()
         {
             InitializeComponent();
@@ -23,20 +21,20 @@ namespace PharmacyManagementSystem
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (User.authenticate(User.PHARMACIST_USER_TYPE, textBox1.Text, textBox2.Text))
+            if (User.authenticate(textBox1.Text, textBox2.Text))        //check authentication before proceeding to main menu
             {
-                loginSuccess = true;
-                this.Close();               
+                loginSuccess = true;                                    //set to true so main menu will be launched
+                this.Close();                                           //close login window
             }   
             else
             {
-                new AlertDialog("Incorrect username or password").ShowDialog();
+                new AlertDialog("Incorrect username or password").ShowDialog();       //alert if authentication failed
             }         
         }
 
         private void Login_Load(object sender, EventArgs e)
         {
-            textBox1.Select();
+            textBox1.Select();                             //position the cursor in the username textbox
         }
     }
 }

@@ -11,23 +11,23 @@ namespace PharmacyManagementSystem
 {
     class Prescription
     {              
-        public const int SEARCH_BY_PATIENT = 0;
-        public const int SEARCH_BY_DOCTOR = 1;
-        public const int ACTIVE_STATUS_CODE = 2;
-        public const int READY_STATUS_CODE = 3;
-        public const int COMPLETE_STATUS_CODE = 4;
-        public const int DELETED_STATUS_CODE = 5;
+        public const int SEARCH_BY_PATIENT = 0;                //Prescription search by patient name
+        public const int SEARCH_BY_DOCTOR = 1;                 //Prescription search by prescribing doctor name
+        public const int ACTIVE_STATUS_CODE = 2;               //Prescription status Active
+        public const int READY_STATUS_CODE = 3;                //Prescription status Ready
+        public const int COMPLETE_STATUS_CODE = 4;             //Prescription status Complete
+        public const int DELETED_STATUS_CODE = 5;              //Prescription status Deleted
 
-        private int id;
-        private string date;
-        private string patientName;
+        private int id;                                        //prescription id number from database
+        private string date;                                   //date when prescription was created
+        private string patientName;                    
         private string prescriberName;
         private string status;
         private int refills;
-        private int remainingRefills;
+        private int remainingRefills;                          //how many refills are remaining for the prescription
         private int patientId;      
         private string patientBirthDate;  
-        private ArrayList medicines = new ArrayList();
+        private ArrayList medicines = new ArrayList();         //list of medicines included in the prescription
         public int Id
         {
             get
@@ -160,16 +160,23 @@ namespace PharmacyManagementSystem
             {
                 newPrescriptionCount = value;
             }
-        }
+        }              //count how many prescriptions have status 'New'
         private static int newPrescriptionCount;
-        private static ArrayList prescriptions = new ArrayList();
+        private static ArrayList prescriptions = new ArrayList();        //list of all non-deleted prescriptions
 
-
+        /// <summary>
+        /// Get the list of all non-deleted prescriptions for the pharmacy of the current user
+        /// </summary>
+        /// <returns>prescriptions - the list of all non-deleted prescriptions</returns>
         public static ArrayList displayPrescriptions()
         {
             return prescriptions;
         }
 
+        /// <summary>
+        /// Get the information for the patient of the prescription
+        /// </summary>
+        /// <returns>patient - A new instance of Patient that is the patient the prescription is for</returns>
         public Patient retrievePatientDetails()
         {
             Patient patient = new Patient();
@@ -222,6 +229,9 @@ namespace PharmacyManagementSystem
             Medicines = medicines;
         }        
 
+        /// <summary>
+        /// Retrieve all new prescriptions for the pharmacy of the current user and store in prescriptions list
+        /// </summary>
         public static void retrieveNewPrescriptions()
         {
             prescriptions.Clear();
@@ -270,7 +280,7 @@ namespace PharmacyManagementSystem
         }
 
         /// <summary>
-        /// Execute SQL query to retrieve prescriptions matching user's search parameters
+        /// Retrieve prescriptions matching user's search parameters for the pharmacy of the current user
         /// </summary>
         public static void retrievePrescriptions(int searchTypeCode, string searchKey)
         {
@@ -287,10 +297,10 @@ namespace PharmacyManagementSystem
                 {
                     sql = @"SELECT pr.id, DATE_FORMAT(pr.dateFilled, ""%m-%d-%Y"") AS 'dateFilled', pr.refills, 
                     pr.remainingRefills, pr.prescriptionStatus, pa.name AS patientName, pa.patientID, 
-                    DATE_FORMAT(pa.birthDate, ""%m-%d-%Y"") AS 'birthDate', doc.name AS doctorName 
-                    FROM(DixonPrescription pr JOIN DixonPatient pa ON pr.patientID = pa.patientID 
+                    DATE_FORMAT(pa.birthDate, ""%m-%d-%Y"") AS 'birthDate', doc.name AS 'doctorName' 
+                    FROM DixonPrescription pr JOIN DixonPatient pa ON pr.patientID = pa.patientID 
                     JOIN DixonDoctor doc ON pr.doctorID = doc.id JOIN DixonPharmacy ph ON pr.pharmacyID = ph.id
-                    WHERE (doc.name LIKE @searchKey1 OR doc.name LIKE @searchKey2) AND ph.id = @id;";
+                    WHERE (doc.name LIKE @searchKey1 OR doc.name LIKE @searchKey2) AND ph.id = @id AND pr.prescriptionStatus != 'Deleted';";
                 }
                 else
                 {
@@ -299,7 +309,7 @@ namespace PharmacyManagementSystem
                     DATE_FORMAT(pa.birthDate, ""%m-%d-%Y"") AS 'birthDate', doc.name AS doctorName 
                     FROM DixonPrescription pr JOIN DixonPatient pa ON pr.patientID = pa.patientID 
                     JOIN DixonDoctor doc ON pr.doctorID = doc.id JOIN DixonPharmacy ph ON pr.pharmacyID = ph.id
-                    WHERE (pa.name LIKE @searchKey1 OR pa.name LIKE @searchKey2) AND ph.id = @id;";
+                    WHERE (pa.name LIKE @searchKey1 OR pa.name LIKE @searchKey2) AND ph.id = @id AND pr.prescriptionStatus != 'Deleted';";
                 }
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@id", User.Id);
