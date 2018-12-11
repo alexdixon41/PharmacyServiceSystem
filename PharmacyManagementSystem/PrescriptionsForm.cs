@@ -168,6 +168,7 @@ namespace PharmacyManagementSystem
                 completeStatusButton.Enabled = false;
                 activeStatusButton.Enabled = false;
                 readyStatusButton.Enabled = false;
+                new AlertDialog("Prescription status changed successfully.").ShowDialog();
             }
         }
 
@@ -182,6 +183,7 @@ namespace PharmacyManagementSystem
                 activeStatusButton.Enabled = false;
                 readyStatusButton.Enabled = false;
                 completeStatusButton.Enabled = false;
+                new AlertDialog("The prescription was deleted.").ShowDialog();
             }
         }
 

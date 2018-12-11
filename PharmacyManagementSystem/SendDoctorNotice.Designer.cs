@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SendDoctorNotice));
             this.label1 = new System.Windows.Forms.Label();
             this.messageBox = new System.Windows.Forms.TextBox();
             this.sendButton = new System.Windows.Forms.Button();
@@ -92,8 +93,9 @@
             this.Controls.Add(this.sendButton);
             this.Controls.Add(this.messageBox);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SendDoctorNotice";
-            this.Text = "SendDoctorNotice";
+            this.Text = "Case Discussion Notice";
             this.Load += new System.EventHandler(this.SendDoctorNotice_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

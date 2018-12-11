@@ -106,12 +106,6 @@
     <Compile Include="SendDoctorNotice.Designer.cs">
       <DependentUpon>SendDoctorNotice.cs</DependentUpon>
     </Compile>
-    <Compile Include="SendPickupNotice.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SendPickupNotice.Designer.cs">
-      <DependentUpon>SendPickupNotice.cs</DependentUpon>
-    </Compile>
     <Compile Include="PrescriptionsForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -152,9 +146,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SendDoctorNotice.resx">
       <DependentUpon>SendDoctorNotice.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SendPickupNotice.resx">
-      <DependentUpon>SendPickupNotice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PrescriptionsForm.resx">
       <DependentUpon>PrescriptionsForm.cs</DependentUpon>
