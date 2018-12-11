@@ -39,11 +39,11 @@ namespace PharmacyManagementSystem
         {
             if (!(newRefillRequestsListView.SelectedIndices.Count == 0))
             {
-                selectedRefillRequest = (RefillRequest)RefillRequest.displayRefillRequests()[newRefillRequestsListView.SelectedIndices.IndexOf(0)];
+                selectedRefillRequest = (RefillRequest)RefillRequest.displayRefillRequests()[newRefillRequestsListView.SelectedIndices[0]];
                 listView1.Items.Clear();
                 listView2.Items.Clear();
             
-                selectedRefillRequest.Prescription.retrieveMedicines();
+                selectedRefillRequest.Prescription.retrieveMedicines();                
                 Patient patient = selectedRefillRequest.Prescription.retrievePatientDetails();
                 
                 int i = 0;

@@ -236,7 +236,7 @@ namespace PharmacyManagementSystem
                 pr.remainingRefills, pr.prescriptionStatus, pa.name AS patientName, pa.patientID, 
                 DATE_FORMAT(pa.birthDate, ""%m-%d-%Y"") AS 'birthDate', doc.name AS doctorName 
                 FROM(DixonPrescription pr JOIN DixonPatient pa ON pr.patientID = pa.patientID JOIN DixonDoctor doc ON pr.doctorID = doc.id) 
-                WHERE pr.pharmacyID = @id ORDER BY pr.prescriptionStatus; ";                
+                WHERE pr.pharmacyID = @id AND pr.prescriptionStatus != 'Deleted' ORDER BY pr.prescriptionStatus DESC, pr.dateFilled; ";                
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@id", User.Id);                               
                 MySqlDataAdapter myAdapter = new MySqlDataAdapter(cmd);

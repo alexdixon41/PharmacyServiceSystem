@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfirmationPopup));
             this.panel1 = new System.Windows.Forms.Panel();
             this.secondaryLabel = new System.Windows.Forms.Label();
             this.cancelButton = new System.Windows.Forms.Button();
@@ -73,6 +74,7 @@
             this.primaryLabel.AutoSize = true;
             this.primaryLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.primaryLabel.Location = new System.Drawing.Point(12, 9);
+            this.primaryLabel.Margin = new System.Windows.Forms.Padding(3, 0, 20, 0);
             this.primaryLabel.Name = "primaryLabel";
             this.primaryLabel.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.primaryLabel.Size = new System.Drawing.Size(431, 28);
@@ -95,12 +97,14 @@
             this.AcceptButton = this.confirmButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.CancelButton = this.cancelButton;
             this.ClientSize = new System.Drawing.Size(482, 153);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ConfirmationPopup";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "ConfirmationPopup";
+            this.Text = "Alert";
             this.Load += new System.EventHandler(this.ConfirmationPopup_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

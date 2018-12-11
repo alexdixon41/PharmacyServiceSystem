@@ -19,50 +19,11 @@ namespace PharmacyManagementSystem
         public Login()
         {
             InitializeComponent();
-        }
-
-        private void pharmacyButton_Click(object sender, EventArgs e)
-        {
-            textBox1.Text = "";
-            textBox2.Text = "";
-            loginMenuPanel.Hide();
-            loginTitleLabel.Text = "Pharmacist Login";
-            loginPanel.Show();
-            textBox1.Select();
-            userType = User.PHARMACIST_USER_TYPE;
-        }
-
-        private void doctorButton_Click(object sender, EventArgs e)
-        {
-            textBox1.Text = "";
-            textBox2.Text = "";
-            loginMenuPanel.Hide();
-            loginTitleLabel.Text = "Doctor Login";
-            loginPanel.Show();
-            textBox1.Select();
-            userType = User.DOCTOR_USER_TYPE;
-        }
-
-        private void patientButton_Click(object sender, EventArgs e)
-        {
-            textBox1.Text = "";
-            textBox2.Text = "";
-            loginMenuPanel.Hide();
-            loginTitleLabel.Text = "Patient Login";
-            loginPanel.Show();
-            textBox1.Select();
-            userType = User.PATIENT_USER_TYPE;
-        }
-
-        private void backButton_Click(object sender, EventArgs e)
-        {
-            loginPanel.Hide();
-            loginMenuPanel.Show();
-        }
+        }        
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (User.authenticate(userType, textBox1.Text, textBox2.Text))
+            if (User.authenticate(User.PHARMACIST_USER_TYPE, textBox1.Text, textBox2.Text))
             {
                 loginSuccess = true;
                 this.Close();               
@@ -72,6 +33,10 @@ namespace PharmacyManagementSystem
                 new AlertDialog("Incorrect username or password").ShowDialog();
             }         
         }
-     
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            textBox1.Select();
+        }
     }
 }

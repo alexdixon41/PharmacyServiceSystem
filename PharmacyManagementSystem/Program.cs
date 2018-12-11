@@ -21,8 +21,14 @@ namespace PharmacyManagementSystem
             if (Login.loginSuccess)
             {
                 //TODO [TEAM PROJECT] Add cases for other user types
-
-                Application.Run(new MainMenu());               
+                if (User.Type == User.PHARMACIST_USER_TYPE)
+                {
+                    Notice.retrieveNotices();
+                    Prescription.retrieveNewPrescriptions();
+                    RefillRequest.retrieveRefillRequests();
+                    Application.Run(new MainMenu());
+                }
+                
             }
         }
     }

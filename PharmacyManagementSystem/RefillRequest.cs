@@ -94,11 +94,13 @@ namespace PharmacyManagementSystem
             {
                 Console.WriteLine("Connecting to MySQL...");
                 conn.Open();
-                string sql = "SELECT DATE_FORMAT(re.dateRequested, \"%m-%d-%Y\") AS dateRequested, re.refillRequestStatus, " +
-                        "re.id, pa.name AS patientName, pa.patientID, doc.name, pr.refills, pr.remainingRefills, pr.id AS 'pid'" +
-                        "FROM DixonRefillRequest re JOIN DixonPrescription pr ON re.prescriptionID = pr.id " +
-                        "JOIN DixonPatient pa ON re.patientID = pa.patientID JOIN DixonDoctor doc ON pr.doctorID = doc.id " +
-                        "WHERE pr.pharmacyID = @id;";
+                string sql = @"SELECT DATE_FORMAT(re.dateRequested, ""%m-%d-%Y"") AS dateRequested, re.refillRequestStatus, 
+                        re.id, pa.name AS patientName, pa.patientID, DATE_FORMAT(pa.birthDate, ""%Y-%m-%d"") AS birthDate, 
+                        doc.name, pr.refills, pr.remainingRefills, pr.id AS 'pid'
+                        FROM DixonRefillRequest re JOIN DixonPrescription pr ON re.prescriptionID = pr.id 
+                        JOIN DixonPatient pa ON re.patientID = pa.patientID JOIN DixonDoctor doc ON pr.doctorID = doc.id 
+                        WHERE pr.pharmacyID = @id AND re.refillRequestStatus = 'New'
+                        ORDER BY re.refillRequestStatus DESC, dateRequested DESC;";
 
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@id", User.Id);
@@ -120,7 +122,8 @@ namespace PharmacyManagementSystem
                 request.Date = row["dateRequested"].ToString();
                 request.Status = row["refillRequestStatus"].ToString();
                 request.Id = row["id"].ToString();
-                request.Prescription.PatientName = row["patientName"].ToString();                
+                request.Prescription.PatientName = row["patientName"].ToString();
+                request.Prescription.PatientBirthDate = row["birthDate"].ToString();               
                 request.Prescription.PrescriberName = row["name"].ToString();
                 request.Prescription.Refills = (int)row["refills"];
                 request.Prescription.RemainingRefills = (int)row["remainingRefills"];                
@@ -155,6 +158,11 @@ namespace PharmacyManagementSystem
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@id", Id);
                 cmd.ExecuteNonQuery();
+
+                sql = "UPDATE DixonPrescription SET canRequestRefill = TRUE WHERE id = @id;";
+                cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@id", Prescription.Id);
+                cmd.ExecuteNonQuery();                
                 Console.WriteLine("Table is ready.");
             }
             catch (Exception ex)

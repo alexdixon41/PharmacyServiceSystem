@@ -24,8 +24,8 @@ namespace PharmacyManagementSystem
         private PatientRecordsForm patientRecordsForm = new PatientRecordsForm();
 
         private void newNoticesButton_Click(object sender, EventArgs e)
-        {
-            Notice.retrieveNotices();
+        {            
+            showUnread();
             foreach (Control c in splitContainer1.Panel2.Controls)
             {
                 c.Hide();
@@ -37,8 +37,8 @@ namespace PharmacyManagementSystem
         }
 
         private void newPrescriptionsButton_Click(object sender, EventArgs e)
-        {
-            Prescription.retrieveNewPrescriptions();
+        {           
+            showUnread();
             foreach (Control c in splitContainer1.Panel2.Controls)
             {
                 c.Hide();
@@ -50,8 +50,8 @@ namespace PharmacyManagementSystem
         }
 
         private void newRefillRequestsButton_Click(object sender, EventArgs e)
-        {
-            RefillRequest.retrieveRefillRequests();
+        {            
+            showUnread();
             foreach (Control c in splitContainer1.Panel2.Controls)
             {
                 c.Hide();
@@ -64,6 +64,7 @@ namespace PharmacyManagementSystem
 
         private void patientRecordsButton_Click(object sender, EventArgs e)
         {
+            showUnread();
             foreach (Control c in splitContainer1.Panel2.Controls)
             {
                 c.Hide();
@@ -71,13 +72,26 @@ namespace PharmacyManagementSystem
             splitContainer1.Panel2.Controls.Add(patientRecordsForm);
             patientRecordsForm.Dock = DockStyle.Fill;
             patientRecordsForm.Show();
-        }       
+        }     
+        
+        private void showUnread()
+        {
+            Notice.retrieveNotices();
+            Prescription.retrieveNewPrescriptions();
+            RefillRequest.retrieveRefillRequests();
+            newNoticesButton.Text = "Notices  (" + Notice.Unread + ")";
+            newPrescriptionsButton.Text = "Prescriptions  (" + Prescription.NewPrescriptionCount + ")";
+            newRefillRequestsButton.Text = "Refill Requests  (" + RefillRequest.NewRefillRequestCount + ")";
+        }  
 
         private void MainMenu_Load(object sender, EventArgs e)
         {
-            newNoticesButton.Text += "  (" + Notice.Unread + ")";          
-            newPrescriptionsButton.Text += "  (" + Prescription.NewPrescriptionCount + ")";
-            newRefillRequestsButton.Text += "  (" + RefillRequest.NewRefillRequestCount + ")";
+            showUnread();
+        }
+
+        private void logoutButton_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
         }
     }
 }

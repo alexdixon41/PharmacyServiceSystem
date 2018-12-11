@@ -45,7 +45,7 @@ namespace PharmacyManagementSystem
         {
             if (!(prescriptionsListView.SelectedIndices.Count == 0))
             {
-                selectedPrescription = (Prescription)Prescription.displayPrescriptions()[prescriptionsListView.SelectedIndices.IndexOf(0)];
+                selectedPrescription = (Prescription)Prescription.displayPrescriptions()[prescriptionsListView.SelectedIndices[0]];
                 listView1.Items.Clear();
                 listView2.Items.Clear();
                
@@ -117,6 +117,13 @@ namespace PharmacyManagementSystem
                     readyStatusButton.Enabled = false;
                     completeStatusButton.Enabled = false;
                 }
+                else
+                {
+                    activeStatusButton.Enabled = true;
+                    readyStatusButton.Enabled = true;
+                    completeStatusButton.Enabled = true;
+                    deletedStatusButton.Enabled = true;                    
+                }
 
                 prescriptionListPanel.Hide();
                 prescriptionDetailPanel.Show();
@@ -166,7 +173,7 @@ namespace PharmacyManagementSystem
 
         private void deletedStatusButton_Click(object sender, EventArgs e)
         {
-            if (new ConfirmationPopup("Change the status of this prescription to Deleted?",
+            if (new ConfirmationPopup("Are you sure you want to delete this prescription?",
                                                     "Note: This can not be undone.").ShowDialog() == DialogResult.OK)
             {
                 selectedPrescription.changeStatus(Prescription.DELETED_STATUS_CODE);
