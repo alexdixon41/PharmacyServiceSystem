@@ -20,6 +20,7 @@ namespace PharmacyManagementSystem
 
         private Prescription selectedPrescription;
 
+        //display prescriptions in prescriptions listview
         public void populateList()
         {
             prescriptionsListView.Items.Clear();
@@ -35,26 +36,28 @@ namespace PharmacyManagementSystem
             }
         }
 
+        //clear default text and change text color to black when text box clicked
         private void prescriptionSearchBox_Click(object sender, EventArgs e)
         {
             prescriptionSearchBox.Text = "";
             prescriptionSearchBox.ForeColor = Color.Black;
         }
 
+        //Select button click event
         private void selectPrescriptionButton_Click(object sender, EventArgs e)
         {
             if (!(prescriptionsListView.SelectedIndices.Count == 0))
             {
-                selectedPrescription = (Prescription)Prescription.displayPrescriptions()[prescriptionsListView.SelectedIndices[0]];
+                selectedPrescription = (Prescription)Prescription.displayPrescriptions()[prescriptionsListView.SelectedIndices[0]];    //get the prescription selected from the list of displayed prescriptions
                 listView1.Items.Clear();
                 listView2.Items.Clear();
                
-                selectedPrescription.retrieveMedicines();
-                Patient patient = selectedPrescription.retrievePatientDetails();
+                selectedPrescription.retrieveMedicines();                              //retrieve all medicines for the prescription
+                Patient patient = selectedPrescription.retrievePatientDetails();       //retrieve the details of the patient of the prescription
 
                 //Display medicine history information
                 int i = 0;
-                foreach (Medicine medicine in patient.MedicineHistory)
+                foreach (Medicine medicine in patient.MedicineHistory)                 //display all medicines for the prescription
                 {
                     listView1.Items.Add(medicine.Date);
                     listView1.Items[i].SubItems.Add(medicine.Name);
@@ -117,11 +120,11 @@ namespace PharmacyManagementSystem
                     readyStatusButton.Enabled = false;
                     completeStatusButton.Enabled = false;
                 }
-                else
+                else if (selectedPrescription.Status.Equals("New"))
                 {
                     activeStatusButton.Enabled = true;
-                    readyStatusButton.Enabled = true;
-                    completeStatusButton.Enabled = true;
+                    readyStatusButton.Enabled = false;
+                    completeStatusButton.Enabled = false;
                     deletedStatusButton.Enabled = true;                    
                 }
 

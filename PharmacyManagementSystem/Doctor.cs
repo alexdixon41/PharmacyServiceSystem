@@ -11,10 +11,12 @@ namespace PharmacyManagementSystem
 {
     class Doctor
     {
-        private string name;
-        private string officeName;
-        private string officeNumber;
-        private int id;
+        private string name;                               //name of the doctor
+        private string officeName;                         //name of the office the doctor works for
+        private string officeNumber;                       //office number of the doctor
+        private int id;                                    //id of the doctor
+
+        //public properties
         public string Name
         {
             get
@@ -26,7 +28,7 @@ namespace PharmacyManagementSystem
             {
                 name = value;
             }
-        }
+        } 
         public string OfficeName
         {
             get
@@ -64,9 +66,13 @@ namespace PharmacyManagementSystem
             }
         }
 
-        private static ArrayList doctors = new ArrayList();
+        private static ArrayList doctors = new ArrayList();     
                 
 
+        /// <summary>
+        /// Retrieve doctors from the database matching the specified name
+        /// </summary>
+        /// <param name="searchKey">The name string to search for</param>
         public static void retrieveDoctors(string searchKey)
         {
             DataTable table = new DataTable();
@@ -105,6 +111,10 @@ namespace PharmacyManagementSystem
             }
         }
 
+        /// <summary>
+        /// Return the list of doctors retrieved from the search.
+        /// </summary>
+        /// <returns></returns>
         public static ArrayList displayDoctors()
         {
             return doctors;

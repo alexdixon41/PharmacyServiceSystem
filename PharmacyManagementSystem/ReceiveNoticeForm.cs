@@ -20,6 +20,7 @@ namespace PharmacyManagementSystem
 
         private Notice selectedNotice;
 
+        //display notices in the notices listview
         public void populateList()
         {
             noticesListView.Items.Clear();
@@ -35,6 +36,7 @@ namespace PharmacyManagementSystem
             }
         }
 
+        //View Notice button click event
         private void ViewNoticeButton_Click(object sender, EventArgs e)
         {
             if (!(noticesListView.SelectedIndices.Count == 0))
@@ -50,11 +52,13 @@ namespace PharmacyManagementSystem
             }
         }
 
+        //populate list when the UserControl is first loaded
         private void ReceiveNoticeForm_Load(object sender, EventArgs e)
         {
             populateList();
         }        
 
+        //return to the list of notices
         private void backButton_Click(object sender, EventArgs e)
         {
             Notice.retrieveNotices();

@@ -11,7 +11,15 @@ namespace PharmacyManagementSystem
 {
     class Notice
     {
-        private string type;
+        private string type;            //the type of notice
+        private string message;         //message content of the notice
+        private string sentDate;        //date when the notice was sent
+        private string sender;          //name of the message sender
+        private string receiver;        //name of the message recipient
+        private string status;          //status of the notice (New or Received)
+        private int id;                 //id of the notice
+
+        //public properties
         public string Type
         {
             get
@@ -23,8 +31,7 @@ namespace PharmacyManagementSystem
             {
                 type = value;
             }
-        }
-        private string message;
+        }        
         public string Message
         {
             get
@@ -36,8 +43,7 @@ namespace PharmacyManagementSystem
             {
                 message = value;
             }               
-        }
-        private string sentDate;
+        }        
         public string SentDate
         {
             get
@@ -49,8 +55,7 @@ namespace PharmacyManagementSystem
             {
                 sentDate = value;
             }
-        }
-        private string sender;
+        }        
         public string Sender
         {
             get
@@ -62,8 +67,7 @@ namespace PharmacyManagementSystem
             {
                 sender = value;
             }
-        }
-        private string receiver;
+        }        
         public string Receiver
         {
             get
@@ -75,8 +79,7 @@ namespace PharmacyManagementSystem
             {
                 receiver = value;
             }
-        }
-        private string status;
+        }        
         public string Status
         {
             get
@@ -88,8 +91,7 @@ namespace PharmacyManagementSystem
             {
                 status = value;
             }
-        }
-        private int id;
+        }        
         public int Id
         {
             get
@@ -109,26 +111,18 @@ namespace PharmacyManagementSystem
         public const int SEND_REFILL_REQUEST_REJECT_NOTICE_TYPE = 3;    //notify patient when refill request denied
 
 
-        public static int Unread
-        {
-            get
-            {
-                return unread;
-            }
-
-            set
-            {
-                unread = value;
-            }
-        }
-        private static int unread;
+        public static int unread;        //number of New notices
         private static ArrayList notices = new ArrayList();       
 
+        //return list of notices
         public static ArrayList displayNotices()
         {
             return notices;
         }   
 
+        /// <summary>
+        /// Retrieve all notices for the current user.
+        /// </summary>
         public static void retrieveNotices()
         {
             ArrayList noticeList = new ArrayList();
@@ -176,13 +170,16 @@ namespace PharmacyManagementSystem
                 else if (row["phName"] != null)
                     newNotice.Sender = row["phName"].ToString();
                 if (newNotice.Status.Equals("New"))
-                    unreadCount++;
+                    unreadCount++;                      //increment count of new notices if this notice is new 
                 noticeList.Add(newNotice);
             }
             notices =  noticeList;
-            Notice.Unread = unreadCount;
+            Notice.unread = unreadCount;
         }
 
+        /// <summary>
+        /// Change the status of a notice to Received.
+        /// </summary>
         public void updateStatus()
         {
             string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;SSLMode=None";

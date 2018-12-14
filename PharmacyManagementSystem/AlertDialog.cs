@@ -17,7 +17,7 @@ namespace PharmacyManagementSystem
     /// </summary>
     public partial class AlertDialog : Form
     {
-        String messageText;
+        String messageText;                   //the text to display in the alert
 
         public AlertDialog(String messageText)
         {

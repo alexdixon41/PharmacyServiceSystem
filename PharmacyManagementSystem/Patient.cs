@@ -11,24 +11,26 @@ namespace PharmacyManagementSystem
 {
     class Patient
     {
-        private static ArrayList patients = new ArrayList();
+        private static ArrayList patients = new ArrayList();      //list of patients
 
-        private string name;
-        private string birthDate;
-        private int familyDoctorId;
-        private int id;
-        private string cellNumber;
-        private string homeNumber;
-        private string officeNumber;
-        private string address;
-        private string allergies;
-        private string maritalStatus;
-        private string disorders;
-        private string notes;
-        private int weight;
-        private int height;
-        private double bodyMassIndex;
-        private ArrayList medicineHistory = new ArrayList();
+        private string name;                                      //name of the patient
+        private string birthDate;                                 //birth date of the patient
+        private int familyDoctorId;                               //id of the patient's family doctor
+        private int id;                                           //id of the patient
+        private string cellNumber;                                //cell phone number of the patient
+        private string homeNumber;                                //home phone number of the patient
+        private string officeNumber;                              //office phone number of the patient
+        private string address;                                   //address of the patient
+        private string allergies;                                 //list of the patient's allergies
+        private string maritalStatus;                             //marital status of the patient
+        private string disorders;                                 //list of the patient's disorders
+        private string notes;                                     //notes about the patient 
+        private int weight;                                       //weight of the patient
+        private int height;                                       //height of the patient
+        private double bodyMassIndex;                             //body mass index of the patient
+        private ArrayList medicineHistory = new ArrayList();      //list of medicines the patient has had in the past
+
+        //public properties
         public string Name
         {
             get
@@ -222,11 +224,16 @@ namespace PharmacyManagementSystem
             }
         }
 
+        //return the list of patients
         public static ArrayList displayPatients()
         {
             return patients;
         }
 
+        /// <summary>
+        /// Retrieve all patients with name matching the searchKey string.
+        /// </summary>
+        /// <param name="searchKey">The search string input by the user</param>
         public static void retrievePatients(string searchKey)
         {
             DataTable table = new DataTable();
@@ -262,6 +269,9 @@ namespace PharmacyManagementSystem
             }
         }
 
+        /// <summary>
+        /// Retrieve all previous medicines the patient has had from the database.
+        /// </summary>
         public void retrieveMedicineHistory()
         {
             DataTable table = new DataTable();
@@ -287,7 +297,7 @@ namespace PharmacyManagementSystem
             }
             conn.Close();
 
-            MedicineHistory.Clear();
+            MedicineHistory.Clear();                  //remove medicines from medicineHistory before adding all of them
             foreach (DataRow row in table.Rows)
             {
                 Medicine medicine = new Medicine();
@@ -302,6 +312,9 @@ namespace PharmacyManagementSystem
             }
         }
 
+        /// <summary>
+        /// Retrieve the medical record information for the patient from the database.
+        /// </summary>
         public void retrieveMedicalRecord()
         {
             DataTable table = new DataTable();

@@ -8,10 +8,12 @@ namespace PharmacyManagementSystem
 {
     public class RefillRequest
     {
-        private string date;
-        private string status;
-        private string id;
-        private Prescription prescription;
+        private string date;                                               //date when the refill was requested
+        private string status;                                             //status of the refill request
+        private string id;                                                 //id of the refill request
+        private Prescription prescription;                                 //prescription that a refill was requested for
+
+        //public properties
         public string Date
         {
             get
@@ -76,14 +78,19 @@ namespace PharmacyManagementSystem
         private static int newRefillRequestCount;
         private static ArrayList refillRequests = new ArrayList();
 
+        //constant codes for acceptance or denial of refill request
         public const int ACCEPTED_STATUS_CODE = 0;
         public const int DENIED_STATUS_CODE = 1;
 
+        //display the list of refill requests
         public static ArrayList displayRefillRequests()
         {
             return refillRequests;
         }
 
+        /// <summary>
+        /// Retrieve all new refill requests for the pharmacy of the pharmacist user.
+        /// </summary>
         public static void retrieveRefillRequests()
         {
             refillRequests.Clear();
@@ -136,6 +143,10 @@ namespace PharmacyManagementSystem
             newRefillRequestCount = newCount;
         }
 
+        /// <summary>
+        /// Change the status of a prescription.
+        /// </summary>
+        /// <param name="newStatusCode">The specified status for the new status of the refill request</param>
         public void changeStatus(int newStatusCode)
         {
             string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;SSLMode=None";

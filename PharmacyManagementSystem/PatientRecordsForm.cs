@@ -18,22 +18,23 @@ namespace PharmacyManagementSystem
             InitializeComponent();
         }
 
-        private Patient selectedPatient;
+        private Patient selectedPatient;                 //the patient selected in the listview after select button pressed
 
+        //Select button click event
         private void patientSearchSelectButton_Click(object sender, EventArgs e)
         {
-            if (!(patientSearchListView.SelectedIndices.Count == 0))
+            if (!(patientSearchListView.SelectedIndices.Count == 0))         //verify that a patient was selected
             {                
-                selectedPatient = (Patient)Patient.displayPatients()[patientSearchListView.SelectedIndices.IndexOf(0)];                
+                selectedPatient = (Patient)Patient.displayPatients()[patientSearchListView.SelectedIndices.IndexOf(0)];     //get the selected patient from the list of patients being display               
                 listView1.Items.Clear();
                 allergyTextBox.Clear();
                 disordersTextBox.Clear();
                 notesTextBox.Clear();
-                selectedPatient.retrieveMedicalRecord();
-                selectedPatient.retrieveMedicineHistory();
+                selectedPatient.retrieveMedicalRecord();            //retrieve the selected patient's medical record
+                selectedPatient.retrieveMedicineHistory();          //retrieve the selected patient's medicine history
 
                 int i = 0;
-                foreach (Medicine medicine in selectedPatient.MedicineHistory)
+                foreach (Medicine medicine in selectedPatient.MedicineHistory)        //add each medicine to the medicine history listview
                 {
                     listView1.Items.Add(medicine.Date);
                     listView1.Items[i].SubItems.Add(medicine.Name);
@@ -42,6 +43,7 @@ namespace PharmacyManagementSystem
                     i++;
                 }
 
+                //display medical record information
                 nameLabel.Text = selectedPatient.Name;
                 birthDateLabel.Text = selectedPatient.BirthDate;
                 maritalStatusLabel.Text = selectedPatient.MaritalStatus;
@@ -54,26 +56,29 @@ namespace PharmacyManagementSystem
             }
         }
 
+        //show the doctor search panel
         private void doctorNoticeButton_Click(object sender, EventArgs e)
         {
             patientRecordPanel.Hide();
             doctorSearchPanel.Show();            
         }
 
+        //clear the search box default text and change the text color to black when text box clicked
         private void doctorSearchBox_Click(object sender, EventArgs e)
         {
             doctorSearchBox.Text = "";
             doctorSearchBox.ForeColor = Color.Black;
         }
 
+        //search for patients
         private void patientSearchButton_Click(object sender, EventArgs e)
         {
-            Patient.retrievePatients(searchBox.Text);
+            Patient.retrievePatients(searchBox.Text);         //retrieve patients for search parameters
             patientSearchListView.Items.Clear();
             if (!(searchBox.Text.Equals("Search for a patient") || searchBox.Text.Equals("")))
             {
                 int i = 0;
-                foreach (Patient patient in Patient.displayPatients())
+                foreach (Patient patient in Patient.displayPatients())         //display all patients returned by the search
                 {
                     patientSearchListView.Items.Add(patient.Name);
                     patientSearchListView.Items[i].SubItems.Add(patient.BirthDate);
@@ -82,12 +87,14 @@ namespace PharmacyManagementSystem
             }
         }
 
+        //clear the search box default text and change the text color to black when text box clicked
         private void searchBox_Enter(object sender, EventArgs e)
         {
             searchBox.Text = "";
             searchBox.ForeColor = Color.Black;
         }
 
+        //return to the patient search panel
         private void backButton_Click(object sender, EventArgs e)
         {
             patientSearchListView.Items.Clear();
@@ -95,12 +102,14 @@ namespace PharmacyManagementSystem
             patientSearchPanel.Show();
         }
 
+        //return to the patient records panel
         private void doctorSearchBackButton_Click(object sender, EventArgs e)
         {
             doctorSearchPanel.Hide();
             patientRecordPanel.Show();
         }
 
+        //send a case discussion notice to the doctor about the selected patient
         private void sendDoctorNoticeButton_Click(object sender, EventArgs e)
         {
             
@@ -115,16 +124,17 @@ namespace PharmacyManagementSystem
             }                            
         }
 
+        //search for a doctor
         private void searchButton_Click(object sender, EventArgs e)
         {
             doctorSearchListView.Items.Clear();
 
             if (doctorSearchBox.Text.Equals("Search for a Doctor"))
                 doctorSearchBox.Text = "";
-            Doctor.retrieveDoctors(doctorSearchBox.Text);
+            Doctor.retrieveDoctors(doctorSearchBox.Text);        //retrieve doctors matching search parameters
 
             int i = 0;
-            foreach (Doctor doctor in Doctor.displayDoctors())
+            foreach (Doctor doctor in Doctor.displayDoctors())   //display doctors returned by search
             {
                 doctorSearchListView.Items.Add(doctor.Name);
                 doctorSearchListView.Items[i].SubItems.Add(doctor.OfficeName);

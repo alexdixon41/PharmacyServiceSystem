@@ -12,8 +12,8 @@ namespace PharmacyManagementSystem
 {
     public partial class ConfirmationPopup : Form
     {
-        String primaryText;
-        String secondaryText;        
+        String primaryText;               //the larger text of the popup    
+        String secondaryText;             //the smaller subtext of the popup
 
         public ConfirmationPopup(String primaryText, String secondaryText)
         {

@@ -18,11 +18,13 @@ namespace PharmacyManagementSystem
             InitializeComponent();
         }
 
+        //initialize instances of each UserControl so they are only created once
         private ReceiveNoticeForm newNoticesForm = new ReceiveNoticeForm();
         private PrescriptionsForm prescriptionsForm = new PrescriptionsForm();        
         private RefillForm refillForm = new RefillForm();
         private PatientRecordsForm patientRecordsForm = new PatientRecordsForm();
 
+        //Notices button click event
         private void newNoticesButton_Click(object sender, EventArgs e)
         {            
             showUnread();
@@ -36,6 +38,7 @@ namespace PharmacyManagementSystem
             newNoticesForm.Show();
         }
 
+        //Prescriptions button click event
         private void newPrescriptionsButton_Click(object sender, EventArgs e)
         {           
             showUnread();
@@ -49,6 +52,7 @@ namespace PharmacyManagementSystem
             prescriptionsForm.Show();                       
         }
 
+        //Refill Requests button click event
         private void newRefillRequestsButton_Click(object sender, EventArgs e)
         {            
             showUnread();
@@ -62,6 +66,7 @@ namespace PharmacyManagementSystem
             refillForm.Show();
         }         
 
+        //Patient Records button click event
         private void patientRecordsButton_Click(object sender, EventArgs e)
         {
             showUnread();
@@ -74,21 +79,26 @@ namespace PharmacyManagementSystem
             patientRecordsForm.Show();
         }     
         
+        /// <summary>
+        /// Update notices, prescriptions, and refill requests from the database and display the number of each with status New
+        /// </summary>
         private void showUnread()
         {
             Notice.retrieveNotices();
             Prescription.retrieveNewPrescriptions();
             RefillRequest.retrieveRefillRequests();
-            newNoticesButton.Text = "Notices  (" + Notice.Unread + ")";
+            newNoticesButton.Text = "Notices  (" + Notice.unread + ")";
             newPrescriptionsButton.Text = "Prescriptions  (" + Prescription.NewPrescriptionCount + ")";
             newRefillRequestsButton.Text = "Refill Requests  (" + RefillRequest.NewRefillRequestCount + ")";
         }  
 
+        //show the number of notices, prescriptions, and refill requests with status New when main menu is loaded
         private void MainMenu_Load(object sender, EventArgs e)
         {
             showUnread();
         }
 
+        //logout of the system
         private void logoutButton_Click(object sender, EventArgs e)
         {
             Application.Restart();

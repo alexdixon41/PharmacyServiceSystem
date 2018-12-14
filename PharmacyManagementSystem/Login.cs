@@ -19,6 +19,7 @@ namespace PharmacyManagementSystem
             InitializeComponent();
         }        
 
+        //login button click event handler
         private void button1_Click(object sender, EventArgs e)
         {
             if (User.authenticate(textBox1.Text, textBox2.Text))        //check authentication before proceeding to main menu

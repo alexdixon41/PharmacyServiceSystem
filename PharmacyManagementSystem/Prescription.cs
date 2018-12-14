@@ -341,6 +341,10 @@ namespace PharmacyManagementSystem
             }            
         }     
         
+        /// <summary>
+        /// Change the status of a prescription to the specified status.
+        /// </summary>
+        /// <param name="newStatusCode">The status specified for the new prescription status</param>
         public void changeStatus(int newStatusCode)
         {
             string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;SSLMode=None";
@@ -350,6 +354,8 @@ namespace PharmacyManagementSystem
                 Console.WriteLine("Connecting to MySQL...");
                 conn.Open();
                 string sql = "";
+
+                //form sql statement based on newStatusCode
                 switch (newStatusCode)
                 {
                     case ACTIVE_STATUS_CODE:
@@ -378,6 +384,9 @@ namespace PharmacyManagementSystem
             conn.Close();
         }   
 
+        /// <summary>
+        /// Reduce the number of remaining refills for the prescription in the database by 1
+        /// </summary>
         public void updateRefills()
         {
             RemainingRefills -= 1;

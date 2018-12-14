@@ -53,9 +53,6 @@
     <Compile Include="AlertDialog.designer.cs">
       <DependentUpon>AlertDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="ButtonControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Include="ConfirmationPopup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +147,7 @@
     <EmbeddedResource Include="PrescriptionsForm.resx">
       <DependentUpon>PrescriptionsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

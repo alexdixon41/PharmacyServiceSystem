@@ -8,13 +8,15 @@ namespace PharmacyManagementSystem
 {
     class Medicine
     {
-        private string date;
-        private string name;
-        private int quantity;
-        private string dosage;
-        private string route;
-        private string instructions;
-        private int prescriptionID;
+        private string date;            //date when the containing prescription was created
+        private string name;            //name of the medicine
+        private int quantity;           //quantity of medicine units
+        private string dosage;          //total amount of medicine
+        private string route;           //how the medicine is taken
+        private string instructions;    //specific instructions on how to use the medicine
+        private int prescriptionID;     //id of the containing prescription
+
+        //public properties
         public string Name
         {
             get

@@ -19,6 +19,7 @@ namespace PharmacyManagementSystem
 
         private RefillRequest selectedRefillRequest;
 
+        //display refill requests in the refill requests listview
         public void populateList()
         {
             newRefillRequestsListView.Items.Clear();
@@ -35,16 +36,17 @@ namespace PharmacyManagementSystem
             }
         }
 
+        //View Refill Request button click event
         private void viewRefillRequestsButton_Click(object sender, EventArgs e)
         {
             if (!(newRefillRequestsListView.SelectedIndices.Count == 0))
             {
-                selectedRefillRequest = (RefillRequest)RefillRequest.displayRefillRequests()[newRefillRequestsListView.SelectedIndices[0]];
+                selectedRefillRequest = (RefillRequest)RefillRequest.displayRefillRequests()[newRefillRequestsListView.SelectedIndices[0]];    //get the selected refill request
                 listView1.Items.Clear();
                 listView2.Items.Clear();
             
-                selectedRefillRequest.Prescription.retrieveMedicines();                
-                Patient patient = selectedRefillRequest.Prescription.retrievePatientDetails();
+                selectedRefillRequest.Prescription.retrieveMedicines();                    //retrieve all medicines of the requested prescription       
+                Patient patient = selectedRefillRequest.Prescription.retrievePatientDetails();   //retrieve the details of the patient who requested the refill
                 
                 int i = 0;
                 foreach (Medicine medicine in patient.MedicineHistory)
@@ -96,6 +98,7 @@ namespace PharmacyManagementSystem
             }
         }    
 
+        //return to the new refill requests panel
         private void backButton_Click(object sender, EventArgs e)
         {
             RefillRequest.retrieveRefillRequests();
@@ -104,6 +107,7 @@ namespace PharmacyManagementSystem
             newRefillRequestsPanel.Show();
         }
 
+        //accept the refill request
         private void acceptButton_Click(object sender, EventArgs e)
         {
             if (selectedRefillRequest.Prescription.RemainingRefills == 0)
@@ -130,6 +134,7 @@ namespace PharmacyManagementSystem
             }
         }
 
+        //reject the refill request
         private void rejectButton_Click(object sender, EventArgs e)
         {
             if (new ConfirmationPopup("Deny this refill request?", "Note: This cannot be undone.").ShowDialog() == DialogResult.OK) {
